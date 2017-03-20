@@ -1,5 +1,5 @@
 % Template:     Template auxiliar LaTeX
-% Versión:      1.0.0 (20/03/2017)
+% Versión:      1.0.1 (20/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -64,7 +64,6 @@
 \newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
 \newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
 \newcommand{\nombltwcodfuente}{Código Fuente}     % Nombre del código fuente
-\newcommand{\indexdepth}{3}                       % Profundidad del índice
 \newcommand{\tablepadding}{1.1}                   % Padding de las tablas
 \newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas por defecto
 \newcommand{\defaultpagemarginleft}{2.5}          % Margen izquierdo de las páginas [cm]
@@ -174,12 +173,6 @@
 }
 \newcommand{\newtitleanum}[1]{
 	% Insertar un título sin número
-	\addcontentsline{toc}{section}{#1}
-	\section*{#1}
-	\stepcounter{section}
-}
-\newcommand{\newtitleanumheadless}[1]{
-	% Insertar un título sin número sin alterar el header
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\stepcounter{section}
@@ -494,16 +487,14 @@
 \counterwithin{table}{section}             % Añade número de sección a las tablas
 \setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
 \setlength{\headheight}{64pt}              % Tamaño de la cabecera sin fancyhdr
-\setcounter{tocdepth}{\indexdepth}         % Se ajusta la profundidad del índice
 \setcounter{MaxMatrixCols}{20}             % Número máximo de columnas para las matrices
 \hypersetup{
 	pdfauthor={\autordeldocumento},
 	pdftitle={\tituloauxiliar},
 	pdfsubject={\temaatratar},
-	pdfkeywords={\nombreuniversidad, \nombredelcurso,
-	\codigodelcurso},
+	pdfkeywords={\nombreuniversidad, \nombredelcurso, \codigodelcurso},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX Auxiliar v1.0.0}}
+	pdfproducer={Template LaTeX Auxiliar v1.0.1}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 	
 	
