@@ -1,5 +1,5 @@
 % Template:     Template auxiliar LaTeX
-% Versión:      1.1 (28/03/2017)
+% Versión:      1.2 (28/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -121,7 +121,6 @@
 
 % LIBRERÍAS DEPENDIENTES
 \usetikzlibrary{babel}                 % Asociado a tikz
-\usepackage{chngcntr}                  % Agrega números de secciones a las leyendas
 \usepackage{epstopdf}                  % Convierte archivos .eps a pdf
 \usepackage{multirow}                  % Agrega nuevas opciones a las tablas
 \ifthenelse{\equal{\showborderonlinks}{true}}{
@@ -486,9 +485,6 @@
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
 \decimalpoint                              % Se define el punto decimal
-\counterwithin{equation}{section}          % Añade número de sección a las ecuaciones
-\counterwithin{figure}{section}            % Añade número de sección a las figuras
-\counterwithin{table}{section}             % Añade número de sección a las tablas
 \setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
 \setlength{\headheight}{64pt}              % Tamaño de la cabecera sin fancyhdr
 \setcounter{MaxMatrixCols}{20}             % Número máximo de columnas para las matrices
@@ -498,7 +494,7 @@
 	pdfsubject={\temaatratar},
 	pdfkeywords={\nombreuniversidad, \nombredelcurso, \codigodelcurso},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX Auxiliar v1.1}}
+	pdfproducer={Template LaTeX Auxiliar v1.2}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 	
 	
