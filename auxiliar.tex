@@ -1,5 +1,5 @@
 % Template:     Template auxiliar LaTeX
-% Versión:      1.0.1 (20/03/2017)
+% Versión:      1.1 (28/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -176,6 +176,10 @@
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\stepcounter{section}
+}
+\newcommand{\newquestion}[1]{
+	% Insertar nuevo título de pregunta
+	\newtitleanum{#1}
 }
 \newcommand{\newsubtitleanum}[1]{
 	% Insertar un subtítulo sin número
@@ -494,7 +498,7 @@
 	pdfsubject={\temaatratar},
 	pdfkeywords={\nombreuniversidad, \nombredelcurso, \codigodelcurso},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX Auxiliar v1.0.1}}
+	pdfproducer={Template LaTeX Auxiliar v1.1}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 	
 	
@@ -529,7 +533,7 @@
 \begin{center}
 	\vspace*{2cm}
 	\huge {\tituloauxiliar} \\
-	\vspace{0.3cm}
+	\vspace{0.2cm}
 	\large {\temaatratar} \\
 	\vspace{0.7cm}
 	\equipodocente
