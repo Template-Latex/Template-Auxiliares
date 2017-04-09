@@ -21,3 +21,6 @@ desktop.ini
 # OSX.
 __MACOSX/
 .DS_Store
+
+# Archivos PyCharm
+.idea/
