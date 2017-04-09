@@ -13,13 +13,6 @@ if (!String.format) {
     };
 }
 
-// Se definen las líneas de cada sección en la página web
-var linea_info_documento = 21;
-var linea_tabla = 39;
-var linea_configuraciones = 75;
-var linea_importaciones = 122;
-var linea_inicio = 562;
-
 // Descargas totales
 var total_downloads = 0;
 
@@ -75,7 +68,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Auxiliares/releases",
 
     // Se obtiene el what's new
     var whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
-    var whats_new_versions = 10;
+    var whats_new_versions = Math.min(10, json.length);
     try {
         var new_version_entry = "";
         for (i = 0; i < whats_new_versions; i++) {
@@ -84,12 +77,11 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Auxiliares/releases",
             content_version = md_converter.makeHtml(json[i].body);
             new_version_entry += String.format(whats_new_html, title_new_version, content_version);
         }
-        new_version_entry += "Puedes ver la lista de cambios completa <a href='https://github.com/ppizarror/Template-Informe/releases'>en Github</a>.";
+        new_version_entry += "Puedes ver la lista de cambios completa <a href='https://github.com/ppizarror/Template-Auxiliares/releases'>en Github</a>.";
         document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
     } catch (err) {
         console.log('Error al obtener los contenidos de las últimas versiones');
         document.getElementById('whatsnew').style = 'display:none';
-        document.getElementById('changelog-menu').style = 'display:none';
     }
 });
 
