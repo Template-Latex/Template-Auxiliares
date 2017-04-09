@@ -24,3 +24,6 @@ __MACOSX/
 
 # Archivos PyCharm
 .idea/
+
+# Compilados python
+*.pyc
