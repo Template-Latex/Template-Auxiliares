@@ -27,3 +27,6 @@ __MACOSX/
 
 # Compilados python
 *.pyc
+
+# Otros
+main.pdf
