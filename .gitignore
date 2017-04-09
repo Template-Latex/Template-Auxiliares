@@ -24,3 +24,9 @@ __MACOSX/
 
 # Archivos tex
 *.tex
+main.pdf
+
+# Python
+*.py
+*.pyc
+.idea/
