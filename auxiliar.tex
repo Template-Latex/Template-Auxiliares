@@ -1,5 +1,6 @@
 % Template:     Template auxiliar LaTeX
-% Versión:      1.2 (28/03/2017)
+% Documento:    Archivo principal
+% Versión:      1.3 (09/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -7,8 +8,8 @@
 %        Universidad de Chile.
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto:   [http://ppizarror.com/Template-Informe/]
-% Licencia: CC BY-NC-SA 4.0 [http://creativecommons.org/licenses/by-nc-sa/4.0/]
+% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
 \documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, fuente de 11pt
@@ -16,6 +17,7 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Define el idioma del documento en español
+\def\templateversion{1.3.0}               % Versión del template
 
 
 % INFORMACIÓN DEL DOCUMENTO
@@ -52,122 +54,171 @@
 
 
 % CONFIGURACIONES
-\newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
-\newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
-\newcommand{\defaultinterlind}{1.0}               % Entrelineado por defecto
-\newcommand{\tipofuentetitulo}{\huge}             % Tamaño de los títulos
-\newcommand{\tipofuentesubtitulo}{\Large}         % Tamaño de los subtítulos
-\newcommand{\tipofuentesubsubtitulo}{\large}      % Tamaño de los sub-subtítulos
-\newcommand{\etipofuentetitulo}{\bfseries}        % Estilo de los títulos
-\newcommand{\etipofuentesubtitulo}{\bfseries}     % Estilo de los subtítulos
-\newcommand{\etipofuentesubsubtitulo}{\bfseries}  % Estilo de los sub-subtítulos
-\newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
-\newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
-\newcommand{\nombltwcodfuente}{Código Fuente}     % Nombre del código fuente
-\newcommand{\tablepadding}{1.1}                   % Padding de las tablas
-\newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas por defecto
-\newcommand{\defaultpagemarginleft}{2.5}          % Margen izquierdo de las páginas [cm]
-\newcommand{\defaultpagemarginright}{2.5}         % Margen derecho de las páginas [cm]
-\newcommand{\defaultpagemargintop}{2.3}           % Margen superior de las páginas [cm]
-\newcommand{\defaultpagemarginbottom}{2.7}        % Margen inferior de las páginas [cm]
-\newcommand{\defaultfirstpagemargintop}{4.5}      % Margen superior de la portada [cm]
-\newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
-\newcommand{\defaultmargintopimages}{0.0cm}       % Margen sup. de las figuras [cm]
-\newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
+\newcommand{\defaultimagefolder}{images/}        % Directorio de las imágenes
+\newcommand{\defaultnewlinesize}{11pt}           % Tamaño del salto de línea
+\newcommand{\defaultinterlind}{1.0}              % Entrelineado por defecto
+\newcommand{\tipofuentetitulo}{\huge}            % Tamaño de los títulos
+\newcommand{\tipofuentesubtitulo}{\Large}        % Tamaño de los subtítulos
+\newcommand{\tipofuentesubsubtitulo}{\large}     % Tamaño de los sub-subtítulos
+\newcommand{\etipofuentetitulo}{\bfseries}       % Estilo de los títulos
+\newcommand{\etipofuentesubtitulo}{\bfseries}    % Estilo de los subtítulos
+\newcommand{\etipofuentesubsubtitulo}{\bfseries} % Estilo de los sub-subtítulos
+\newcommand{\nombltwtablas}{Tabla}               % Nombre de las tablas
+\newcommand{\nombltwfigura}{Figura}              % Nombre de las figuras
+\newcommand{\nombltwcodfuente}{Código Fuente}    % Nombre del código fuente
+\newcommand{\tablepadding}{1.1}                  % Padding de las tablas
+\newcommand{\defaultcaptionmargin}{2.9}          % Márgenes de las leyendas por defecto
+\newcommand{\defaultpagemarginleft}{2.5}         % Margen izquierdo de las páginas [cm]
+\newcommand{\defaultpagemarginright}{2.5}        % Margen derecho de las páginas [cm]
+\newcommand{\defaultpagemargintop}{2.3}          % Margen superior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.7}       % Margen inferior de las páginas [cm]
+\newcommand{\defaultfirstpagemargintop}{4.5}     % Margen superior de la portada [cm]
+\newcommand{\defaultmarginfloatimages}{-13pt}    % Margen sup. de figuras flotantes [pt]
+\newcommand{\defaultmargintopimages}{0.0cm}      % Margen sup. de las figuras [cm]
+\newcommand{\defaultmarginbottomimages}{-0.2cm}  % Margen inf. de las figuras [cm]
 
 % CONFIGURACIONES BOOLEANAS (TRUE, FALSE)
-\newcommand{\showborderonlinks}{false}     % Muestra un recuadro en cada enlace del documento
-\newcommand{\showheadertitle}{true}        % Muestra el título de la auxiliar en el header
+\newcommand{\showborderonlinks}{false} % Muestra un recuadro en cada enlace
+\newcommand{\showheadertitle}{true}    % Muestra el título de la auxiliar en el header
 
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage{amsmath}                   % Fórmulas matemáticas
-\usepackage{amssymb}                   % Símbolos matemáticos
-\usepackage{amsthm}                    % Teoremas matemáticos
-\usepackage{array}                     % Añade nuevas características a las tablas
-\usepackage{bigstrut}                  % Lineas horizontales en tablas
-\usepackage{booktabs}                  % Permite manejar elementos visuales en tablas
-\usepackage[makeroom]{cancel}          % Cancelar términos en fórmulas
-\usepackage{caption}                   % Leyendas
-\usepackage{color}                     % Colores
-\usepackage{colortbl}                  % Administración de color en tablas
-\usepackage{datetime}                  % Fechas
-\usepackage[inline]{enumitem}          % Permite enumerar ítems
-\usepackage[bottom, norule]{footmisc}  % Estilo pié de página
-\usepackage{fancyhdr}                  % Encabezados y pié de páginas
-\usepackage{float}                     % Administrador de posiciones de objetos
-\usepackage{textcomp, gensymb}         % Simbología común                
-\usepackage{geometry}                  % Dimensiones y geometría del documento
-\usepackage{graphicx}                  % Propiedades extra para los gráficos
-\usepackage{ifthen}                    % Permite el manejo de condicionales
-\usepackage{mathtools}                 % Permite utilizar notaciones matemáticas avanzadas
-\usepackage[version=4]{mhchem}         % Fórmulas químicas
-\usepackage{multicol}                  % Múltiples columnas
-\usepackage{pdfpages}                  % Permite administrar páginas en pdf
-\usepackage{lipsum}                    % Permite crear textos dummy
-\usepackage{longtable}                 % Permite utilizar tablas en varias hojas
-\usepackage{listings}                  % Permite añadir código fuente
-\usepackage{rotating}                  % Permite rotación de objetos
-\usepackage{sectsty}                   % Cambia el estilo de los títulos
-\usepackage{selinput}                  % Compatibilidad con acentos
-\usepackage{setspace}                  % Cambia el espacio entre líneas
-\usepackage{subfig}                    % Permite agrupar imágenes
-\usepackage{tikz}                      % Permite dibujar
-\usepackage{ulem}                      % Permite tachar, subrayar, etc
-\usepackage{url}                       % Permite añadir enlaces
-\usepackage{wasysym}                   % Contiene caracteres misceláneos
-\usepackage{wrapfig}                   % Permite comprimir imágenes
-\usepackage{xcolor}                    % Paquete de colores avanzado
+\usepackage{amsmath}                  % Fórmulas matemáticas
+\usepackage{amssymb}                  % Símbolos matemáticos
+\usepackage{amsthm}                   % Teoremas matemáticos
+\usepackage{array}                    % Añade nuevas características a las tablas
+\usepackage{bigstrut}                 % Lineas horizontales en tablas
+\usepackage{booktabs}                 % Permite manejar elementos visuales en tablas
+\usepackage[makeroom]{cancel}         % Cancelar términos en fórmulas
+\usepackage{caption}                  % Leyendas
+\usepackage{color}                    % Colores
+\usepackage{colortbl}                 % Administración de color en tablas
+\usepackage{datetime}                 % Fechas
+\usepackage[inline]{enumitem}         % Permite enumerar ítems
+\usepackage[bottom, norule]{footmisc} % Estilo pié de página
+\usepackage{fancyhdr}                 % Encabezados y pié de páginas
+\usepackage{float}                    % Administrador de posiciones de objetos
+\usepackage{textcomp, gensymb}        % Simbología común
+\usepackage{geometry}                 % Dimensiones y geometría del documento
+\usepackage{graphicx}                 % Propiedades extra para los gráficos
+\usepackage{ifthen}                   % Permite el manejo de condicionales
+\usepackage{mathtools}                % Notaciones matemáticas avanzadas
+\usepackage[version=4]{mhchem}        % Fórmulas químicas
+\usepackage{multicol}                 % Múltiples columnas
+\usepackage{pdfpages}                 % Permite administrar páginas en pdf
+\usepackage{lipsum}                   % Permite crear textos dummy
+\usepackage{longtable}                % Permite utilizar tablas en varias hojas
+\usepackage{listings}                 % Permite añadir código fuente
+\usepackage{rotating}                 % Permite rotación de objetos
+\usepackage{sectsty}                  % Cambia el estilo de los títulos
+\usepackage{selinput}                 % Compatibilidad con acentos
+\usepackage{setspace}                 % Cambia el espacio entre líneas
+\usepackage{subfig}                   % Permite agrupar imágenes
+\usepackage{tikz}                     % Permite dibujar
+\usepackage{ulem}                     % Permite tachar, subrayar, etc
+\usepackage{url}                      % Permite añadir enlaces
+\usepackage{wasysym}                  % Contiene caracteres misceláneos
+\usepackage{wrapfig}                  % Permite comprimir imágenes
+\usepackage{xcolor}                   % Paquete de colores avanzado
 
 % LIBRERÍAS DEPENDIENTES
-\usetikzlibrary{babel}                 % Asociado a tikz
-\usepackage{epstopdf}                  % Convierte archivos .eps a pdf
-\usepackage{multirow}                  % Agrega nuevas opciones a las tablas
-\ifthenelse{\equal{\showborderonlinks}{true}}{
-	\usepackage{hyperref}              % Permite añadir enlaces y referencias
-}{
-	\usepackage[hidelinks]{hyperref}   % Links sin recuadro rojo
-}
+\usetikzlibrary{babel}                % Asociado a tikz
+\usepackage{epstopdf}                 % Convierte archivos .eps a pdf
+\usepackage{multirow}                 % Agrega nuevas opciones a las tablas
+\ifthenelse{                          % Permite añadir enlaces y referencias
+\equal{\showborderonlinks}{false}}{   % Links sin recuadro rojo
+\usepackage[hidelinks]{hyperref}}{
+\usepackage{hyperref}}
 
 
 % DECLARACIÓN DE FUNCIONES
-\newcommand{\quotes}[1]{``#1''}        % Insertar cita
-\newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita en itálico
-\newcommand{\newemptypage}{            % Crea una página vacía
-\newpage\null\thispagestyle{empty}\newpage
-\addtocounter{page}{-1}}
-\newcommand{\setcaptionmargincm}[1]{   % Cambiar el margen
-	\captionsetup{margin=#1cm}}
-\newcommand{\setpagemargincm}[4]{      % Cambia márgenes de las páginas [cm]
-	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
-\newcommand{\newp}{                    % Inserta nueva línea
-	\hbadness=10000 \vspace{\defaultnewlinesize} \par}
-\newcommand{\newpar}[1]{               % Nuevo párrafo
-	\hbadness=10000 #1 \newp}
-\newcommand{\newparnl}[1]{#1 \par}     % Nuevo párrafo sin nueva linea al final
-\newcommand{\lpow}[2]{{#1}_{#2}}       % Insertar sub-índice
-\newcommand{\pow}[2]{{#1}^{#2}}        % Insertar elevado
-\newcommand{\fracpartial}[2]{          % Fracción de derivadas parciales af/ax
-	\frac{\partial #1}{\partial #2}}
-\newcommand{\fracdpartial}[2]{         % Fracción de derivadas parciales dobles a^2/ax^2
-	\frac{{\partial}^{2} #1}{\partial {#2}^{2}}}
-\newcommand{\fracnpartial}[3]{         % Fracción de derivadas parciales en n a^n/ax^n
-	\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}
-\newcommand{\fracderivat}[2]{          % Fracción de derivadas df/dx
-	\frac{\text{d} #1}{\text{d} #2}}
-\newcommand{\fracdderivat}[2]{         % Fracción de derivadas dobles d^2/dx^2
-	\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}}
-\newcommand{\fracnderivat}[3]{         % Fracción de derivadas en n d^n/dx^n
-	\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}}
-\newcommand{\topequal}[2]{             % Llave superior de equivalencia
-	\overbrace{#1}^{\mathclap{#2}}}
-\newcommand{\underequal}[2]{           % Llave inferior de equivalencia
-	\underbrace{#1}_{\mathclap{#2}}}
-\newcommand{\topsequal}[2]{            % Rectángulo superior de equivalencia
-	\overbracket{#1}^{\mathclap{#2}}}
-\newcommand{\undersequal}[2]{          % Rectángulo inferior de equivalencia
-	\underbracket{#1}_{\mathclap{#2}}}
-\newcommand{\resizeitem}[2]{           % Crea un resizebox de tamaño textwidth
+\newcommand{\newquestion}[1]{
+	% Insertar nuevo título de pregunta
+	\newtitleanum{#1}
+}
+\newcommand{\quotes}[1]{
+	% Insertar cita
+	''#1''
+}
+\newcommand{\quotesit}[1]{
+	% Insertar cita en itálico
+	\textit{\quotes{#1}}
+}
+\newcommand{\newemptypage}{
+	% Crea una página vacía
+	\newpage\null\thispagestyle{empty}\newpage
+	\addtocounter{page}{-1}
+}
+\newcommand{\setcaptionmargincm}[1]{
+	% Cambiar el margen
+	\captionsetup{margin=#1cm}
+}
+\newcommand{\setpagemargincm}[4]{
+	% Cambia márgenes de las páginas [cm]
+	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}
+}
+\newcommand{\newp}{
+	% Inserta nueva línea
+	\hbadness=10000 \vspace{\defaultnewlinesize} \par
+}
+\newcommand{\newpar}[1]{
+	% Nuevo párrafo
+	\hbadness=10000 #1 \newp
+}
+\newcommand{\newparnl}[1]{
+	% Nuevo párrafo sin nueva línea al final
+	#1 \par
+}
+\newcommand{\lpow}[2]{
+	% Insertar sub-índice
+	{#1}_{#2}
+}
+\newcommand{\pow}[2]{
+	% Insertar elevado
+	{#1}^{#2}
+}
+\newcommand{\fracpartial}[2]{
+	% Fracción de derivadas parciales af/ax
+	\frac{\partial #1}{\partial #2}
+}
+\newcommand{\fracdpartial}[2]{
+	% Fracción de derivadas parciales dobles a^2/ax^2
+	\frac{{\partial}^{2} #1}{\partial {#2}^{2}}
+}
+\newcommand{\fracnpartial}[3]{
+	% Fracción de derivadas parciales en n a^n/ax^n
+	\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}
+}
+\newcommand{\fracderivat}[2]{
+	% Fracción de derivadas df/dx
+	\frac{\text{d} #1}{\text{d} #2}
+}
+\newcommand{\fracdderivat}[2]{
+	% Fracción de derivadas dobles d^2/dx^2
+	\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}
+}
+\newcommand{\fracnderivat}[3]{
+	% Fracción de derivadas en n d^n/dx^n
+	\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}
+}
+\newcommand{\topequal}[2]{
+	% Llave superior de equivalencia
+	\overbrace{#1}^{\mathclap{#2}}
+}
+\newcommand{\underequal}[2]{
+	% Llave inferior de equivalencia
+	\underbrace{#1}_{\mathclap{#2}}
+}
+\newcommand{\topsequal}[2]{
+	% Rectángulo superior de equivalencia
+	\overbracket{#1}^{\mathclap{#2}}
+}
+\newcommand{\undersequal}[2]{
+	% Rectángulo inferior de equivalencia
+	\underbracket{#1}_{\mathclap{#2}}
+}
+\newcommand{\resizeitem}[2]{
+	% Crea un resizebox de tamaño textwidth
 	\resizebox{#1\textwidth}{!}{#2}
 }
 \newcommand{\newtitleanum}[1]{
@@ -176,9 +227,11 @@
 	\section*{#1}
 	\stepcounter{section}
 }
-\newcommand{\newquestion}[1]{
-	% Insertar nuevo título de pregunta
-	\newtitleanum{#1}
+\newcommand{\newtitleanumheadless}[1]{
+	% Insertar un título sin número sin alterar el header
+	\addcontentsline{toc}{section}{#1}
+	\section*{#1}
+	\stepcounter{section}
 }
 \newcommand{\newsubtitleanum}[1]{
 	% Insertar un subtítulo sin número
@@ -188,6 +241,27 @@
 }
 \newcommand{\newsubsubtitleanum}[1]{
 	% Insertar un sub-subtítulo sin número
+	\addcontentsline{toc}{subsubsection}{#1}
+	\subsubsection*{#1}
+	\stepcounter{subsubsection}
+}
+\newcommand{\newtitleanumnoi}[1]{
+	% Insertar un título sin número sin indexar
+	\section*{#1}
+	\stepcounter{section}
+}
+\newcommand{\newtitleanumnoiheadless}[1]{
+	% Insertar un título sin número sin indexar sin cambiar el header
+	\section*{#1}
+	\stepcounter{section}
+}
+\newcommand{\newsubtitleanumnoi}[1]{
+	% Insertar un subtítulo sin número sin indexar
+	\subsection*{#1}
+	\stepcounter{subsection}
+}
+\newcommand{\newsubsubtitleanumnoi}[1]{
+	% Insertar un sub-subtítulo sin número sin indexar
 	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
 	\stepcounter{subsubsection}
@@ -313,6 +387,10 @@
 	\setcaptionmargincm{\defaultcaptionmargin}
 	\vspace{\defaultmarginbottomimages}
 }
+\newcommand{\insertdoubleeqimage}[7][]{
+	% Insertar una imagen doble, igual propiedades
+	\insertdoubleimage[#1]{#2}{#6}{#3}{#4}{#6}{#5}{#7}
+}
 \newcommand{\inserttripleimage}[8][]{
 	% Insertar una imagen triple
 	\vspace{\defaultmargintopimages}
@@ -332,12 +410,64 @@
 	\setcaptionmargincm{\defaultcaptionmargin}
 	\vspace{\defaultmarginbottomimages}
 }
+\newcommand{\inserttripleeqimage}[6][]{
+	% Insertar una imagen triple, igual propiedades
+	\inserttripleimage[#1]{#2}{#5}{#3}{#5}{#4}{#5}{#6}
+}
+\newcommand{\insertquadimage}[7][]{
+	% Insertar una imagen cuádruple, igual propiedades
+	\vspace{\defaultmargintopimages}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#6]{\defaultimagefolder#2}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{\defaultimagefolder#3}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{\defaultimagefolder#4}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{\defaultimagefolder#5}}
+		\setcaptionmargincm{\defaultcaptionmargin}
+		\caption{#7 #1}
+	\end{figure}
+	\setcaptionmargincm{\defaultcaptionmargin}
+	\vspace{\defaultmarginbottomimages}
+}
+\newcommand{\insertpentaimage}[8][]{
+	% Insertar una imagen quíntuple, igual propiedades
+	\vspace{\defaultmargintopimages}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#2}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#3}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#4}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#5}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#6}}
+		\setcaptionmargincm{\defaultcaptionmargin}
+		\caption{#8 #1}
+	\end{figure}
+	\setcaptionmargincm{\defaultcaptionmargin}
+	\vspace{\defaultmarginbottomimages}
+}
 \newcommand{\insertimageleft}[5][]{
 	% Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
-		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}
+		\centering
+		\includegraphics[width=\linewidth]{\defaultimagefolder#2}
 		\caption{#4 #1}
 		\setcaptionmargincm{\defaultcaptionmargin}
 	\end{wrapfigure}
@@ -347,7 +477,8 @@
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
-		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}
+		\centering
+		\includegraphics[width=\linewidth]{\defaultimagefolder#2}
 		\caption{#4 #1}
 		\setcaptionmargincm{\defaultcaptionmargin}
 	\end{wrapfigure}
@@ -471,15 +602,17 @@
 		\departamentouniversidad \\
 		\codigodelcurso - \nombredelcurso
 	}
-	\fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento} \vspace{0cm}}
+	\fancyhead[R]{
+		\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento} \vspace{0cm}
+	}
 	\renewcommand{\headrulewidth}{0.5pt}
 	\setpagemargincm{\defaultpagemarginleft}{2.0}
 	{\defaultpagemarginright}{\defaultpagemarginbottom}
 	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
-	\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
+	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
 	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
-	\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
-	\renewcommand{\footrulewidth}{0.5pt}             % Ancho de la barra del footer
+	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
+	\renewcommand{\footrulewidth}{0.5pt}               % Ancho de la barra del footer
 }
 
 
@@ -494,7 +627,7 @@
 	pdfsubject={\temaatratar},
 	pdfkeywords={\nombreuniversidad, \nombredelcurso, \codigodelcurso},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX Auxiliar v1.2}}
+	pdfproducer={Template LaTeX Auxiliar v\templateversion}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 	
 	
@@ -505,20 +638,20 @@
 \setcounter{footnote}{0}
 \setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}
 {\defaultpagemarginright}{\defaultpagemarginbottom}
-\def\arraystretch{\tablepadding}                     % Se ajusta el padding de las tablas
-\renewcommand{\sectionmark}[1]{\markboth{#1}{}}      % Se modifica el estilo del header
-\renewcommand{\listfigurename}{\nombltfiguras}       % Nombre del índice de figuras
-\renewcommand{\listtablename}{\nomblttablas}         % Nombre del índice de tablas
-\renewcommand{\contentsname}{\nombltcontend}         % Nombre del índice
-\renewcommand{\lstlistlistingname}{\nombltcodfuente} % Nombre del índice de códigos fuente
-\renewcommand{\tablename}{\nombltwtablas}            % Nombre de la leyenda de las tablas
-\renewcommand{\figurename}{\nombltwfigura}           % Nombre de la leyenda de las figuras
-\renewcommand{\lstlistingname}{\nombltwcodfuente}    % Nombre de la leyenda del código fuente
-\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Se crean los headers y footers
-\renewcommand{\headrulewidth}{0pt}                 % Ancho de la barra del header
+\def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
+\renewcommand{\listfigurename}{\nombltfiguras} % Nombre del índice de figuras
+\renewcommand{\listtablename}{\nomblttablas} % Nombre del índice de tablas
+\renewcommand{\contentsname}{\nombltcontend} % Nombre del índice
+\renewcommand{\lstlistlistingname}{\nombltcodfuente} % Nombre del índ. de códigos fuente
+\renewcommand{\tablename}{\nombltwtablas} % Nombre de la leyenda de las tablas
+\renewcommand{\figurename}{\nombltwfigura} % Nombre de la leyenda de las figuras
+\renewcommand{\lstlistingname}{\nombltwcodfuente} % Nombre de la leyenda del cod. fuente
+\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
+\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
 \fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
 \fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
-\renewcommand{\footrulewidth}{0.5pt}             % Ancho de la barra del footer
+\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 \sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 \subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}
 \subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
