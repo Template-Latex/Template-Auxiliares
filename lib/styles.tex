@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Definición de estilos
-% Versión:      2.0-beta-5 (09/04/2017)
+% Versión:      2.0 (09/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -117,25 +117,3 @@
 	{€}{{\EUR}}1 {£}{{\pounds}}1
 }
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % Columna centrada en tablas
-\fancypagestyle{styleportrait}{ % Estilo portada
-	\pagestyle{fancy}
-	\fancyhf{}
-	\fancyhead[L]{
-		\vspace*{3cm}
-		\nombreuniversidad \\
-		\nombrefacultad \\
-		\departamentouniversidad \\
-		\codigodelcurso - \nombredelcurso
-	}
-	\fancyhead[R]{
-		\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento} \vspace{0cm}
-	}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\setpagemargincm{\defaultpagemarginleft}{2.0}
-	{\defaultpagemarginright}{\defaultpagemarginbottom}
-	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
-	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
-	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
-	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
-	\renewcommand{\footrulewidth}{0.5pt}               % Ancho de la barra del footer
-}
