@@ -17,6 +17,12 @@ body {
     color: #606c71;
 }
 
+.iconbutton {
+    top:4px;
+    position:relative;
+    margin-left:5px;
+}
+
 a {
     color: #1e6bb8;
     text-decoration: none;
@@ -118,9 +124,8 @@ a:hover {
 .page-header {
     color: #fff;
     text-align: center;
-    background: #161415 url(../images/background7.jpg) no-repeat;
+    background: #161415 url(../images/background7.jpg) no-repeat center;
     background-attachment: fixed;
-    background-position: bottom;
     /* transform: translateZ(1px) scale(1.0); */
     -webkit-background-size: cover !important;
 }
