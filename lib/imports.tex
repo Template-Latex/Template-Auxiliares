@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      2.0 (09/04/2017)
+% Versión:      2.2 (22/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -53,6 +53,6 @@
 \usepackage{epstopdf}                 % Convierte archivos .eps a pdf
 \usepackage{multirow}                 % Agrega nuevas opciones a las tablas
 \ifthenelse{                          % Permite añadir enlaces y referencias
-	\equal{\showborderonlinks}{false}}{   % Links sin recuadro rojo
-	\usepackage[hidelinks]{hyperref}}{
-	\usepackage{hyperref}}
+\equal{\showborderonlinks}{false}}{   % Links sin recuadro rojo
+\usepackage[hidelinks]{hyperref}}{
+\usepackage{hyperref}}

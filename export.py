@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-Exporta main.tex a auxiliar.tex (template sin archivos externos).
+Exporta main.tex a informe.tex (template sin archivos externos).
 Cambia versión y fecha a archivos.
 
 Autor: PABLO PIZARRO @ github.com/ppizarror
@@ -23,6 +23,11 @@ MAINFILE = 'main.tex'
 MAINFILESINGLE = 'auxiliar.tex'
 VERSIONHEADER = '% Versión:      {0} ({1})\n'
 
+# Configuraciones
+AUTOCOMPILE = True
+ADDWHITESPACE = False
+DELETECOMMENTS = True
+
 # Archivos a revisar
 FILES = {
     'lib/config.tex': [],
@@ -33,6 +38,28 @@ FILES = {
     'lib/styles.tex': [],
     EXAMPLEFILE: [],
     MAINFILE: []
+}
+FILEDELCOMMENTS = {
+    'lib/config.tex': False,
+    'lib/functions.tex': True,
+    'lib/imports.tex': True,
+    'lib/index.tex': True,
+    'lib/initconf.tex': True,
+    'lib/pageconf.tex': True,
+    'lib/styles.tex': True,
+    EXAMPLEFILE: False,
+    MAINFILE: False
+}
+FILESTRIP = {
+    'lib/config.tex': False,
+    'lib/functions.tex': True,
+    'lib/imports.tex': True,
+    'lib/index.tex': True,
+    'lib/initconf.tex': True,
+    'lib/pageconf.tex': True,
+    'lib/styles.tex': True,
+    EXAMPLEFILE: False,
+    MAINFILE: False
 }
 
 # Se pide la versión
@@ -99,9 +126,33 @@ for d in data:
                 if libr != EXAMPLEFILE:
 
                     # Se escribe desde el largo del header en adelante
-                    libdata = FILES[libr]
+                    libdata = FILES[libr]  # Datos del import
+                    libstirp = FILESTRIP[libr]  # Eliminar espacios en blanco
+                    libdelcom = FILEDELCOMMENTS[libr]  # Borrar comentarios
+
                     for libdatapos in range(HEADERSIZE, len(libdata)):
-                        fl.write(libdata[libdatapos])
+                        srclin = libdata[libdatapos]
+
+                        # Se borran los comentarios
+                        if DELETECOMMENTS and libdelcom:
+                            if '%' in srclin:
+                                comments = srclin.strip().split('%')
+                                if comments[0] is '':
+                                    srclin = ''
+                                else:
+                                    srclin = srclin.replace('%' + comments[1],
+                                                            '')
+                            elif srclin.strip() is '':
+                                srclin = ''
+
+                        # Se ecribe la linea
+                        if srclin is not '':
+                            # Se aplica strip dependiendo del archivo
+                            if libstirp:
+                                fl.write(srclin.strip())
+                            else:
+                                fl.write(srclin)
+
                     fl.write('\n')  # Se agrega espacio vacío
 
                 else:
@@ -112,7 +163,7 @@ for d in data:
         # Se agrega un espacio en blanco a la pagina despues del comentario
         if line >= CODEVERSIONPOS + 1 and write:
             if d[0:2] == '% ' and d[3] != ' ':
-                if d != '% FIN DEL DOCUMENTO\n':
+                if d != '% FIN DEL DOCUMENTO\n' and ADDWHITESPACE:
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
                 if d == '% RESUMEN O ABSTRACT\n':
@@ -128,7 +179,8 @@ for d in data:
 fl.close()
 
 # Compila el archivo
-call(['pdflatex', MAINFILESINGLE])
+if AUTOCOMPILE:
+    call(['pdflatex', MAINFILESINGLE])
 
 # Se exporta el proyecto normal
 export_normal = Zip('export/Template-Auxiliar.zip')

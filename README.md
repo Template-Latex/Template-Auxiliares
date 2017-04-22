@@ -7,7 +7,7 @@ Este corresponde a un template para confeccionar [geniales auxiliares en latex](
 El manual de uso de las funciones opcionales se encuentra disponible en la página web del template de informes: <a href="http://ppizarror.com/Template-Informe/">Template-Informe</a>.
 
 ## Licencia
-Este proyecto está licenciado bajo GPLv2 (GNU General Public License, version 2) [https://www.gnu.org/licenses/gpl-2.0.html].
+Este proyecto está licenciado bajo la licencia MIT [https://opensource.org/licenses/MIT].
 
 ## Autor
 Pablo Pizarro, 2017.
