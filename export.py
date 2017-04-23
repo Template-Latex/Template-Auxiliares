@@ -40,7 +40,7 @@ FILES = {
     MAINFILE: []
 }
 FILEDELCOMMENTS = {
-    'lib/config.tex': False,
+    'lib/config.tex': True,
     'lib/functions.tex': True,
     'lib/imports.tex': True,
     'lib/index.tex': True,
@@ -104,8 +104,8 @@ fl = open(MAINFILESINGLE, 'w')
 data = FILES[MAINFILE]
 data.pop(1)  # Se elimina el tipo de documento del header
 data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
-               'del main.tex y los\n%               archivos .tex de la '
-               'carpeta lib/ para crear un sólo archivo.\n')
+               'del main.tex y\n%               los archivos .tex de la '
+               'carpeta lib/\n')
 line = 0
 for d in data:
     write = True
@@ -135,7 +135,9 @@ for d in data:
 
                         # Se borran los comentarios
                         if DELETECOMMENTS and libdelcom:
-                            if '%' in srclin:
+                            if 'CONFIGURACIONES BOOLEANAS' in srclin:
+                                fl.write('\n')
+                            elif '%' in srclin:
                                 comments = srclin.strip().split('%')
                                 if comments[0] is '':
                                     srclin = ''
@@ -167,8 +169,8 @@ for d in data:
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
                 if d == '% RESUMEN O ABSTRACT\n':
-                    d = '% ========================= RESUMEN O ABSTRACT ' \
-                        '=========================\n'
+                    d = '% ============================= RESUMEN O ABSTRACT ' \
+                        '=============================\n '
                 fl.write(d)
             else:
                 fl.write(d)
