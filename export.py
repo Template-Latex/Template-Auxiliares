@@ -15,7 +15,7 @@ from ziputility import ZipUtility as Zip
 
 # Constantes
 CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
-CODEVERSIONPOS = 19
+CODEVERSIONPOS = 18
 EXAMPLEFILE = 'example.tex'
 HEADERSIZE = 13
 HEADERVERSIONPOS = 2
@@ -40,7 +40,7 @@ FILES = {
     MAINFILE: []
 }
 FILEDELCOMMENTS = {
-    'lib/config.tex': True,
+    'lib/config.tex': False,
     'lib/functions.tex': True,
     'lib/imports.tex': True,
     'lib/index.tex': True,
@@ -106,6 +106,7 @@ data.pop(1)  # Se elimina el tipo de documento del header
 data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
                'del main.tex y\n%               los archivos .tex de la '
                'carpeta lib/\n')
+data.pop(52)
 line = 0
 for d in data:
     write = True

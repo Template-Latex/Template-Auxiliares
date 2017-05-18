@@ -15,6 +15,9 @@
 .releases/*
 *.zip
 
+# Version antigua
+_old/
+
 # Windows.
 desktop.ini
 

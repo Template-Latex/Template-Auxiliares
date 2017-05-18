@@ -1,34 +1,36 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Definición de estilos
-% Versión:      2.4 (23/04/2017)
+% Versión:      3.0 (18/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
-%        Facultad de Ciencias Físicas y Matemáticas.
-%        Universidad de Chile.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-\definecolor{mygreen}{rgb}{0,0.6,0}
-\definecolor{mygray}{rgb}{0.5,0.5,0.5}
-\definecolor{mymauve}{rgb}{0.58,0,0.82}
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\SelectInputMappings{
-	% Definición de acentos
-	aacute={á},
-	Ntilde={Ñ},
-	Euro={€}
+% Definición de colores
+\definecolor{awesome}{rgb}{1.0, 0.13, 0.32}
+\definecolor{backcolour}{rgb}{0.95, 0.95, 0.92}
+\definecolor{codegray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{codegreen}{rgb}{0, 0.6, 0}
+\definecolor{codepurple}{rgb}{0.58, 0, 0.82}
+\definecolor{dkgreen}{rgb}{0, 0.6, 0}
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{lightyellow}{rgb}{1.0, 1.0, 0.88}
+\definecolor{mauve}{rgb}{0.58, 0, 0.82}
+\definecolor{mygray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{mygreen}{rgb}{0, 0.6, 0}
+
+% Columna centrada en tablas
+\newcolumntype{P}[1]{
+	>{\centering\arraybackslash}p{#1}
 }
+
+% Estilo de lenguaje C
 \lstdefinestyle{C}{
-	% Estilo de lenguaje C
 	language=C,
 	numbers=left,
 	stepnumber=1,
@@ -41,9 +43,11 @@
 	captionpos=b,
 	breaklines=true,
 	breakatwhitespace=true,
-  	title=\lstname}
+	title=\lstname
+}
+
+% Estilo de lenguaje Java
 \lstdefinestyle{Java}{
-	% Estilo de lenguaje Java
 	language=Java,
 	aboveskip=3mm,
 	belowskip=3mm,
@@ -58,9 +62,11 @@
 	breaklines=true,
 	breakatwhitespace=true,
 	tabsize=3,
-	backgroundcolor=\color{backcolour}}
+	backgroundcolor=\color{backcolour}
+}
+
+% Estilo de lenguaje Matlab
 \lstdefinestyle{Matlab}{
-	% Estilo de lenguaje Matlab
 	language=Matlab,
 	breaklines=true,
 	morekeywords={matlab2tikz},
@@ -73,16 +79,18 @@
 	showstringspaces=false,
 	numbers=left,
 	showstringspaces=false,
-	numberstyle={\tiny \color{black}},
+	numberstyle=\tiny\color{gray},
 	numbersep=9pt,
 	basicstyle={\small\ttfamily},
 	tabsize=3,
 	breaklines=true,
 	aboveskip=3mm,
 	belowskip=3mm,
-	emph=[1]{for,end,break},emphstyle=[1]\color{red}}
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}
+}
+
+% Estilo de lenguaje Python
 \lstdefinestyle{Python}{
-	% Estilo de lenguaje Python
 	language=Python,
 	backgroundcolor=\color{backcolour},
 	commentstyle=\color{codegreen},
@@ -102,18 +110,64 @@
 	tabsize=3,
 	basicstyle={\small\ttfamily}
 }
-\lstset{literate=
-	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
-	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
-	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
-	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
-	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
-	{€}{{\EUR}}1 {£}{{\pounds}}1
-}
-\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % Columna centrada en tablas
+
+% Estilo de enumeración en griego
+\RequirePackage{enumitem}
+\makeatletter
+\def\greek#1{\expandafter\@greek\csname c@#1\endcsname}
+\def\Greek#1{\expandafter\@Greek\csname c@#1\endcsname}
+\def\@greek#1{\ifcase#1
+	\or $\alpha$%
+	\or $\beta$%
+	\or $\gamma$%
+	\or $\delta$%
+	\or $\epsilon$%
+	\or $\zeta$%
+	\or $\eta$%
+	\or $\theta$%
+	\or $\iota$%
+	\or $\kappa$%
+	\or $\lambda$%
+	\or $\mu$%
+	\or $\nu$%
+	\or $\xi$%
+	\or $o$%
+	\or $\pi$%
+	\or $\rho$%
+	\or $\sigma$%
+	\or $\tau$%
+	\or $\upsilon$%
+	\or $\phi$%
+	\or $\chi$%
+	\or $\psi$%
+	\or $\omega$%
+	\fi}
+\def\@Greek#1{\ifcase#1
+	\or $\mathrm{A}$%
+	\or $\mathrm{B}$%
+	\or $\Gamma$%
+	\or $\Delta$%
+	\or $\mathrm{E}$%
+	\or $\mathrm{Z}$%
+	\or $\mathrm{H}$%
+	\or $\Theta$%
+	\or $\mathrm{I}$%
+	\or $\mathrm{K}$%
+	\or $\Lambda$%
+	\or $\mathrm{M}$%
+	\or $\mathrm{N}$%
+	\or $\Xi$%
+	\or $\mathrm{O}$%
+	\or $\Pi$%
+	\or $\mathrm{P}$%
+	\or $\Sigma$%
+	\or $\mathrm{T}$%
+	\or $\mathrm{Y}$%
+	\or $\Phi$%
+	\or $\mathrm{X}$%
+	\or $\Psi$%
+	\or $\Omega$%
+	\fi}
+\makeatother
+\AddEnumerateCounter{\greek}{\@greek}{24}
+\AddEnumerateCounter{\Greek}{\@Greek}{12}

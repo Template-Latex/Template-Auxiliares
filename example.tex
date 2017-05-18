@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      2.4 (23/04/2017)
+% Versión:      3.0 (18/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -20,7 +20,7 @@
 	% Párrafo
 	\lipsum[2]
 	
-	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Ubi sunt vobis? autem \quotesit{Internet}}
+	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Ubi sunt vobis? autem \quotes{Internet}}
 	
 	\newp Aequatio videbitur \footnote{ $Q_e = max\big(1 \dots n\big)$} infra:
 	
@@ -44,11 +44,10 @@
 \newquestion{Pregunta 3}
 
 	% Párrafo
-	\lipsum[15]
+	\lipsum[15] \newp
 
-\newp
 \lstset{style=Python}
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}
 import numpy as np
 
 def incmatrix(genl1,genl2):

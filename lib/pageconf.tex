@@ -1,29 +1,28 @@
 % Template:     Template auxiliar LaTeX
-% Documento:    Configuración de la página
-% Versión:      2.4 (23/04/2017)
+% Documento:    Configuración de página
+% Versión:      3.0 (18/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
-%        Facultad de Ciencias Físicas y Matemáticas.
-%        Universidad de Chile.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-% Se crea la numeración y los márgenes
-\setcounter{page}{1}
-\setcounter{section}{0}
-\setcounter{footnote}{0}
-\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}
-{\defaultpagemarginright}{\defaultpagemarginbottom}
+% Numeración de páginas y márgenes
+\newpage
+\setpagemargincm{\pagemarginleft}{\pagemargintop}
+{\pagemarginright}{\pagemarginbottom}
+\decimalpoint % Se define el punto decimal
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
 
 % Definición de nombres a objetos
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
-\renewcommand{\tablename}{\nombltwtablas} % Nombre de la leyenda de las tablas
-\renewcommand{\figurename}{\nombltwfigura} % Nombre de la leyenda de las figuras
-\renewcommand{\lstlistingname}{\nombltwcodfuente} % Nombre de la leyenda cod. fuente
+\renewcommand{\tablename}{\nomltwtable}         % Nombre de la leyenda de tablas
+\renewcommand{\figurename}{\nomltwfigure}       % Nombre de la leyenda de las fig.
+\renewcommand{\lstlistingname}{\nomltwsrc}      % Nombre leyenda del código fuente
 
 % Se crean los estílos de página
 \pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
@@ -31,9 +30,6 @@
 \fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
 \fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 \renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
-\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
-\subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}
-\subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
 \fancypagestyle{styleportrait}{ % Estilo portada
 	\pagestyle{fancy}
 	\fancyhf{}
@@ -45,11 +41,11 @@
 		\codigodelcurso - \nombredelcurso
 	}
 	\fancyhead[R]{
-		\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento} \vspace{0cm}
+		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
 	}
 	\renewcommand{\headrulewidth}{0.5pt}
-	\setpagemargincm{\defaultpagemarginleft}{2.0}
-	{\defaultpagemarginright}{\defaultpagemarginbottom}
+	\setpagemargincm{\pagemarginleft}{2.0}
+	{\pagemarginright}{\pagemarginbottom}
 	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
 	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
 	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
@@ -68,3 +64,17 @@
 	\equipodocente
 	\vspace{0.6cm}
 \end{center}
+
+% Se activa el word-wrap para textos con \texttt{}
+{{\ttfamily \hyphenchar\the\font=`\-}
+
+% Se reestablece estilo de títulos
+\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
+\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
+\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
+
+% Se reestablecen números de página y secciones
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+\setcounter{section}{0}
+\setcounter{footnote}{0}

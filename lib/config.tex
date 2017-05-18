@@ -1,39 +1,67 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      2.4 (23/04/2017)
+% Versión:      3.0 (18/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
-%        Facultad de Ciencias Físicas y Matemáticas.
-%        Universidad de Chile.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-\newcommand{\defaultimagefolder}{images/}        % Directorio de las imágenes
-\newcommand{\defaultnewlinesize}{11pt}           % Tamaño del salto de línea
-\newcommand{\defaultinterlind}{1.0}              % Entrelineado por defecto
-\newcommand{\tipofuentetitulo}{\huge}            % Tamaño de los títulos
-\newcommand{\tipofuentesubtitulo}{\Large}        % Tamaño de los subtítulos
-\newcommand{\tipofuentesubsubtitulo}{\large}     % Tamaño de los sub-subtítulos
-\newcommand{\etipofuentetitulo}{\bfseries}       % Estilo de los títulos
-\newcommand{\etipofuentesubtitulo}{\bfseries}    % Estilo de los subtítulos
-\newcommand{\etipofuentesubsubtitulo}{\bfseries} % Estilo de los sub-subtítulos
-\newcommand{\nombltwtablas}{Tabla}               % Nombre de las tablas
-\newcommand{\nombltwfigura}{Figura}              % Nombre de las figuras
-\newcommand{\nombltwcodfuente}{Código Fuente}    % Nombre del código fuente
-\newcommand{\tablepadding}{1.1}                  % Padding de las tablas
-\newcommand{\defaultcaptionmargin}{2.9}          % Márgenes de las leyendas por defecto
-\newcommand{\defaultpagemarginleft}{2.5}         % Margen izquierdo de las páginas [cm]
-\newcommand{\defaultpagemarginright}{2.5}        % Margen derecho de las páginas [cm]
-\newcommand{\defaultpagemargintop}{2.3}          % Margen superior de las páginas [cm]
-\newcommand{\defaultpagemarginbottom}{2.7}       % Margen inferior de las páginas [cm]
-\newcommand{\defaultfirstpagemargintop}{4.5}     % Margen superior de la portada [cm]
-\newcommand{\defaultmarginfloatimages}{-13pt}    % Margen sup. de figuras flotantes [pt]
-\newcommand{\defaultmargintopimages}{0.0cm}      % Margen sup. de las figuras [cm]
-\newcommand{\defaultmarginbottomimages}{-0.2cm}  % Margen inf. de las figuras [cm]
+% CONFIGURACIONES GENERALES
+\def\defaultimagefolder {images/} % Carpeta de las imágenes
+\def\defaultinterline {1.0}       % Interlineado por defecto
+\def\defaultnewlinesize {11pt}    % Tamaño del salto de línea
+\def\showborderonlinks {false}    % Muestra un recuadro en cada enlace
+\def\showdotontitles {false}      % Punto al final de cada título/subtítulo/etc
+\def\tablepadding {1.0}           % Padding de las tablas
 
-% CONFIGURACIONES BOOLEANAS
-\newcommand{\showborderonlinks}{false} % Muestra un recuadro en cada enlace
-\newcommand{\showheadertitle}{true}    % Muestra el título de la auxiliar en el header
+% CONFIGURACIÓN DE LOS CAPTION
+\def\captionbottommargin {4}      % Margen inferior de las leyendas [pt]
+\def\captionlessmargin {0.1cm}    % Margen sup/inf de figuras si no hay leyenda
+\def\captionlrmargin {2.7}        % Márgenes izq/der de la leyenda [cm]
+\def\captiontextbold {false}      % Etiquetas (Figura,Tabla,etc.) en negrita
+\def\captiontopmargin {9}         % Margen superior de la leyenda [pt]
+\def\centeredcaption {false}      % Caption centrado al tener varias líneas
+\def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
+\def\showsectiononcaption {false} % Muestra el número de sección en las leyendas
+
+% CONFIGURACIÓN DE LOS COLORES [http://latexcolor.com/]
+\def\captioncolor {black}         % Color de la etiqueta (Figura, Tabla, Código)
+\def\captiontextcolor {black}     % Color de la leyenda
+\def\citecolor {black}            % Color del número de las referencias o citas
+\def\highlightcolor {yellow}      % Color del subrayado con \hl
+\def\linkcolor {black}            % Color de los enlaces del documento
+\def\maintextcolor {black}        % Color principal del texto
+\def\subsubtitlecolor {black}     % Color de los sub-subtítulos
+\def\subtitlecolor {black}        % Color de los subtítulos
+\def\tablelinecolor {black}       % Color de las líneas de las tablas
+\def\titlecolor {black}           % Color de los títulos
+\def\urlcolor {black}             % Color de los url (insertados con \url,\href)
+
+% MÁRGENES DE FIGURAS
+\def\marginbottomimages {-0.2cm}  % Margen inferior figura
+\def\marginfloatimages {-13pt}    % Margen sup. fig. flotante (\insertimageleft/right)
+\def\margintopimages {0.0cm}      % Margen superior figura
+
+% MÁRGENES DE PÁGINA
+\def\pagemarginbottom {2.7}       % Margen inferior página [cm]
+\def\pagemarginleft {2.54}        % Margen izquierdo página [cm]
+\def\pagemarginright {2.54}       % Margen derecho página [cm]
+\def\pagemargintop {2.30}         % Margen superior página [cm]
+
+% ESTILO Y TAMAÑO DE TÍTULOS
+\def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
+\def\fontsizesubtitle {\Large}    % Tamaño subtítulos
+\def\fontsizetitle {\huge}        % Tamaño títulos
+\def\stylesubsubtitle {\bfseries} % Estilo sub-subtítulos
+\def\stylesubtitle {\bfseries}    % Estilo subtítulos
+\def\styletitle {\bfseries}       % Estilo títulos
+
+% NOMBRE DE OBJETOS
+\def\nomltwsrc {Código}           % Etiqueta leyenda del código fuente
+\def\nomltwfigure {Figura}        % Etiqueta leyenda de las figuras
+\def\nomltwtable {Tabla}          % Etiqueta leyenda de las tablas
