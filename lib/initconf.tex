@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.1 (18/05/2017)
+% Versión:      4.1.0 (04/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -8,27 +8,115 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
-% Licencia: MIT           [https://opensource.org/licenses/MIT]
+% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Licencia MIT:           [https://opensource.org/licenses/MIT]
 
-% Definición de dimensiones
-\setlength{\headheight}{64pt}  % Tamaño de la cabecera sin fancyhdr
+% Se revisa si las variables no han sido borradas
+\checkvardefined{\tituloauxiliar}
+\checkvardefined{\temaatratar}
+\checkvardefined{\autordeldocumento}
+\checkvardefined{\nombredelcurso}
+\checkvardefined{\codigodelcurso}
+\checkvardefined{\nombreuniversidad}
+\checkvardefined{\nombrefacultad}
+\checkvardefined{\departamentouniversidad}
+\checkvardefined{\localizacionuniversidad}
+
+% Se añade \xspace a las variables
+\makeatletter
+	\g@addto@macro\tituloauxiliar\xspace
+	\g@addto@macro\temaatratar\xspace
+	\g@addto@macro\autordeldocumento\xspace
+	\g@addto@macro\nombredelcurso\xspace
+	\g@addto@macro\codigodelcurso\xspace
+	\g@addto@macro\nombreuniversidad\xspace
+	\g@addto@macro\nombrefacultad\xspace
+	\g@addto@macro\departamentouniversidad\xspace
+	\g@addto@macro\localizacionuniversidad\xspace
+\makeatother
+
+% Se crean variables si se borraron
+\ifthenelse{\isundefined{\equipodocente}}{
+	\errmessage{LaTeX Warning: Se borro la variable \noexpand\equipodocente, creando una vacia}
+	\def\equipodocente {}
+}{}
+
+% Se define metadata del pdf
+\hypersetup{
+	bookmarksopen={\cfgpdfbookmarkopen},
+	bookmarksopenlevel={\cfgbookmarksopenlevel},
+	bookmarkstype={toc},
+	pdfauthor={\autordeldocumento},
+	pdfcenterwindow={\cfgpdfcenterwindow},
+	pdfcreator={LaTeX, pdfLaTeX},
+	pdfdisplaydoctitle={\cfgpdfdisplaydoctitle},
+	pdffitwindow={\cfgpdffitwindow},
+	pdfinfo={
+		Curso.Codigo={\codigodelcurso},
+		Curso.Nombre={\nombredelcurso},
+		Documento.Autor={\autordeldocumento},
+		Documento.Tema={\temaatratar},
+		Documento.Titulo={\tituloauxiliar},
+		Template.Autor.Alias={ppizarror},
+		Template.Autor.Email={pablo.pizarro@ing.uchile.cl},
+		Template.Autor.Nombre={Pablo Pizarro R.},
+		Template.Autor.Web={http://ppizarror.com/},
+		Template.Codificacion={UTF-8},
+		Template.Fecha={04/07/2017},
+		Template.Licencia.Tipo={MIT},
+		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
+		Template.Nombre={Template-Auxiliares},
+		Template.Tipo={Normal},
+		Template.Version.Dev={4.1.0-AUX-N},
+		Template.Version.Hash={37164BA71D1FCCE0BF22E74218568957},
+		Template.Version.Release={4.1.0},
+		Template.Web.Dev={https://github.com/ppizarror/Template-Auxiliares/},
+		Template.Web.Manual={http://ppizarror.com/Template-Auxiliares/},
+		Universidad.Departamento={\departamentouniversidad},
+		Universidad.Nombre={\nombreuniversidad},
+		Universidad.Ubicacion={\localizacionuniversidad},
+	},
+	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
+	pdfpagemode={UseOutlines},
+	pdfproducer={Template-Auxiliares v4.1.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfstartpage={1},
+	pdfstartview={FitH},
+	pdfsubject={\temaatratar},
+	pdftitle={\tituloauxiliar},
+	pdftoolbar={\cfgpdftoolbar},
+	pdfview={FitH}
+}
+
+% Establece la carpeta de imágenes por defecto
+\graphicspath{{./\defaultimagefolder}{./../\defaultimagefolder}}
+
+% Definición de valores e dimensiones
+\setlength{\headheight}{64pt} % Tamaño de la cabecera sin fancyhdr
 \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
+\newcounter{templatepagecounter} % Administra números de páginas
 \setlength{\footnotemargin}{3mm} % Margen del footnote
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
-\setcaptionmargincm{\captionlrmargin} % Margen por defecto
 
 % Configuración de los colores
 \color{\maintextcolor} % Color principal
 \arrayrulecolor{\tablelinecolor} % Color de las lineas de las tablas
 \sethlcolor{\highlightcolor} % Color del subrayado por defecto
-\hypersetup{
-	% Color de links
-	colorlinks,
-	citecolor=\citecolor,
-	filecolor=black,
-	linkcolor=\linkcolor,
-	urlcolor=\urlcolor
+\ifthenelse{\equal{\showborderonlinks}{true}}{
+	\hypersetup{
+		% Color de links con borde
+		citebordercolor=\citecolor,
+		linkbordercolor=\linkcolor,
+		urlbordercolor=\urlcolor
+	}
+}{
+	\hypersetup{
+		% Color de links sin borde
+		hidelinks,
+		colorlinks=true,
+		citecolor=\citecolor,
+		linkcolor=\linkcolor,
+		urlcolor=\urlcolor
+	}
 }
 
 % Configuración de las leyendas
@@ -38,28 +126,118 @@
 	\renewcommand{\captiontextbold}{}
 }
 \captionsetup{
-	% Se actualizan los márgenes de los caption
-	belowskip=\captionbottommargin pt,
-	aboveskip=\captiontopmargin pt,
+	% Se configura el texto de los caption
 	labelfont={color=\captioncolor, \captiontextbold},
-	textfont={color=\captiontextcolor}
+	textfont={color=\captiontextcolor},
+	singlelinecheck=on
+}
+\floatsetup[figure]{
+	% Configuración de márgenes en las figuras
+	captionskip=\captiontbmarginfigure pt
+}
+\floatsetup[table]{
+	% Configuración de márgenes en las tablas
+	captionskip=\captiontbmargintable pt
 }
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
-	% Se dejan los caption en la parte superior para las figuras
-	\floatsetup[figure]{capposition=top}}{
+	% Se dejan los caption en la parte superior de las figuras
+	\floatsetup[figure]{
+		position=above
+	}}{
 }
-\ifthenelse{\equal{\centeredcaption}{true}}{
-	% Se centran todos los captions
-	\captionsetup{justification=centering}}{
+\ifthenelse{\equal{\tablecaptiontop}{true}}{
+	% Se dejan los caption en la parte superior de las tablas
+	\floatsetup[table]{
+		position=top}
+	}{
+	\floatsetup[table]{
+		position=bottom}
 }
+\ifthenelse{\equal{\captionalignment}{justified}}{
+	% Leyenda justificada
+	\captionsetup{
+		justification=justified,
+		format=plain}
+}{
+\ifthenelse{\equal{\captionalignment}{centered}}{
+	% Leyenda centrada
+	\captionsetup{
+		justification=centering
+	}
+}{
+\ifthenelse{\equal{\captionalignment}{left}}{
+	% Leyenda alineada a la izquierda
+	\captionsetup{
+		justification=raggedright,
+		singlelinecheck=false
+	}
+}{
+\ifthenelse{\equal{\captionalignment}{right}}{
+	% Leyenda alineada a la derecha
+	\captionsetup{
+		justification=raggedleft,
+		singlelinecheck=false
+	}
+}{
+	\errmessage{Error: Posicion de leyendas desconocida \noexpand \captionalignment= \captionalignment}
+}
+}}}
 
-% Configuración de acentos y carácteres especiales
-\SelectInputMappings{
-	aacute={á},
-	Euro={€},
-	Ntilde={Ñ}
+% Configuración de referencias y citas
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{
+	\bibliographystyle{apa}
+	\setlength{\bibsep}{\natbibrefsep pt}
+}{
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+	\bibliographystyle{apacite}
+	\setlength{\bibitemsep}{\apaciterefsep pt}
+}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	\bibliographystyle{apa}
+	\newlength{\bibitemsep}\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
+	\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+	\let\oldthebibliography\thebibliography
+	\renewcommand\thebibliography[1]{
+		\oldthebibliography{#1}
+		\setlength{\parskip}{\bibitemsep}
+		\setlength{\itemsep}{\bibparskip}
+	}
+	\setlength{\bibitemsep}{\bibtexrefsep pt}
+}{
+	\errmessage{Error: Estilo citas desconocido \noexpand \stylecitereferences=\stylecitereferences. Valores esperados: bibtex,apacite,natbib}
+	\stop}
 }
-\lstset{literate=
+}
+\makeatletter
+\ifthenelse{\equal{\twocolumnreferences}{true}}{
+	% Referencias en 2 columnas
+	\renewenvironment{thebibliography}[1]
+	{\begin{multicols}{2}[\section*{\refname}]
+		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
+		\list{\@biblabel{\@arabic\c@enumiv}}
+		{\settowidth\labelwidth{\@biblabel{#1}}
+			\leftmargin\labelwidth
+			\advance\leftmargin\labelsep
+			\@openbib@code
+			\usecounter{enumiv}
+			\let\p@enumiv\@empty
+			\renewcommand\theenumiv{\@arabic\c@enumiv}}
+		\sloppy
+		\clubpenalty 4000
+		\@clubpenalty \clubpenalty
+		\widowpenalty 4000
+		\sfcode`\.\@m}
+		{\def\@noitemerr
+		{\@latex@warning{Ambiente `thebibliography' no definido}}
+		\endlist\end{multicols}}}{}
+\makeatother
+
+% Configuración de códigos fuente
+\lstset{
+	extendedchars=true,
+	keepspaces=true,
+	columns=flexible,
+	literate=
 	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
 	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
@@ -75,29 +253,14 @@
 }
 
 % Configuración de hbox y vbox
-\hfuzz=100pt \vfuzz=100pt
-\hbadness=2000 \vbadness=\maxdimen
+\hfuzz=200pt \vfuzz=200pt
+\hbadness=\maxdimen \vbadness=\maxdimen
 
-% Se define metadata
-\hypersetup{
-	pdfpagemode={UseOutlines},
-	pdftitle={\tituloauxiliar},
-	pdfauthor={\autordeldocumento},
-	pdfsubject={\temaatratar},
-	pdfcreator={LaTeX, pdfLaTeX, ppizarror},
-	pdfproducer={Template-Informe v\templateversion\ | (Pablo Pizarro) ppizarror.com},
-	pdfkeywords={\nombreuniversidad\ ,\codigodelcurso\ \nombredelcurso, \localizacionuniversidad},
-	pdfinfo={
-		Author={\autordeldocumento},
-		Title={\tituloauxiliar},
-		Subject={\temaatratar},
-		Template={Template-Auxiliares},
-		Template.Author={Pablo Pizarro, ppizarror.com},
-		Template.Version={\templateversion},
-		Template.Website={http://ppizarror.com/Template-Auxiliares/},
-	},
-	pdfview={FitH},
-	pdfstartview={FitH},
-	pdfstartpage={1},
-	pdfdisplaydoctitle={true},
-}
+% Se activa el word-wrap para textos con \texttt{}
+\ttfamily \hyphenchar\the\font=`\-
+	
+% Se define el tipo de texto de los url
+\urlstyle{tt}
+
+% Se activa el modo estricto de revisión de números de página
+\strictpagecheck

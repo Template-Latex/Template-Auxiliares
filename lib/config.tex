@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
-% Documento:    Archivo de configuraciones
-% Versión:      3.1 (18/05/2017)
+% Documento:    Configuraciones del template
+% Versión:      4.1.0 (04/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -8,50 +8,69 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
-% Licencia: MIT           [https://opensource.org/licenses/MIT]
+% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Licencia MIT:           [https://opensource.org/licenses/MIT]
 
 % CONFIGURACIONES GENERALES
-\def\defaultimagefolder {images/} % Carpeta de las imágenes
-\def\defaultinterline {1.0}       % Interlineado por defecto
-\def\defaultnewlinesize {11pt}    % Tamaño del salto de línea
-\def\showborderonlinks {false}    % Muestra un recuadro en cada enlace
-\def\showdotontitles {false}      % Punto al final de cada título/subtítulo/etc
-\def\tablepadding {1.0}           % Padding de las tablas
+\def\defaultimagefolder {images/} % Carpeta raíz de las imágenes
+\def\defaultinterline {1.0}       % Interlineado por defecto [pt]
+\def\defaultnewlinesize {11.0}    % Tamaño del salto de línea [pt]
+\def\fontdocument {lmodern}       % Tipografía del documento (lmodern,arial,helvet)
+\def\numberedequation {true}      % Ecuaciones con \insert... numeradas
+\def\pointdecimal {false}         % Decimales con punto en vez de coma
+\def\showdotontitles {false}      % Punto al final de cada número de título/subtítulo
+\def\tablepadding {1.0}           % Ancho de celda de las tablas
 
-% CONFIGURACIÓN DE LOS CAPTION
-\def\captionbottommargin {4}      % Margen inferior de las leyendas [pt]
-\def\captionlessmargin {0.1cm}    % Margen sup/inf de figuras si no hay leyenda
-\def\captionlrmargin {2.7}        % Márgenes izq/der de la leyenda [cm]
-\def\captiontextbold {false}      % Etiquetas (Figura,Tabla,etc.) en negrita
-\def\captiontopmargin {9}         % Margen superior de la leyenda [pt]
-\def\centeredcaption {false}      % Caption centrado al tener varias líneas
+
+% CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
+\def\captionlessmarginimage {0.1} % Margen sup/inf de fig. si no hay leyenda [cm]
+\def\captionlrmargin {2.0}        % Márgenes izq/der de la leyenda [cm]
+\def\captionalignment {justified} % Alineación leyenda: justified,centered,left,right
+\def\captiontbmarginfigure {9.35} % Margen sup/inf de la leyenda en figuras [pt]
+\def\captiontbmargintable {7.0}   % Margen sup/inf de la leyenda en tablas [pt]
+\def\captiontextbold {false}      % Etiquetas (Figura,Tabla,Código) en negrita
+\def\codecaptiontop {true}        % Leyenda arriba del código fuente
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
 \def\showsectiononcaption {false} % Muestra el número de sección en las leyendas
+\def\tablecaptiontop {true}       % Leyenda arriba de las tablas
 
-% CONFIGURACIÓN DE LOS COLORES [http://latexcolor.com/]
+
+% CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
 \def\captioncolor {black}         % Color de la etiqueta (Figura, Tabla, Código)
 \def\captiontextcolor {black}     % Color de la leyenda
 \def\citecolor {black}            % Color del número de las referencias o citas
 \def\highlightcolor {yellow}      % Color del subrayado con \hl
-\def\linkcolor {black}            % Color de los enlaces del documento
+\def\linkcolor {black}            % Color de los links del doc.
 \def\maintextcolor {black}        % Color principal del texto
+\def\showborderonlinks {false}    % Color de un links por un recuadro de color
 \def\subsubtitlecolor {black}     % Color de los sub-subtítulos
 \def\subtitlecolor {black}        % Color de los subtítulos
 \def\tablelinecolor {black}       % Color de las líneas de las tablas
 \def\titlecolor {black}           % Color de los títulos
-\def\urlcolor {black}             % Color de los url (insertados con \url,\href)
+\def\urlcolor {magenta}           % Color de los enlaces web (\url,\href)
+
 
 % MÁRGENES DE FIGURAS
-\def\marginbottomimages {-0.2cm}  % Margen inferior figura
-\def\marginfloatimages {-13pt}    % Margen sup. fig. flotante (\insertimageleft/right)
-\def\margintopimages {0.0cm}      % Margen superior figura
+\def\marginbottomimages {-0.2}    % Margen inferior figura [cm]
+\def\marginfloatimages {-13.0}    % Margen sup. fig flot. \insertimageleft/right [pt]
+\def\margintopimages {0.0}        % Margen superior figura [cm]
+
+
+% CITAS Y REFERENCIAS
+\def\apaciterefsep {9}            % Separación entre referencias [pt] {apacite}
+\def\bibtexrefsep {9}             % Separación entre referencias [pt] {bibtex}
+\def\natbibrefsep {5}             % Separación entre referencias [pt] {natbib}
+\def\referencenumsection {true}   % Sección de referencias numerada
+\def\stylecitereferences {bibtex} % Estilo citas y referencias (bibtex,apacite,natbib)
+\def\twocolumnreferences {false}  % Referencias en dos columnas
+
 
 % MÁRGENES DE PÁGINA
 \def\pagemarginbottom {2.7}       % Margen inferior página [cm]
 \def\pagemarginleft {2.54}        % Margen izquierdo página [cm]
 \def\pagemarginright {2.54}       % Margen derecho página [cm]
 \def\pagemargintop {2.30}         % Margen superior página [cm]
+
 
 % ESTILO Y TAMAÑO DE TÍTULOS
 \def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
@@ -61,7 +80,18 @@
 \def\stylesubtitle {\bfseries}    % Estilo subtítulos
 \def\styletitle {\bfseries}       % Estilo títulos
 
+
+% OPCIONES DEL PDF COMPILADO
+\def\cfgbookmarksopenlevel {1}    % Nivel de los marcadores a mostrar (1: secciones)
+\def\cfgpdfbookmarkopen {true}    % Abre el panel de marcadores al abrir el pdf
+\def\cfgpdfcenterwindow {true}    % Centra la ventana del lector al abrir el pdf
+\def\cfgpdfdisplaydoctitle {true} % Muestra el título del informe como título del pdf
+\def\cfgpdffitwindow {false}      % Ajusta la ventana del lector al tamaño del pdf
+\def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
+
+
 % NOMBRE DE OBJETOS
+\def\namereferences {Referencias} % Nombre de la sección de referencias
 \def\nomltwsrc {Código}           % Etiqueta leyenda del código fuente
 \def\nomltwfigure {Figura}        % Etiqueta leyenda de las figuras
 \def\nomltwtable {Tabla}          % Etiqueta leyenda de las tablas

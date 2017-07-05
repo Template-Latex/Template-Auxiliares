@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      3.1 (18/05/2017)
+% Versión:      4.1.0 (04/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -8,23 +8,42 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
-% Licencia: MIT           [https://opensource.org/licenses/MIT]
+% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Licencia MIT:           [https://opensource.org/licenses/MIT]
 
-% Numeración de páginas y márgenes
+% Numeración de páginas
 \newpage
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+\setcounter{section}{0}
+\setcounter{footnote}{0}
+
+% Márgenes de páginas y tablas
 \setpagemargincm{\pagemarginleft}{\pagemargintop}
 {\pagemarginright}{\pagemarginbottom}
-\decimalpoint % Se define el punto decimal
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
 
-% Definición de nombres a objetos
+% Se define el punto decimal
+\ifthenelse{\equal{\pointdecimal}{true}}{
+	\decimalpoint}{
+}
+
+% Definición de nombres de objetos
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
 \renewcommand{\tablename}{\nomltwtable}         % Nombre de la leyenda de tablas
 \renewcommand{\figurename}{\nomltwfigure}       % Nombre de la leyenda de las fig.
 \renewcommand{\lstlistingname}{\nomltwsrc}      % Nombre leyenda del código fuente
+\renewcommand\refname{\namereferences}          % Nombre de las referencias
 
-% Se crean los estílos de página
+% Numeración de objetos
+\ifthenelse{\equal{\showsectiononcaption}{true}}{
+	\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
+	\counterwithin{figure}{section}     % Añade número de sección a las figuras
+	\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
+	\counterwithin{table}{section}      % Añade número de sección a las tablas
+}{}
+
+% Se crean los header-footer
 \pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
 \renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
 \fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
@@ -52,9 +71,7 @@
 	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
 	\renewcommand{\footrulewidth}{0.5pt}               % Ancho de la barra del footer
 }
-
-% Encabezado auxiliar (título e integrantes)
-\thispagestyle{styleportrait}
+\thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
 \begin{center}
 	\vspace*{2cm}
 	\huge {\tituloauxiliar} \\
@@ -65,16 +82,7 @@
 	\vspace{0.6cm}
 \end{center}
 
-% Se activa el word-wrap para textos con \texttt{}
-{{\ttfamily \hyphenchar\the\font=`\-}
-
-% Se reestablece estilo de títulos
+% Tamaño fuentes
 \sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 \subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
 \subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
-
-% Se reestablecen números de página y secciones
-\renewcommand{\thepage}{\arabic{page}}
-\setcounter{page}{1}
-\setcounter{section}{0}
-\setcounter{footnote}{0}
