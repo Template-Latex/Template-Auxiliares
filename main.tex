@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Archivo principal
-% Versión:      4.1.0 (04/07/2017)
+% Versión:      4.1.3 (04/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -32,19 +32,17 @@
 
 % INTEGRANTES, PROFESORES Y FECHAS
 \def\equipodocente {
-	\begin{centering}
-		\begin{tabular}{lll}
-			\begin{tabular}[t]{@{}c@{}}
-				Profesor Auxiliar 1 \\ \centering
-				\insertemail{correo1@mail.com}
-			\end{tabular}
-			& % Espacio en blanco
-			& \begin{tabular}[t]{@{}c@{}}
-				Profesor Auxiliar 2 \\ \centering
-				\insertemail{correo2@mail.com}
-			\end{tabular} \\
-		\end{tabular}
-	\end{centering}
+\begin{centering}\begin{tabular}{lll}
+	\begin{tabular}[t]{@{}c@{}}
+		Profesor Auxiliar 1 \\ \centering
+		\insertemail{correo1@mail.com}
+	\end{tabular}
+	&
+	& \begin{tabular}[t]{@{}c@{}}
+		Profesor Auxiliar 2 \\ \centering
+		\insertemail{correo2@mail.com}
+	\end{tabular} \\
+\end{tabular}\end{centering}
 }
 
 % CONFIGURACIONES
@@ -73,9 +71,9 @@
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \input{lib/pageconf}
 
-% ========================= INICIO DEL DOCUMENTO =========================
+% ======================= INICIO DEL DOCUMENTO =======================
 
-\input{lib/example} % Ejemplo, se puede borrar la línea
+\input{lib/example.tex} % Ejemplo, se puede borrar la línea
 
 % FIN DEL DOCUMENTO
 \end{document}

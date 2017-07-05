@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.1.0 (04/07/2017)
+% Versión:      4.1.3 (04/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -67,9 +67,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.1.0-AUX-N},
-		Template.Version.Hash={37164BA71D1FCCE0BF22E74218568957},
-		Template.Version.Release={4.1.0},
+		Template.Version.Dev={4.1.3-AUX-N},
+		Template.Version.Hash={F7EBB94011241EE0B395C517DD79E86F},
+		Template.Version.Release={4.1.3},
 		Template.Web.Dev={https://github.com/ppizarror/Template-Auxiliares/},
 		Template.Web.Manual={http://ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -78,7 +78,7 @@
 	},
 	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
 	pdfpagemode={UseOutlines},
-	pdfproducer={Template-Auxiliares v4.1.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v4.1.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfstartpage={1},
 	pdfstartview={FitH},
 	pdfsubject={\temaatratar},
@@ -88,7 +88,7 @@
 }
 
 % Establece la carpeta de imágenes por defecto
-\graphicspath{{./\defaultimagefolder}{./../\defaultimagefolder}}
+\graphicspath{{./\defaultimagefolder}}
 
 % Definición de valores e dimensiones
 \setlength{\headheight}{64pt} % Tamaño de la cabecera sin fancyhdr
@@ -179,9 +179,8 @@
 		singlelinecheck=false
 	}
 }{
-	\errmessage{Error: Posicion de leyendas desconocida \noexpand \captionalignment= \captionalignment}
+	\errmessage{Error: Posicion de leyendas desconocida \noexpand \captionalignment= \captionalignment}}}}
 }
-}}}
 
 % Configuración de referencias y citas
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
@@ -205,8 +204,7 @@
 	\setlength{\bibitemsep}{\bibtexrefsep pt}
 }{
 	\errmessage{Error: Estilo citas desconocido \noexpand \stylecitereferences=\stylecitereferences. Valores esperados: bibtex,apacite,natbib}
-	\stop}
-}
+	\stop}}
 }
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
