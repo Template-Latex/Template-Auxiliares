@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      4.1.3 (04/07/2017)
+% Versión:      4.0.0 (07/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -30,6 +30,9 @@
 
 % Definición de nombres de objetos
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
+\renewcommand{\listfigurename}{\nomltfigure}    % Nombre del índice de figuras
+\renewcommand{\listtablename}{\nomlttable}      % Nombre del índice de tablas
+\renewcommand{\contentsname}{\nomltcont}        % Nombre del índice
 \renewcommand{\tablename}{\nomltwtable}         % Nombre de la leyenda de tablas
 \renewcommand{\figurename}{\nomltwfigure}       % Nombre de la leyenda de las fig.
 \renewcommand{\lstlistingname}{\nomltwsrc}      % Nombre leyenda del código fuente
@@ -73,13 +76,16 @@
 }
 \thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
 \begin{center}
-	\vspace*{2cm}
+	\vspace*{2.0cm}
 	\huge {\tituloauxiliar} \\
 	\vspace{0.2cm}
 	\large {\temaatratar} \\
-	\vspace{0.7cm}
-	\equipodocente
-	\vspace{0.6cm}
+	\ifx\hfuzz\equipodocente\hfuzz
+	\else
+		\vspace{0.7cm}
+		\equipodocente
+		\vspace{0.6cm}
+	\fi
 \end{center}
 
 % Tamaño fuentes
