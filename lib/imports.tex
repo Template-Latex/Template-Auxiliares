@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      4.1.6 (10/07/2017)
+% Versión:      4.1.7 (10/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -62,15 +62,11 @@
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
 \usepackage[bottom,norule,hang]{footmisc} % Estilo pié de página
+\usepackage[subfigure,titles]{tocloft} % Maneja entradas en el índice
 \usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
 \usepackage[normalem]{ulem} % Permite tachar y subrayar
 \usepackage[usenames,dvipsnames]{xcolor} % Paquete de colores avanzado
-
-% LIBRERÍAS DEPENDIENTES
-\usepackage{bookmark}      % Administración de marcadores en pdf
-\usepackage{float}         % Administrador de posiciones de objetos
-\usepackage{multirow}      % Agrega nuevas opciones a las tablas
 
 % LIBRERÍAS CONDICIONALES
 \ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega puntos a los títulos/subtítulos
@@ -90,3 +86,8 @@
 	}
 }
 \usepackage{appendix} % Anexos/Apéndices
+
+% LIBRERÍAS DEPENDIENTES
+\usepackage{bookmark}      % Administración de marcadores en pdf
+\usepackage{float}         % Administrador de posiciones de objetos
+\usepackage{multirow}      % Agrega nuevas opciones a las tablas
