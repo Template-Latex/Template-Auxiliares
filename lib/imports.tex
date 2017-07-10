@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      4.0.0 (07/07/2017)
+% Versión:      4.1.5 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -42,7 +42,7 @@
 \usepackage{longtable}     % Permite utilizar tablas en varias hojas
 \usepackage{mathtools}     % Permite utilizar notaciones matemáticas
 \usepackage{multicol}      % Múltiples columnas
-\usepackage{needspace}     % Maneja los espacios de página
+\usepackage{needspace}     % Maneja los espacios en página
 \usepackage{pdfpages}      % Permite administrar páginas en pdf
 \usepackage{physics}       % Paquete de matemáticas
 \usepackage{rotating}      % Permite rotación de objetos
@@ -68,6 +68,7 @@
 \usepackage[usenames,dvipsnames]{xcolor} % Paquete de colores avanzado
 
 % LIBRERÍAS DEPENDIENTES
+\usepackage{bookmark}      % Administración de marcadores en pdf
 \usepackage{float}         % Administrador de posiciones de objetos
 \usepackage{multirow}      % Agrega nuevas opciones a las tablas
 
@@ -80,9 +81,12 @@
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
 	\usepackage{natbib}
 }{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
-	\usepackage{apacite}
-}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
-}{}}
+	\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
+		\usepackage{apacite}
+	}{
+		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
+		}{
+		}
+	}
 }
+\usepackage{appendix} % Anexos/Apéndices

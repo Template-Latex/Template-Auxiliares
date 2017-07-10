@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Funciones exclusivas Template-Auxiliar
-% Versión:      4.0.0 (07/07/2017)
+% Versión:      4.1.5 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 	\sectionanum{#1}
 }
 
+% Crea una sección de referencias solo para bibtex
 \newenvironment{references}{
-	% Crea una sección de referencias solo para bibtex
 	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	}{
 		\throwerror{}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
@@ -34,7 +34,45 @@
 	\renewcommand{\section}[2]{}
 	\begin{thebibliography}{99}
 	}
-	{ 
+	{
 	\end{thebibliography}
 	\endgroup
+}
+
+% Crea una sección de anexos
+\newenvironment{anexo}{
+	\begingroup
+	\clearpage
+	\phantomsection
+	\ifthenelse{\equal{\showappendixsectitle}{true}}{
+		\appendixpage}{
+	}
+	\appendixtitleon
+	\appendicestocpagenum
+	\appendixtitletocon
+	\bookmarksetup{
+		numbered,
+		openlevel=0
+	}
+	\begin{appendices}
+		\bookmarksetupnext{level=part}
+		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
+			\belowpdfbookmark{\nameappendixsection}{contents}
+		}
+		\setcounter{secnumdepth}{3}
+		\setcounter{tocdepth}{3}
+		\counterwithin{equation}{section}
+		\counterwithin{figure}{section}
+		\counterwithin{lstlisting}{section}
+		\counterwithin{table}{section}
+		}
+		{
+	\end{appendices}
+	\bookmarksetupnext{level=0}
+	\endgroup
+}
+
+% Columna centrada en tablas
+\newcolumntype{P}[1]{
+	>{\centering\arraybackslash}p{#1}
 }

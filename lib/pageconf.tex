@@ -1,6 +1,6 @@
 % Template:     Template auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      4.0.0 (07/07/2017)
+% Versión:      4.1.5 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,8 +19,7 @@
 \setcounter{footnote}{0}
 
 % Márgenes de páginas y tablas
-\setpagemargincm{\pagemarginleft}{\pagemargintop}
-{\pagemarginright}{\pagemarginbottom}
+\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
 
 % Se define el punto decimal
@@ -29,14 +28,16 @@
 }
 
 % Definición de nombres de objetos
-\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
-\renewcommand{\listfigurename}{\nomltfigure}    % Nombre del índice de figuras
-\renewcommand{\listtablename}{\nomlttable}      % Nombre del índice de tablas
-\renewcommand{\contentsname}{\nomltcont}        % Nombre del índice
-\renewcommand{\tablename}{\nomltwtable}         % Nombre de la leyenda de tablas
-\renewcommand{\figurename}{\nomltwfigure}       % Nombre de la leyenda de las fig.
-\renewcommand{\lstlistingname}{\nomltwsrc}      % Nombre leyenda del código fuente
-\renewcommand\refname{\namereferences}          % Nombre de las referencias
+\renewcommand{\appendixname}{\nomltappendixsection} % Nom. del anexo en etiq. de título
+\renewcommand{\appendixpagename}{\nameappendixsection} % Nombre del anexo en índice
+\renewcommand{\appendixtocname}{\nameappendixsection} % Nombre del anexo en índice
+\renewcommand{\contentsname}{\nomltcont}  % Nombre del índice
+\renewcommand{\figurename}{\nomltwfigure} % Nombre de la leyenda de las fig.
+\renewcommand{\listfigurename}{\nomltfigure} % Nombre del índice de figuras
+\renewcommand{\listtablename}{\nomlttable} % Nombre del índice de tablas
+\renewcommand{\lstlistingname}{\nomltwsrc} % Nombre leyenda del código fuente
+\renewcommand{\refname}{\namereferences} % Nombre de las referencias
+\renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
 
 % Numeración de objetos
 \ifthenelse{\equal{\showsectiononcaption}{true}}{
