@@ -1,6 +1,6 @@
 # Template de auxiliares en latex
 
-Este corresponde a un template para confeccionar [geniales auxiliares en latex](https://github.com/ppizarror/Template-Auxiliares/blob/master/auxiliar.pdf), contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
+Este corresponde a un template para confeccionar [auxiliares en latex](https://github.com/ppizarror/Template-Auxiliares/blob/master/auxiliar.pdf), contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
 ## Manual de uso
 
