@@ -10,6 +10,10 @@
 [![Template-Pautas](http://latex.ppizarror.com/Template-Informe/resources/templates/pauta.svg)](https://github.com/Template-Latex/Template-Pautas/)
 [![Template-Informes](http://latex.ppizarror.com/Template-Informe/resources/templates/informe.svg)](https://github.com/Template-Latex/Template-Informe/)
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Template-Latex/Template-Informe/gh-pages/images/collage_auxiliar.png" alt="Auxiliar" width="80%px" height="80%px"/>
+</p>
+
 Este corresponde a un template para confeccionar auxiliares en Latex, contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
 ## Manual de uso
