@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.1.8 (10/07/2017)
+% Versión:      4.2.1 (21/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -42,13 +42,19 @@
 }{}
 
 % Se define metadata del pdf
+\ifthenelse{\equal{\cfgshowbookmarkmenu}{true}}{
+	\def\cdfpagemodepdf {UseOutlines}
+	}{
+	\def\cdfpagemodepdf {UseNone}
+}
 \hypersetup{
 	bookmarksopen={\cfgpdfbookmarkopen},
 	bookmarksopenlevel={\cfgbookmarksopenlevel},
 	bookmarkstype={toc},
 	pdfauthor={\autordeldocumento},
 	pdfcenterwindow={\cfgpdfcenterwindow},
-	pdfcreator={LaTeX, pdfLaTeX},
+	pdfcopyright={\cfgpdfcopyright},
+	pdfcreator={LaTeX},
 	pdfdisplaydoctitle={\cfgpdfdisplaydoctitle},
 	pdffitwindow={\cfgpdffitwindow},
 	pdfinfo={
@@ -62,28 +68,33 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={10/07/2017},
+		Template.Fecha={21/07/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.1.8-3-AUX-N},
-		Template.Version.Hash={251BDF9B19834EF499D7D2916814855F},
-		Template.Version.Release={4.1.8},
+		Template.Version.Dev={4.2.1-AUX-N},
+		Template.Version.Hash={8D2BDBA20335439299808684C7A390A5},
+		Template.Version.Release={4.2.1},
 		Template.Web.Dev={https://github.com/ppizarror/Template-Auxiliares/},
 		Template.Web.Manual={http://ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
 		Universidad.Nombre={\nombreuniversidad},
-		Universidad.Ubicacion={\localizacionuniversidad},
+		Universidad.Ubicacion={\localizacionuniversidad}
 	},
 	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
-	pdfpagemode={UseOutlines},
-	pdfproducer={Template-Auxiliares v4.1.8 | (Pablo Pizarro R.) ppizarror.com},
+	pdflang={es-CL},
+	pdfmenubar={\cfgpdfmenubar},
+	pdfpagelayout={SinglePage},
+	pdfpagemode={\cdfpagemodepdf},
+	pdfproducer={Template-Auxiliares v4.2.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfremotestartview={FitH},
 	pdfstartpage={1},
 	pdfstartview={FitH},
 	pdfsubject={\temaatratar},
 	pdftitle={\tituloauxiliar},
 	pdftoolbar={\cfgpdftoolbar},
+	pdftype={Text},
 	pdfview={FitH}
 }
 
