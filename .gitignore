@@ -24,7 +24,7 @@ __MACOSX/
 
 # Archivos tex
 *.tex
-main.pdf
+*.pdf
 
 # Python
 *.py
