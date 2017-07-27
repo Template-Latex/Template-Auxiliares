@@ -18,9 +18,6 @@
 # Version antigua
 _old/
 
-# Auxiliar pdf
-auxiliar.pdf
-
 # Windows.
 desktop.ini
 
@@ -34,5 +31,6 @@ __MACOSX/
 # Compilados python
 *.pyc
 
-# Otros
+# Compilados pdf
+auxiliar.pdf
 main.pdf
