@@ -24,6 +24,6 @@ El manual de uso de las funciones opcionales se encuentra disponible en la pági
 Este proyecto está licenciado bajo la licencia MIT [https://opensource.org/licenses/MIT].
 
 ## Autor
-Pablo Pizarro, 2017.
+Pablo Pizarro R. | 2017
 
-Si tienes alguna sugerencia envíame un correo a: [pablo.pizarro@ing.uchile.cl](mailto:pablo.pizarro@ing.uchile.cl), o sencillamente ten la libertad de enviar un _pull request_.
+Si tienes alguna sugerencia envíame un correo a: [pablo.pizarro@ing.uchile.cl](mailto:pablo.pizarro@ing.uchile.cl).
