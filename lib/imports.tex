@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      4.2.3 (27/07/2017)
+% Versión:      4.2.4 (28/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -14,8 +14,8 @@
 % LIBRERÍAS IMPORTANTES
 \usepackage[spanish,es-nosectiondot,es-lcroman]{babel} % Idioma
 \usepackage[T1]{fontenc}   % Caracteres acentuados
-\usepackage{\fontdocument} % Tipografía del documento\right) 
-\usepackage{ifthen}        % Permite el manejo de condicionales
+\usepackage{\fontdocument} % Tipografía del documento
+\usepackage{ifthen}        % Manejo de condicionales
 
 % LIBRERÍAS INDEPENDIENTES
 \usepackage{amsmath}       % Librerías matemáticas
@@ -81,8 +81,7 @@
 		\usepackage{apacite}
 	}{
 		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
-		}{
-		}
+		}{}
 	}
 }
 \usepackage{appendix} % Anexos/Apéndices
@@ -92,3 +91,4 @@
 \usepackage{float}         % Administrador de posiciones de objetos
 \usepackage{hyperxmp}      % Etiquetas opcionales para el pdf compilado
 \usepackage{multirow}      % Agrega nuevas opciones a las tablas
+
