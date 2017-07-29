@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.2.4 (28/07/2017)
+% Versión:      4.2.4 (29/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -68,13 +68,13 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={28/07/2017},
+		Template.Fecha={29/07/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.2.4-1-AUX-N},
-		Template.Version.Hash={5BA6F4751528C71D458E25B98637D8D6},
+		Template.Version.Dev={4.2.4-2-AUX-N},
+		Template.Version.Hash={47266C2F3963D9D8ED5CCA358D1C0AAC},
 		Template.Version.Release={4.2.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Auxiliares/},
@@ -161,27 +161,24 @@
 		format=plain
 	}
 }{
-	\ifthenelse{\equal{\captionalignment}{centered}}{ % Leyenda centrada
-		\captionsetup{
-			justification=centering
-		}
-	}{
-		\ifthenelse{\equal{\captionalignment}{left}}{ % Leyenda izq
-			\captionsetup{
-				justification=raggedright,
-				singlelinecheck=false
-			}
-		}{
-			\ifthenelse{\equal{\captionalignment}{right}}{ % Leyenda der
-				\captionsetup{
-					justification=raggedleft,
-					singlelinecheck=false
-				}
-			}{
-				\throwbadconfig{Posicion de leyendas desconocida}{\captionalignment}{justified,centered,left,right}
-			}
-		}
+\ifthenelse{\equal{\captionalignment}{centered}}{ % Leyenda centrada
+	\captionsetup{
+		justification=centering
 	}
+}{
+\ifthenelse{\equal{\captionalignment}{left}}{ % Leyenda izq
+	\captionsetup{
+		justification=raggedright,
+		singlelinecheck=false
+	}
+}{
+\ifthenelse{\equal{\captionalignment}{right}}{ % Leyenda der
+	\captionsetup{
+		justification=raggedleft,
+		singlelinecheck=false
+	}
+}{
+	\throwbadconfig{Posicion de leyendas desconocida}{\captionalignment}{justified,centered,left,right}}}}
 }
 
 % Configuración de referencias y citas
