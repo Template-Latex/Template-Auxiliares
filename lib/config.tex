@@ -12,7 +12,7 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 % CONFIGURACIONES GENERALES
-\def\anumsecaddtocounter {false}   % Función para insertar títulos "anum" aumenta contador
+\def\anumsecaddtocounter {false}   % Función para insertar títulos anum. aumenta contador
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11.0}     % Tamaño del salto de línea [pt]
 \def\fontdocument {lmodern}        % Tipografía (lmodern,arial,helvet)
@@ -79,6 +79,14 @@
 \def\stylesubtitle {\bfseries}     % Estilo subtítulos
 \def\styletitle {\bfseries}        % Estilo títulos
 
+% NOMBRE DE OBJETOS
+\def\nameappendixsection{Anexos}   % Nombre de la sección de anexos/apéndices
+\def\namereferences {Referencias}  % Nombre de la sección de referencias
+\def\nomltappendixsection {Anexo}  % Etiqueta sección en anexo/apéndices
+\def\nomltwfigure {Figura}         % Etiqueta leyenda de las figuras
+\def\nomltwsrc {Código}            % Etiqueta leyenda del código fuente
+\def\nomltwtable {Tabla}           % Etiqueta leyenda de las tablas
+
 % OPCIONES DEL PDF COMPILADO
 \def\cfgbookmarksopenlevel {1}     % Nivel de los marcadores a mostrar (2: subsecciones)
 \def\cfgpdfbookmarkopen {true}     % Expande los marcadores hasta el nivel configurado
@@ -89,11 +97,3 @@
 \def\cfgpdfmenubar {true}          % Muestra el menú del lector al abrir el pdf
 \def\cfgpdftoolbar {true}          % Muestra la barra de herramientas del lector pdf
 \def\cfgshowbookmarkmenu {false}   % Muestra el menú de los marcadores en el lector pdf
-
-% NOMBRE DE OBJETOS
-\def\nameappendixsection{Anexos}   % Nombre de la sección de anexos/apéndices
-\def\namereferences {Referencias}  % Nombre de la sección de referencias
-\def\nomltappendixsection {Anexo}  % Etiqueta sección en anexo/apéndices
-\def\nomltwfigure {Figura}         % Etiqueta leyenda de las figuras
-\def\nomltwsrc {Código}            % Etiqueta leyenda del código fuente
-\def\nomltwtable {Tabla}           % Etiqueta leyenda de las tablas
