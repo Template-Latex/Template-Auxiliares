@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.2.6 (12/08/2017)
+% Versión:      4.2.6 (19/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -68,13 +68,13 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={12/08/2017},
+		Template.Fecha={19/08/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.2.6-AUX-N},
-		Template.Version.Hash={FB8DFF2330E9E2F4E296F8172FC067AD},
+		Template.Version.Dev={4.2.6-1-AUX-N},
+		Template.Version.Hash={07DE489C65CD3682BD4B4A0973793461},
 		Template.Version.Release={4.2.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Auxiliares/},
@@ -256,11 +256,15 @@
 \hfuzz=200pt \vfuzz=200pt
 \hbadness=\maxdimen \vbadness=\maxdimen
 
-% Se activa el word-wrap para textos con \texttt{}
-\ttfamily \hyphenchar\the\font=`\-
-	
-% Se define el tipo de texto de los url
-\urlstyle{tt}
-
 % Se activa el modo estricto de revisión de números de página
 \strictpagecheck
+
+% Actualización márgen títulos
+\titlespacing{\section}{0pt}{20pt}{10pt}
+\titlespacing{\subsection}{0pt}{15pt}{10pt}
+
+% Se activa el word-wrap para textos con \texttt{}
+\ttfamily \hyphenchar\the\font=`\-
+
+% Se define el tipo de texto de los url
+\urlstyle{tt}
