@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.2.6 (19/08/2017)
+% Versión:      4.2.7 (26/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,89 +12,92 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 % CONFIGURACIONES GENERALES
-\def\defaultinterline {1.0}        % Interlineado por defecto [pt]
-\def\defaultnewlinesize {11.0}     % Tamaño del salto de línea [pt]
-\def\fontdocument {lmodern}        % Tipografía (lmodern,arial,helvet)
-\def\numberedequation {true}       % Ecuaciones con \insert... numeradas
-\def\pointdecimal {false}          % Decimales con punto en vez de coma
-\def\tablepadding {1.0}            % Ancho de celda de las tablas
-\def\templatestyle {style1}        % Estilo del template: style1,style2
+\def\defaultinterline {1.0}       % Interlineado por defecto [pt]
+\def\defaultnewlinesize {11.0}    % Tamaño del salto de línea [pt]
+\def\documentlang {es-CL}         % Define el idioma del documento
+\def\fontdocument {lmodern}       % Tipografía (lmodern,arial,helvet)
+\def\numberedequation {true}      % Ecuaciones con \insert... numeradas
+\def\pointdecimal {false}         % Decimales con punto en vez de coma
+\def\tablepadding {1.0}           % Ancho de celda de las tablas
+\def\templatestyle {style1}       % Estilo del template: style1,style2
 
 % MÁRGENES DE PÁGINA
-\def\pagemarginbottom {2.7}        % Margen inferior página [cm]
-\def\pagemarginleft {2.54}         % Margen izquierdo página [cm]
-\def\pagemarginright {2.54}        % Margen derecho página [cm]
-\def\pagemargintop {2.30}          % Margen superior página [cm]
+\def\pagemarginbottom {2.7}       % Margen inferior página [cm]
+\def\pagemarginleft {2.54}        % Margen izquierdo página [cm]
+\def\pagemarginright {2.54}       % Margen derecho página [cm]
+\def\pagemargintop {2.30}         % Margen superior página [cm]
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
-\def\captionlessmarginimage {0.1}  % Margen sup/inf de fig si no hay leyenda [cm]
-\def\captionlrmargin {2.0}         % Márgenes izq/der de la leyenda [cm]
-\def\captionalignment {justified}  % Alineación leyenda: justified,centered,left,right
-\def\captiontbmarginfigure {9.35}  % Margen sup/inf de la leyenda en figuras [pt]
-\def\captiontbmargintable {7.0}    % Margen sup/inf de la leyenda en tablas [pt]
-\def\captiontextbold {false}       % Etiquetas (Código,Figura,Tabla) en negrita
-\def\codecaptiontop {true}         % Leyenda arriba del código fuente
-\def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
-\def\showsectiononcaption {false}  % Muestra el número de sección en las leyendas
-\def\tablecaptiontop {true}        % Leyenda arriba de las tablas
+\def\captionlessmarginimage {0.1} % Margen sup/inf de figuras si no hay leyenda [cm]
+\def\captionlrmargin {2.0}        % Márgenes izq/der de la leyenda [cm]
+\def\captionalignment {justified} % Alineación leyenda: justified,centered,left,right
+\def\captiontbmarginfigure {9.35} % Margen sup/inf de la leyenda en figuras [pt]
+\def\captiontbmargintable {7.0}   % Margen sup/inf de la leyenda en tablas [pt]
+\def\captiontextbold {false}      % Etiquetas (Código,Figura,Tabla) en negrita
+\def\codecaptiontop {true}        % Leyenda arriba del código fuente
+\def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
+\def\showsectiononcaption {false} % Muestra el número de sección en las leyendas
+\def\tablecaptiontop {true}       % Leyenda arriba de las tablas
 
 % CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
-\def\captioncolor {black}          % Color de la etiqueta (Código,Figura,Tabla)
-\def\captiontextcolor {black}      % Color de la leyenda
-\def\citecolor {black}             % Color del número de las referencias o citas
-\def\highlightcolor {yellow}       % Color del subrayado con \hl
-\def\linkcolor {black}             % Color de los links del doc.
-\def\maintextcolor {black}         % Color principal del texto
-\def\showborderonlinks {false}     % Color de un links por un recuadro de color
-\def\subsubtitlecolor {black}      % Color de los sub-subtítulos
-\def\subtitlecolor {black}         % Color de los subtítulos
-\def\tablelinecolor {black}        % Color de las líneas de las tablas
-\def\titlecolor {black}            % Color de los títulos
-\def\urlcolor {magenta}            % Color de los enlaces web (\url,\href)
+\def\captioncolor {black}         % Color de la etiqueta (Código,Figura,Tabla)
+\def\captiontextcolor {black}     % Color de la leyenda
+\def\colorpage {white}            % Color de la página
+\def\highlightcolor {yellow}      % Color del subrayado con \hl
+\def\linkcolor {black}            % Color de los links del doc.
+\def\maintextcolor {black}        % Color principal del texto
+\def\numcitecolor {black}         % Color del número de las referencias o citas
+\def\showborderonlinks {false}    % Color de un links por un recuadro de color
+\def\subsubtitlecolor {black}     % Color de los sub-subtítulos
+\def\subtitlecolor {black}        % Color de los subtítulos
+\def\tablelinecolor {black}       % Color de las líneas de las tablas
+\def\titlecolor {black}           % Color de los títulos
+\def\urlcolor {magenta}           % Color de los enlaces web (\url,\href)
 
 % CONFIGURACIÓN DE FIGURAS
-\def\defaultimagefolder {images/}  % Carpeta raíz de las imágenes
-\def\marginbottomimages {-0.2}     % Margen inferior figura [cm]
-\def\marginfloatimages {-13.0}     % Margen sup. fig. float \insertimageleft/right [pt]
-\def\margintopimages {0.0}         % Margen superior figura [cm]
+\def\defaultimagefolder {images/} % Carpeta raíz de las imágenes
+\def\marginbottomimages {-0.2}    % Margen inferior figura [cm]
+\def\marginfloatimages {-13.0}    % Margen sup. fig. float \insertimageleft/right [pt]
+\def\margintopimages {0.0}        % Margen superior figura [cm]
 
 % ANEXO, CITAS, REFERENCIAS
-\def\apaciterefsep {9}             % Separación entre referencias [pt] {apacite}
-\def\appendixindepobjnum {true}    % Anexo usa número objetos de forma independiente
-\def\bibtexrefsep {9}              % Separación entre referencias [pt] {bibtex}
-\def\natbibrefsep {5}              % Separación entre referencias [pt] {natbib}
-\def\referencenumsection {false}   % Sección de referencias numerada
-\def\sectionappendixlastchar {.}   % Caracter entre el n° de la sec. de anexo y el título
-\def\showappendixsectitle {false}  % Muestra el título de la sec. de anexo en el informe
-\def\stylecitereferences {bibtex}  % Estilo citas y referencias (bibtex,apacite,natbib)
-\def\twocolumnreferences {false}   % Referencias en dos columnas
+\def\apaciterefsep {9}            % Separación entre referencias [pt] {apacite}
+\def\appendixindepobjnum {true}   % Anexo usa número objetos de forma independiente
+\def\bibtexrefsep {9}             % Separación entre referencias [pt] {bibtex}
+\def\donumrefsection {false}      % Sección de referencias numerada
+\def\natbibrefsep {5}             % Separación entre referencias [pt] {natbib}
+\def\sectionappendixlastchar {.}  % Carácter entre el N° de la sec. de anexo y el título
+\def\showappendixsectitle {false} % Muestra el título de la sec. de anexo en el informe
+\def\stylecitereferences {bibtex} % Estilo citas y referencias (bibtex,apacite,natbib)
+\def\twocolumnreferences {false}  % Referencias en dos columnas
 
 % CONFIGURACIÓN DE LOS TÍTULOS
-\def\anumsecaddtocounter {false}   % Función para insertar títulos anum. aumenta contador
-\def\fontsizesubsubtitle {\large}  % Tamaño sub-subtítulos
-\def\fontsizesubtitle {\Large}     % Tamaño subtítulos
-\def\fontsizetitle {\huge}         % Tamaño títulos
-\def\showdotontitles {false}       % Punto al final de cada número de título/sub(sub)título
-\def\stylesubsubtitle {\bfseries}  % Estilo sub-subtítulos
-\def\stylesubtitle {\bfseries}     % Estilo subtítulos
-\def\styletitle {\bfseries}        % Estilo títulos
+\def\anumsecaddtocounter {false}  % Función para insertar títulos <anum> aumenta contador
+\def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
+\def\fontsizesubtitle {\Large}    % Tamaño subtítulos
+\def\fontsizetitle {\huge}        % Tamaño títulos
+\def\showdotontitles {false}      % Punto al final de cada N° de título/sub(sub)título
+\def\stylesubsubtitle {\bfseries} % Estilo sub-subtítulos
+\def\stylesubtitle {\bfseries}    % Estilo subtítulos
+\def\styletitle {\bfseries}       % Estilo títulos
 
 % OPCIONES DEL PDF COMPILADO
-\def\cfgbookmarksopenlevel {1}     % Nivel de los marcadores a mostrar (2: subsecciones)
-\def\cfgpdfbookmarkopen {true}     % Expande los marcadores hasta el nivel configurado
-\def\cfgpdfcenterwindow {true}     % Centra la ventana del lector al abrir el pdf
-\def\cfgpdfcopyright {}            % Establece el copyright del documento
-\def\cfgpdfdisplaydoctitle {true}  % Muestra el título del informe como título del pdf
-\def\cfgpdffitwindow {false}       % Ajusta la ventana del lector al tamaño del pdf
-\def\cfgpdfmenubar {true}          % Muestra el menú del lector al abrir el pdf
-\def\cfgpdftoolbar {true}          % Muestra la barra de herramientas del lector pdf
-\def\cfgshowbookmarkmenu {false}   % Muestra el menú de los marcadores en el lector pdf
+\def\cfgbookmarksopenlevel {1}    % Nivel de los marcadores a mostrar (2: subsecciones)
+\def\cfgpdfbookmarkopen {true}    % Expande los marcadores hasta el nivel configurado
+\def\cfgpdfcenterwindow {true}    % Centra la ventana del lector al abrir el pdf
+\def\cfgpdfcopyright {}           % Establece el copyright del documento
+\def\cfgpdfdisplaydoctitle {true} % Muestra el título del informe como título del pdf
+\def\cfgpdffitwindow {false}      % Ajusta la ventana del lector al tamaño del pdf
+\def\cfgpdfmenubar {true}         % Muestra el menú del lector al abrir el pdf
+\def\cfgpdfpagemode {OneColumn}   % Modo de página en el lector (OneColumn,SinglePage)
+\def\cfgpdfpageview {FitH}        % Ajuste de pag. (Fit,FitH,FitV,FitR,FitB,FitBH,FitBV)
+\def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
+\def\cfgshowbookmarkmenu {false}  % Muestra el menú de los marcadores en el lector pdf
 
 % NOMBRE DE OBJETOS
-\def\nameappendixsection{Anexos}   % Nombre de la sección de anexos/apéndices
-\def\namereferences {Referencias}  % Nombre de la sección de referencias
-\def\nomchapter {Capítulo}            % Nombre de los capítulos
-\def\nomltappendixsection {Anexo}  % Etiqueta sección en anexo/apéndices
-\def\nomltwfigure {Figura}         % Etiqueta leyenda de las figuras
-\def\nomltwsrc {Código}            % Etiqueta leyenda del código fuente
-\def\nomltwtable {Tabla}           % Etiqueta leyenda de las tablas
+\def\nameappendixsection{Anexos}  % Nombre de la sección de anexos/apéndices
+\def\namereferences {Referencias} % Nombre de la sección de referencias
+\def\nomltappendixsection {Anexo} % Etiqueta sección en anexo/apéndices
+\def\nomltwfigure {Figura}        % Etiqueta leyenda de las figuras
+\def\nomltwsrc {Código}           % Etiqueta leyenda del código fuente
+\def\nomltwtable {Tabla}          % Etiqueta leyenda de las tablas
