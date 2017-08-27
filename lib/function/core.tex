@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      4.2.7 (26/08/2017)
+% Versión:      4.2.8 (27/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -52,6 +52,20 @@
 	}{}
 }
 
+\newcommand{\checkextravarexist}[2]{
+	% Comprueba si una variable está definida
+	%	#1	Variable
+	%	#2	Mensaje
+	\ifthenelse{\isundefined{#1}}{
+		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
+		\ifx\hfuzz#2\hfuzz
+			\errmessage{LaTeX Warning: Defina la variable en el bloque de INFORMACION DEL DOCUMENTO al comienzo del archivo principal del Template}
+		\else
+			\errmessage{LaTeX Warning: #2}
+		\fi
+	}{}
+}
+
 \newcommand{\emptyvarerr}[3]{
 	% Lanza un mensaje de error si una variable no ha sido definida
 	% 	#1	Función del error
@@ -86,3 +100,4 @@
 	\list{}{\rightmargin#2\leftmargin#1}\item[]
 }
 \let\endchangemargin=\endlist
+
