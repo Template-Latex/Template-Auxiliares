@@ -41,6 +41,11 @@
 	\def\equipodocente {}
 }{}
 
+% Se activan números en menú marcadores del pdf
+\ifthenelse{\equal{\cfgpdfsecnumbookmarks}{true}}{
+	\bookmarksetup{numbered}
+}{}
+
 % Se define metadata del pdf
 \ifthenelse{\equal{\cfgshowbookmarkmenu}{true}}{
 	\def\cdfpagemodepdf {UseOutlines}
@@ -73,8 +78,8 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.3.0-AUX-N},
-		Template.Version.Hash={883CBF088DBCD9C370B6F74B8BC26313},
+		Template.Version.Dev={4.3.0-1-AUX-N},
+		Template.Version.Hash={0E837E4EF7E80D62F171431C29F7DFE7},
 		Template.Version.Release={4.3.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Auxiliares/},
@@ -273,4 +278,4 @@
 \urlstyle{tt}
 
 % Se define la versión menor a compilar
-\pdfminorversion = \pdfcompileversion
+\pdfminorversion=\pdfcompileversion
