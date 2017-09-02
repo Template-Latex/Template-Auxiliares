@@ -11,7 +11,7 @@
 [![Template-Informes](http://latex.ppizarror.com/Template-Informe/resources/templates/informe.svg)](https://github.com/Template-Latex/Template-Informe/)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Template-Latex/Template-Informe/gh-pages/images/collage_auxiliar.png" alt="Auxiliar" width="70%px" />
+  <img src="http://latex.ppizarror.com/Template-Informe/images/collage_auxiliar.png" alt="Auxiliar" width="70%px" />
 </p>
 
 Este corresponde a un template para confeccionar auxiliares en Latex, contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
@@ -24,6 +24,6 @@ El manual de uso de las funciones opcionales se encuentra disponible en la pági
 Este proyecto está licenciado bajo la licencia MIT [https://opensource.org/licenses/MIT].
 
 ## Autor
-<a href="http://ppizarror.com">Pablo Pizarro R.</a> | 2017
+<a href="http://ppizarror.com">Pablo Pizarro R.</a> | 2017.
 
 Si tienes alguna sugerencia envíame un correo a: [pablo.pizarro@ing.uchile.cl](mailto:pablo.pizarro@ing.uchile.cl).
