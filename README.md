@@ -4,7 +4,7 @@
   </a>
   <br /><br />
   Template-Auxiliares</h1>
-<div align="center">Template para crear enunciados de auxiliares en LaTeX</div><br />
+<p align="center">Template para crear enunciados de auxiliares en LaTeX</p>
 <div align="center"><a href="http://ppizarror.com"><img alt="@ppizarror" src="http://ppizarror.com/badges/autor.svg" /></a>
 <a href="https://opensource.org/licenses/MIT/"><img alt="Licencia MIT" src="http://ppizarror.com/badges/licenciamit.svg" /></a>
 <br><a href="https://github.com/Template-Latex/Template-Tesis/"><img alt="Template-Tesis" src="http://latex.ppizarror.com/Template-Informe/resources/templates/tesis.svg" /></a>
