@@ -24,6 +24,5 @@ El manual de uso de las funciones opcionales se encuentra disponible en la pági
 ## Licencia
 Este proyecto está licenciado bajo la licencia MIT [https://opensource.org/licenses/MIT]
 
-
 ## Autor
 <a href="http://ppizarror.com" title="ppizarror">Pablo Pizarro R.</a> | 2017
