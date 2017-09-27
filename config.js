@@ -25,3 +25,8 @@ var href_pdf_version = '../Auxiliares/Template-Auxiliares v{0}.pdf';
 var href_resources_folder = 'http://latex.ppizarror.com/resources/';
 var stats_name = 'Auxiliares';
 var update_download_counter = 'Template-Auxiliares';
+
+// Declaración de funciones propias de cada template
+function afterDocumentReady() {}
+
+function afterJSONLoad() {}
