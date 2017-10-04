@@ -20,6 +20,8 @@ Este corresponde a un template para confeccionar auxiliares en Latex, contiene f
 </p>
 
 ## Manual de uso
+
+[![Join the chat at https://gitter.im/Template-Latex/Template-Auxiliares](https://badges.gitter.im/Template-Latex/Template-Auxiliares.svg)](https://gitter.im/Template-Latex/Template-Auxiliares?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 El manual de uso de las funciones opcionales se encuentra disponible en la página web del template de informes: <a href="http://ppizarror.com/Template-Informe/">Template-Informe</a>
 
 ## Licencia
