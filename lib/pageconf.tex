@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      4.3.7 (28/09/2017)
+% Versión:      4.3.8 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -28,7 +28,7 @@
 }
 
 % Definición de nombres de objetos
-\renewcommand{\appendixname}{\nomltappendixsection} % Nom. del anexo en etiq. de título
+\renewcommand{\appendixname}{\nomltappendixsection} % Nombre del anexo (título)
 \renewcommand{\appendixpagename}{\nameappendixsection} % Nombre del anexo en índice
 \renewcommand{\appendixtocname}{\nameappendixsection} % Nombre del anexo en índice
 \renewcommand{\contentsname}{\nomltcont}  % Nombre del índice
@@ -126,10 +126,7 @@
 	\throwbadconfigondoc{Estilo de template incorrecto}{\templatestyle}{style1,style2}}
 }
 
-% Numeración de objetos
-\ifthenelse{\equal{\showsectiononcaption}{true}}{
-	\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
-	\counterwithin{figure}{section}     % Añade número de sección a las figuras
-	\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
-	\counterwithin{table}{section}      % Añade número de sección a las tablas
-}{}
+% Muestra los números de línea
+\ifthenelse{\equal{\showlinenumbers}{true}}{
+	\linenumbers}{
+}

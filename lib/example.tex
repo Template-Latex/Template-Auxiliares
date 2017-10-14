@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.3.7 (28/09/2017)
+% Versión:      4.3.8 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -41,7 +41,7 @@
 % Pregunta encerrada en un recuadro más control
 \newboxquestion{P3} (\textbf{P1 Control 2 2017/1}) \lipsum[117] \newp 
 
-\begin{lstlisting}[style=Python]
+\begin{sourcecode}{Python}{}
 import numpy as np
 
 def incmatrix(genl1, genl2):
@@ -49,4 +49,4 @@ m = len(genl1)
 n = len(genl2)
 M = None # to become the incidence matrix
 VT = np.zeros((n*m, 1), int) # dummy variable
-\end{lstlisting}
+\end{sourcecode}

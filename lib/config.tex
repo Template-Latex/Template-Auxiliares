@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.3.7 (28/09/2017)
+% Versión:      4.3.8 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,12 +12,14 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 % CONFIGURACIONES GENERALES
+\def\columnsepwidth {2.1}         % Separación entre columnas [em]
 \def\defaultinterline {1.0}       % Interlineado por defecto [pt]
-\def\defaultnewlinesize {11.0}    % Tamaño del salto de línea [pt]
+\def\defaultnewlinesize {11}      % Tamaño del salto de línea [pt]
 \def\documentlang {es-CL}         % Define el idioma del documento
 \def\fontdocument {lmodern}       % Tipografía (lmodern,arial,helvet)
 \def\numberedequation {true}      % Ecuaciones con \insert... numeradas
-\def\pointdecimal {false}         % Decimales con punto en vez de coma
+\def\pointdecimal {false}         % Números decimales con punto en vez de coma
+\def\showlinenumbers {false}      % Muestra los números de línea del documento
 \def\tablepadding {1.0}           % Ancho de celda de las tablas
 \def\templatestyle {style1}       % Estilo del template: style1,style2
 
@@ -36,7 +38,7 @@
 \def\captiontextbold {false}      % Etiquetas (Código,Figura,Tabla) en negrita
 \def\codecaptiontop {true}        % Leyenda arriba del código fuente
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
-\def\showsectiononcaption {false} % Número de la sección en el N° de figura/tabla/código
+\def\showsectiononcaption {false} % Número de la sección en N° de figura/tabla/código
 \def\tablecaptiontop {true}       % Leyenda arriba de las tablas
 
 % CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
@@ -61,14 +63,14 @@
 \def\margintopimages {0.0}        % Margen superior figura [cm]
 
 % ANEXO, CITAS, REFERENCIAS
-\def\apaciterefsep {9}            % Separación entre referencias [pt] {apacite}
+\def\apaciterefsep {9}            % Separación entre referencias {apacite} [pt]
 \def\appendixindepobjnum {true}   % Anexo usa número objetos de forma independiente
-\def\bibtexrefsep {9}             % Separación entre referencias [pt] {bibtex}
+\def\bibtexrefsep {9}             % Separación entre referencias {bibtex} [pt]
 \def\donumrefsection {false}      % Sección de referencias numerada
-\def\natbibrefsep {5}             % Separación entre referencias [pt] {natbib}
+\def\natbibrefsep {5}             % Separación entre referencias {natbib} [pt]
 \def\sectionappendixlastchar {.}  % Carácter entre N° de la sec. de anexo y título
 \def\showappendixsectitle {false} % Título de la sección de anexo en el informe
-\def\stylecitereferences {bibtex} % Estilo cita&referencias (bibtex,apacite,natbib)
+\def\stylecitereferences {bibtex} % Estilo cita y referencias (bibtex,apacite,natbib)
 \def\twocolumnreferences {false}  % Referencias en dos columnas
 
 % CONFIGURACIÓN DE LOS TÍTULOS
@@ -76,7 +78,7 @@
 \def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}    % Tamaño subtítulos
 \def\fontsizetitle {\huge}        % Tamaño títulos
-\def\showdotontitles {false}      % Punto al final de N° de título/sub(sub)título
+\def\showdotontitles {false}      % Punto al final del N° de título/sub(sub)título
 \def\stylesubsubtitle {\bfseries} % Estilo sub-subtítulos
 \def\stylesubtitle {\bfseries}    % Estilo subtítulos
 \def\styletitle {\bfseries}       % Estilo títulos
@@ -94,7 +96,7 @@
 \def\cfgpdfpageview {FitH}        % Ajuste pag (Fit,FitH,FitV,FitR,FitB,FitBH,FitBV)
 \def\cfgpdfsecnumbookmarks {true} % Número de la sección en los marcadores del pdf
 \def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
-\def\cfgshowbookmarkmenu {false}   % Muestra menú de los marcadores al abrir el pdf
+\def\cfgshowbookmarkmenu {false}  % Muestra menú de los marcadores al abrir el pdf
 \def\pdfcompileversion {7}        % Versión mínima del pdf compilado (1.x)
 
 % NOMBRE DE OBJETOS
