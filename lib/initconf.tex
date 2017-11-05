@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.4.0 (14/10/2017)
+% Versión:      4.4.1 (04/11/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -73,14 +73,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={14/10/2017},
+		Template.Fecha={04/11/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.4.0-AUX-N},
-		Template.Version.Hash={19562EF36481D27CA63E6B9C0931129D},
-		Template.Version.Release={4.4.0},
+		Template.Version.Dev={4.4.1-AUX-N},
+		Template.Version.Hash={38D9CDAA22E7AD478757E707F1676547},
+		Template.Version.Release={4.4.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -92,7 +92,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v4.4.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v4.4.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -264,6 +264,17 @@
 	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
 	{€}{{\EUR}}1 {£}{{\pounds}}1
 }
+
+% Reconfiguración de tamaño de páginas
+\makeatletter
+	\def\ifGm@preamble#1{\@firstofone}
+	\appto\restoregeometry{
+		\pdfpagewidth=\paperwidth
+		\pdfpageheight=\paperheight}
+	\apptocmd\newgeometry{
+		\pdfpagewidth=\paperwidth
+		\pdfpageheight=\paperheight}{}{}
+\makeatother
 
 % Configuración de hbox y vbox
 \hfuzz=200pt \vfuzz=200pt

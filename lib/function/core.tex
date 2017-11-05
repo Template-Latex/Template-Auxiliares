@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      4.4.0 (14/10/2017)
+% Versión:      4.4.1 (04/11/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -101,9 +101,20 @@
 }
 \let\endchangemargin=\endlist
 
-\def\bgtemplatetestcode{d0g3}
-
 \newcommand{\importtikzlib}{
 	% Se importa la librería tikz
 	\usepackage{tikz}
+}
+
+\def\beginlandscape {
+	% Inicia el modo de página horizontal
+	\newgeometry{landscape,left=\pagemarginleft cm,top=\pagemargintop cm,right=\pagemarginright cm,bottom=\pagemarginbottom cm}
+	\headwidth=\textwidth
+}
+
+\def\endlandscape {
+	% Termina el modo de página horizontal
+	\restoregeometry
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\headwidth=\textwidth
 }
