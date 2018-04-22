@@ -1,0 +1,56 @@
+% Template:     Template Auxiliar LaTeX
+% Documento:    Funciones para insertar elementos
+% Versión:      5.0.0 (22/04/2018)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R. @ppizarror
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
+% Licencia MIT: [https://opensource.org/licenses/MIT]
+
+% Insertar párrafo
+\newcommand{\newp}{
+	\hbadness=10000 \vspace{\defaultnewlinesize pt} \par
+}
+
+% Insertar párrafo
+% 	#1	Párrafo
+\newcommand{\newpar}[1]{
+	\hbadness=10000 #1 \newp
+}
+
+% Insertar párrafo sin nueva línea al final
+% 	#1	Párrafo
+\newcommand{\newparnl}[1]{
+	#1 \par
+}
+
+% Redimensiona un ítem en textwidth
+% 	#1	Tamaño del nuevo objeto (En textwidth)
+%	#2	Objeto a redimensionar
+\newcommand{\itemresize}[2]{
+	\emptyvarerr{\itemresize}{#1}{Tamano del nuevo objeto no definido}
+	\emptyvarerr{\itemresize}{#2}{Objeto a redimensionar no definido}
+	\resizebox{#1\textwidth}{!}{#2}
+}
+
+% Crea una página vacía
+\newcommand{\insertemptypage}{
+	\newpage
+	\setcounter{templatepagecounter}{\thepage}
+	\pagenumbering{gobble}
+	\null
+	\thispagestyle{empty}
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{\thetemplatepagecounter}
+}
+
+% Inserta un texto entre comillas
+\newcommand{\quotes}[1]{\enquote*{#1}}
+
+% Inserta un email con un link cliqueable
+\newcommand{\insertemail}[1]{\href{mailto:#1}{\texttt{#1}}}

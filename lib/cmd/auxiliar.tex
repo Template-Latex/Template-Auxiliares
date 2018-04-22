@@ -1,9 +1,9 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      4.4.3 (05/02/2018)
+% Versión:      5.0.0 (22/04/2018)
 % Codificación: UTF-8
 %
-% Autor: Pablo Pizarro R.
+% Autor: Pablo Pizarro R. @ppizarror
 %        Facultad de Ciencias Físicas y Matemáticas
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
@@ -11,21 +11,48 @@
 % Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
+% Insertar nuevo título de pregunta
+%	#1	Título
 \newcommand{\newquestion}[1]{
-	% Insertar nuevo título de pregunta
-	%	#1	Título
 	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
 	\sectionanum{#1}
 }
 
+% Insertar nuevo título de pregunta encerrado en un recuadro
+%	#1	Número pregunta
 \newcommand{\newboxquestion}[1]{
-	% Insertar nuevo título de pregunta encerrado en un recuadro
-	%	#1	Número pregunta
 	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
 	\phantomsection
 	\newp \fbox{\ \textbf{#1}.-\ } \noindent
 	\pdfbookmark[1]{#1}{toc}
 }
+
+% Crea una sección de imágenes múltiples
+%	#1	Label (opcional)
+%	#2	Caption
+\newenvironment{images}[2][]{
+	\def\envimageslabelvar {#1}
+	\def\envimagescaptionvar {#2}
+	\def\envimagesinitialized {true}
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=\captionmarginmultimg cm}
+	\begin{figure}[H] \centering
+		\vspace{-\marginrightmultimage cm}
+		\vspace{-\marginrightmultimage cm}
+		\vspace{-\marginrightmultimage cm}
+	}{
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz\envimagescaptionvar\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{\envimagescaptionvar\envimageslabelvar}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+	\def\envimagesinitialized {false}
+}
+\def\envimagesinitialized {false}
 
 % Crea una sección de referencias solo para bibtex
 \newenvironment{references}{
@@ -34,7 +61,8 @@
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
-	\ifthenelse{\equal{\donumrefsection}{true}}{ % Se configura las referencias como una sección
+	% Se configura las referencias como una sección
+	\ifthenelse{\equal{\donumrefsection}{true}}{
 		\section{\namereferences}
 	}{
 		\sectionanum{\namereferences}
@@ -75,8 +103,7 @@
 			\counterwithin{lstlisting}{section}
 			\counterwithin{table}{section}}{
 		}
-		}
-		{
+	}{
 	\end{appendices}
 	\bookmarksetupnext{level=0}
 	\endgroup
@@ -91,6 +118,25 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\rightlinenumbers}{
 	}
+	\ifthenelse{\equal{#2}{c}}{}{
+	\ifthenelse{\equal{#2}{csharp}}{}{
+	\ifthenelse{\equal{#2}{c++}}{}{
+	\ifthenelse{\equal{#2}{docker}}{}{
+	\ifthenelse{\equal{#2}{html5}}{}{
+	\ifthenelse{\equal{#2}{java}}{}{
+	\ifthenelse{\equal{#2}{js}}{}{
+	\ifthenelse{\equal{#2}{json}}{}{
+	\ifthenelse{\equal{#2}{matlab}}{}{
+	\ifthenelse{\equal{#2}{latex}}{}{
+	\ifthenelse{\equal{#2}{perl}}{}{
+	\ifthenelse{\equal{#2}{php}}{}{
+	\ifthenelse{\equal{#2}{python}}{}{
+	\ifthenelse{\equal{#2}{ruby}}{}{
+	\ifthenelse{\equal{#2}{sql}}{}{
+	\ifthenelse{\equal{#2}{xml}}{}{
+		\def\sourcecodestyle {#2}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,csharp,c++,docker,html5,java,js,json,matlab,latex,perl,php,python,ruby,sql,xml}
+	}}}}}}}}}}}}}}}}
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#3\hfuzz
 			\lstset{
@@ -100,7 +146,7 @@
 		\else
 			\lstset{
 				style=#2,
-				caption=#3 #1,
+				caption={#3 #1},
 				captionpos=t
 			}
 		\fi
@@ -113,7 +159,7 @@
 		\else
 			\lstset{
 				style=#2,
-				caption=#3 #1,
+				caption={#3 #1},
 				captionpos=b
 			}
 		\fi
