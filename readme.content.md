@@ -1,7 +1,7 @@
 Este corresponde a un template para confeccionar auxiliares en Latex, contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
 <p align="center">
-  <img src="http://latex.ppizarror.com/Template-Informe/images/collage_auxiliar.png" alt="Auxiliar" width="70%" />
+  <img src="http://latex.ppizarror.com/res/images/collage_auxiliar.png" alt="Auxiliar" width="70%" />
 </p>
 
 ## Manual de uso
