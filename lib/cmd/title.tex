@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      5.0.0 (22/04/2018)
+% Versión:      5.0.0 (23/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -11,31 +11,4 @@
 % Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-% Insertar un título sin número
-% 	#1	Título
-\newcommand{\sectionanum}[1]{
-	\emptyvarerr{\sectionanum}{#1}{Titulo no definido}
-	\phantomsection
-	\needspace{3\baselineskip}
-	\section*{#1}
-	\addcontentsline{toc}{section}{#1}
-	\stepcounter{section}
-}
-
-% Insertar un subtítulo sin número
-% 	#1	Subtítulo
-\newcommand{\subsectionanum}[1]{
-	\emptyvarerr{\subsectionanum}{#1}{Subtitulo no definido}
-	\subsection*{#1}
-	\addcontentsline{toc}{subsection}{#1}
-	\stepcounter{subsection}
-}
-
-% Insertar un sub-subtítulo sin número
-% 	#1	Sub-subtítulo
-\newcommand{\subsubsectionanum}[1]{
-	\emptyvarerr{\subsubsectionanum}{#1}{Sub-subtitulo no definido}
-	\subsubsection*{#1}
-	\addcontentsline{toc}{subsubsection}{#1}
-	\stepcounter{subsubsection}
-}
+\newcommand{\sectionanum}[1]{\emptyvarerr{\sectionanum}{#1}{Titulo no definido}\phantomsection\needspace{3\baselineskip}\section*{#1}\addcontentsline{toc}{section}{#1}\stepcounter{section}}\newcommand{\subsectionanum}[1]{\emptyvarerr{\subsectionanum}{#1}{Subtitulo no definido}\subsection*{#1}\addcontentsline{toc}{subsection}{#1}\stepcounter{subsection}}\newcommand{\subsubsectionanum}[1]{\emptyvarerr{\subsubsectionanum}{#1}{Sub-subtitulo no definido}\subsubsection*{#1}\addcontentsline{toc}{subsubsection}{#1}\stepcounter{subsubsection}}
