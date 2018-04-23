@@ -11,4 +11,86 @@
 % Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-\usepackage[spanish,es-nosectiondot,es-lcroman]{babel}\usepackage[T1]{fontenc}\usepackage{ifthen}\ifthenelse{\equal{\fontdocument}{arial}}{\usepackage{helvet}\renewcommand{\familydefault}{\sfdefault}}{\usepackage{\fontdocument}}\ifthenelse{\equal{\showlinenumbers}{true}}{\usepackage[switch,columnwise,running]{lineno}}{}\usepackage{amsmath}\usepackage{amssymb}\usepackage{array}\usepackage{bigstrut}\usepackage{bm}\usepackage{booktabs}\usepackage{caption}\usepackage{changepage}\usepackage{chngcntr}\usepackage{color}\usepackage{colortbl}\usepackage{csquotes}\usepackage{datetime}\usepackage{floatpag}\usepackage{floatrow}\usepackage{framed}\usepackage{gensymb}\usepackage{geometry}\usepackage{graphicx}\usepackage{lipsum}\usepackage{listings}\usepackage{listingsutf8}\usepackage{longtable}\usepackage{lscape}\usepackage{mathtools}\usepackage{multicol}\usepackage{needspace}\usepackage{pdfpages}\usepackage{physics}\usepackage{rotating}\usepackage{sectsty}\usepackage{selinput}\usepackage{setspace}\usepackage{siunitx}\usepackage{soul}\usepackage{subfig}\usepackage{textcomp}\usepackage{url}\usepackage{wasysym}\usepackage{wrapfig}\usepackage{xspace}\usepackage[makeroom]{cancel}\usepackage[inline]{enumitem}\usepackage[bottom,norule,hang]{footmisc}\usepackage[subfigure,titles]{tocloft}\usepackage[pdfencoding=auto,psdextra]{hyperref}\usepackage[figure,table,lstlisting]{totalcount}\usepackage[normalem]{ulem}\usepackage[usenames,dvipsnames]{xcolor}\ifthenelse{\equal{\showdotontitles}{true}}{\usepackage{secdot}\sectiondot{subsection}\sectiondot{subsubsection}}{}\ifthenelse{\equal{\stylecitereferences}{natbib}}{\usepackage{natbib}}{\ifthenelse{\equal{\stylecitereferences}{apacite}}{\usepackage{apacite}}{\ifthenelse{\equal{\stylecitereferences}{bibtex}}{}{}}}\usepackage{appendix}\usepackage{bookmark}\usepackage{fancyhdr}\usepackage{float}\usepackage{hyperxmp}\usepackage{multirow}\usepackage{titlesec}
+\usepackage[spanish,es-nosectiondot,es-lcroman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+\ifthenelse{\equal{\fontdocument}{arial}}{
+	\usepackage{helvet}
+	\renewcommand{\familydefault}{\sfdefault}
+}{
+	\usepackage{\fontdocument}
+}
+\ifthenelse{\equal{\showlinenumbers}{true}}{
+	\usepackage[switch,columnwise,running]{lineno}}{
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{bigstrut}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{changepage}
+\usepackage{chngcntr}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{csquotes}
+\usepackage{datetime}
+\usepackage{floatpag}
+\usepackage{floatrow}
+\usepackage{framed}
+\usepackage{gensymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{needspace}
+\usepackage{pdfpages}
+\usepackage{physics}
+\usepackage{rotating}
+\usepackage{sectsty}
+\usepackage{selinput}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{soul}
+\usepackage{subfig}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{wasysym}
+\usepackage{wrapfig}
+\usepackage{xspace}
+\usepackage[makeroom]{cancel}
+\usepackage[inline]{enumitem}
+\usepackage[bottom,norule,hang]{footmisc}
+\usepackage[subfigure,titles]{tocloft}
+\usepackage[pdfencoding=auto,psdextra]{hyperref}
+\usepackage[figure,table,lstlisting]{totalcount}
+\usepackage[normalem]{ulem}
+\usepackage[usenames,dvipsnames]{xcolor}
+\ifthenelse{\equal{\showdotontitles}{true}}{
+	\usepackage{secdot}
+	\sectiondot{subsection}
+	\sectiondot{subsubsection}}{
+}
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{
+	\usepackage{natbib}
+}{
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+		\usepackage{apacite}
+	}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+		}{}
+	}
+}
+\usepackage{appendix}
+\usepackage{bookmark}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{hyperxmp}
+\usepackage{multirow}
+\usepackage{titlesec}

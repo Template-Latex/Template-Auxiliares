@@ -11,4 +11,336 @@
 % Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-\newcommand{\addimage}[3]{\addimageboxed{#1}{#2}{0}{#3}}\newcommand{\addimageboxed}[4]{\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\hspace{\marginrightmultimage cm}\subfloat[#4]{\fbox{\includegraphics[#2]{#1}}}\endgroup}\newcommand{\insertimage}[4][]{\insertimageboxed[#1]{#2}{#3}{0}{#4}}\newcommand{\insertimageboxed}[5][]{\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}\checkoutsideenvimage\vspace{\margintopimages cm}\begin{figure}[H]\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#4 pt}\centering\fbox{\includegraphics[#3]{#2}}\endgroup\ifx\hfuzz#5\hfuzz\vspace{\captionlessmarginimage cm}\else\hspace{0cm}\caption{#5 #1}\fi\end{figure}\vspace{\marginbottomimages cm}}\newcommand{\insertdoubleimage}[8][]{\emptyvarerr{\insertdoubleimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\insertdoubleimage}{#3}{Parametros de la imagen 1 no definidos}\emptyvarerr{\insertdoubleimage}{#5}{Direccion de la imagen 2 no definida}\emptyvarerr{\insertdoubleimage}{#6}{Parametros de la imagen 2 no definidos}\checkoutsideenvimage\alertdeprecatedcmdimage\vspace{\margintopimages cm}\captionsetup{margin=\captionmarginmultimg cm}\begin{figure}[H] \centering\subfloat[#4]{\includegraphics[#3]{#2}}\hspace{\marginrightmultimage cm}\subfloat[#7]{\includegraphics[#6]{#5}}\setcaptionmargincm{\captionlrmargin}\ifx\hfuzz#8\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#8 #1}\fi\end{figure}\setcaptionmargincm{\captionlrmargin}\vspace{\marginbottomimages cm}}\newcommand{\insertdoubleeqimage}[7][]{\insertdoubleimage[#1]{#2}{#6}{#3}{#4}{#6}{#5}{#7}}\newcommand{\inserttripleimage}[8][]{\emptyvarerr{\inserttripleimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\inserttripleimage}{#3}{Parametros de la imagen 1 no definidos}\emptyvarerr{\inserttripleimage}{#4}{Direccion de la imagen 2 no definida}\emptyvarerr{\inserttripleimage}{#5}{Parametros de la imagen 2 no definidos}\emptyvarerr{\inserttripleimage}{#6}{Direccion de la imagen 3 no definida}\emptyvarerr{\inserttripleimage}{#7}{Parametros de la imagen 3 no definidos}\checkoutsideenvimage\alertdeprecatedcmdimage\vspace{\margintopimages cm}\captionsetup{margin=\captionmarginmultimg cm}\begin{figure}[H] \centering\subfloat[]{\includegraphics[#3]{#2}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#5]{#4}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#7]{#6}}\setcaptionmargincm{\captionlrmargin}\ifx\hfuzz#8\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#8 #1}\fi\end{figure}\setcaptionmargincm{\captionlrmargin}\vspace{\marginbottomimages cm}}\newcommand{\inserttripleeqimage}[6][]{\inserttripleimage[#1]{#2}{#5}{#3}{#5}{#4}{#5}{#6}}\newcommand{\insertquadimage}[7][]{\emptyvarerr{\insertquadimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\insertquadimage}{#3}{Direccion de la imagen 2 no definida}\emptyvarerr{\insertquadimage}{#4}{Direccion de la imagen 3 no definida}\emptyvarerr{\insertquadimage}{#5}{Direccion de la imagen 4 no definida}\emptyvarerr{\insertquadimage}{#6}{Propiedades de las imagenes no definidos}\checkoutsideenvimage\alertdeprecatedcmdimage\vspace{\margintopimages cm}\captionsetup{margin=\captionmarginmultimg cm cm}\begin{figure}[H] \centering\subfloat[]{\includegraphics[#6]{#2}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#6]{#3}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#6]{#4}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#6]{#5}}\setcaptionmargincm{\captionlrmargin}\ifx\hfuzz#7\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#7 #1}\fi\end{figure}\setcaptionmargincm{\captionlrmargin}\vspace{\marginbottomimages cm}}\newcommand{\insertpentaimage}[8][]{\emptyvarerr{\insertpentaimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\insertpentaimage}{#3}{Direccion de la imagen 2 no definida}\emptyvarerr{\insertpentaimage}{#4}{Direccion de la imagen 3 no definida}\emptyvarerr{\insertpentaimage}{#5}{Direccion de la imagen 4 no definida}\emptyvarerr{\insertpentaimage}{#6}{Direccion de la imagen 5 no definida}\emptyvarerr{\insertpentaimage}{#7}{Propiedades de las imagenes no definidas}\checkoutsideenvimage\alertdeprecatedcmdimage\vspace{\margintopimages cm}\captionsetup{margin=\captionmarginmultimg cm cm}\begin{figure}[H] \centering\subfloat[]{\includegraphics[#7]{#2}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#7]{#3}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#7]{#4}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#7]{#5}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#7]{#6}}\setcaptionmargincm{\captionlrmargin}\ifx\hfuzz#8\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#8 #1}\fi\end{figure}\setcaptionmargincm{\captionlrmargin}\vspace{\marginbottomimages cm}}\newcommand{\inserthexaimage}[9][]{\emptyvarerr{\inserthexaimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\inserthexaimage}{#3}{Direccion de la imagen 2 no definida}\emptyvarerr{\inserthexaimage}{#4}{Direccion de la imagen 3 no definida}\emptyvarerr{\inserthexaimage}{#5}{Direccion de la imagen 4 no definida}\emptyvarerr{\inserthexaimage}{#6}{Direccion de la imagen 5 no definida}\emptyvarerr{\inserthexaimage}{#7}{Direccion de la imagen 6 no definida}\emptyvarerr{\inserthexaimage}{#8}{Propiedades de las imagenes no definidas}\checkoutsideenvimage\alertdeprecatedcmdimage\vspace{\margintopimages cm}\captionsetup{margin=\captionmarginmultimg cm}\begin{figure}[H] \centering\subfloat[]{\includegraphics[#8]{#2}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#8]{#3}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#8]{#4}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#8]{#5}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#8]{#6}}\hspace{\marginrightmultimage cm}\subfloat[]{\includegraphics[#8]{#7}}\setcaptionmargincm{\captionlrmargin}\ifx\hfuzz#9\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#9 #1}\fi\end{figure}\setcaptionmargincm{\captionlrmargin}\vspace{\marginbottomimages cm}}\newcommand{\insertimageleft}[4][]{\insertimageleftboxed[#1]{#2}{#3}{0}{#4}}\newcommand{\insertimageleftboxed}[5][]{\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}\checkoutsideenvimage\begin{wrapfigure}{l}{#3\textwidth}\setcaptionmargincm{0}\ifthenelse{\equal{\figurecaptiontop}{true}}{}{\vspace{\marginfloatimages pt}}\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#4 pt}\centering\fbox{\includegraphics[width=\linewidth]{#2}}\endgroup\ifx\hfuzz#5\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#5 #1}\fi\end{wrapfigure}\setcaptionmargincm{\captionlrmargin}}\newcommand{\insertimageleftline}[5][]{\insertimageleftboxed[#1]{#2}{#3}{0}{#4}}\newcommand{\insertimageleftlineboxed}[6][]{\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}\emptyvarerr{\insertimageleftlineboxed}{#5}{Ancho de la linea no definido}\checkoutsideenvimage\begin{wrapfigure}[#4]{l}{#3\textwidth}\setcaptionmargincm{0}\ifthenelse{\equal{\figurecaptiontop}{true}}{}{\vspace{\marginfloatimages pt}}\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#5 pt}\centering\fbox{\includegraphics[width=\linewidth]{#2}}\endgroup\ifx\hfuzz#6\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#6 #1}\fi\end{wrapfigure}\setcaptionmargincm{\captionlrmargin}}\newcommand{\insertimageright}[4][]{\insertimagerightboxed[#1]{#2}{#3}{0}{#4}}\newcommand{\insertimagerightboxed}[5][]{\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}\checkoutsideenvimage\begin{wrapfigure}{r}{#3\textwidth}\setcaptionmargincm{0}\ifthenelse{\equal{\figurecaptiontop}{true}}{}{\vspace{\marginfloatimages pt}}\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#4 pt}\centering\fbox{\includegraphics[width=\linewidth]{#2}}\endgroup\ifx\hfuzz#5\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#5 #1}\fi\end{wrapfigure}\setcaptionmargincm{\captionlrmargin}}\newcommand{\insertimagerightline}[5][]{\insertimagerightlineboxed[#1]{#2}{#3}{#4}{0}{#5}}\newcommand{\insertimagerightlineboxed}[6][]{\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}\emptyvarerr{\insertimagerightlineboxed}{#4}{Altura en lineas de la imagen flotante derecha no definida}\emptyvarerr{\insertimagerightlineboxed}{#5}{Ancho de la linea no definido}\checkoutsideenvimage\begin{wrapfigure}[#4]{r}{#3\textwidth}\setcaptionmargincm{0}\ifthenelse{\equal{\figurecaptiontop}{true}}{}{\vspace{\marginfloatimages pt}}\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#5 pt}\centering\fbox{\includegraphics[width=\linewidth]{#2}}\endgroup\ifx\hfuzz#6\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{#6 #1}\fi\end{wrapfigure}\setcaptionmargincm{\captionlrmargin}}
+\newcommand{\addimage}[3]{
+	\addimageboxed{#1}{#2}{0}{#3}
+}
+\newcommand{\addimageboxed}[4]{
+	\checkonlyonenvimage
+	\begingroup
+		\setlength{\fboxsep}{0 pt}
+		\setlength{\fboxrule}{#3 pt}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[#4]{
+			\fbox{\includegraphics[#2]{#1}}
+		}
+	\endgroup
+}
+\newcommand{\insertimage}[4][]{
+	\insertimageboxed[#1]{#2}{#3}{0}{#4}
+}
+\newcommand{\insertimageboxed}[5][]{
+	\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
+	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
+	\checkoutsideenvimage
+	\vspace{\margintopimages cm}
+	\begin{figure}[H]
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#4 pt}
+			\centering
+			\fbox{\includegraphics[#3]{#2}}
+		\endgroup
+		\ifx\hfuzz#5\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\hspace{0cm}\caption{#5 #1}
+		\fi
+	\end{figure}
+	\vspace{\marginbottomimages cm}
+}
+\newcommand{\insertdoubleimage}[8][]{
+	\emptyvarerr{\insertdoubleimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\insertdoubleimage}{#3}{Parametros de la imagen 1 no definidos}
+	\emptyvarerr{\insertdoubleimage}{#5}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\insertdoubleimage}{#6}{Parametros de la imagen 2 no definidos}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=\captionmarginmultimg cm}
+	\begin{figure}[H] \centering
+		\subfloat[#4]{
+			\includegraphics[#3]{#2}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[#7]{
+			\includegraphics[#6]{#5}
+		}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#8\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#8 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+\newcommand{\insertdoubleeqimage}[7][]{
+	\insertdoubleimage[#1]{#2}{#6}{#3}{#4}{#6}{#5}{#7}
+}
+\newcommand{\inserttripleimage}[8][]{
+	\emptyvarerr{\inserttripleimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\inserttripleimage}{#3}{Parametros de la imagen 1 no definidos}
+	\emptyvarerr{\inserttripleimage}{#4}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\inserttripleimage}{#5}{Parametros de la imagen 2 no definidos}
+	\emptyvarerr{\inserttripleimage}{#6}{Direccion de la imagen 3 no definida}
+	\emptyvarerr{\inserttripleimage}{#7}{Parametros de la imagen 3 no definidos}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=\captionmarginmultimg cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#3]{#2}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#5]{#4}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#7]{#6}
+		}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#8\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#8 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+\newcommand{\inserttripleeqimage}[6][]{
+	\inserttripleimage[#1]{#2}{#5}{#3}{#5}{#4}{#5}{#6}
+}
+\newcommand{\insertquadimage}[7][]{
+	\emptyvarerr{\insertquadimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\insertquadimage}{#3}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\insertquadimage}{#4}{Direccion de la imagen 3 no definida}
+	\emptyvarerr{\insertquadimage}{#5}{Direccion de la imagen 4 no definida}
+	\emptyvarerr{\insertquadimage}{#6}{Propiedades de las imagenes no definidos}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=\captionmarginmultimg cm cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#6]{#2}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#6]{#3}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#6]{#4}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#6]{#5}
+		}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#7\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#7 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+\newcommand{\insertpentaimage}[8][]{
+	\emptyvarerr{\insertpentaimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\insertpentaimage}{#3}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\insertpentaimage}{#4}{Direccion de la imagen 3 no definida}
+	\emptyvarerr{\insertpentaimage}{#5}{Direccion de la imagen 4 no definida}
+	\emptyvarerr{\insertpentaimage}{#6}{Direccion de la imagen 5 no definida}
+	\emptyvarerr{\insertpentaimage}{#7}{Propiedades de las imagenes no definidas}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=\captionmarginmultimg cm cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#7]{#2}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#7]{#3}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#7]{#4}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#7]{#5}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#7]{#6}
+		}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#8\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#8 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+\newcommand{\inserthexaimage}[9][]{
+	\emptyvarerr{\inserthexaimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\inserthexaimage}{#3}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\inserthexaimage}{#4}{Direccion de la imagen 3 no definida}
+	\emptyvarerr{\inserthexaimage}{#5}{Direccion de la imagen 4 no definida}
+	\emptyvarerr{\inserthexaimage}{#6}{Direccion de la imagen 5 no definida}
+	\emptyvarerr{\inserthexaimage}{#7}{Direccion de la imagen 6 no definida}
+	\emptyvarerr{\inserthexaimage}{#8}{Propiedades de las imagenes no definidas}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=\captionmarginmultimg cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#8]{#2}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#8]{#3}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#8]{#4}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#8]{#5}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#8]{#6}
+		}
+		\hspace{\marginrightmultimage cm}
+		\subfloat[]{
+			\includegraphics[#8]{#7}
+		}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#9\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#9 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+\newcommand{\insertimageleft}[4][]{
+	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
+}
+\newcommand{\insertimageleftboxed}[5][]{
+	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
+	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
+	\checkoutsideenvimage
+	\begin{wrapfigure}{l}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#4 pt}
+			\centering
+			\fbox{\includegraphics[width=\linewidth]{#2}}
+		\endgroup
+		\ifx\hfuzz#5\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#5 #1}
+		\fi
+	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
+}
+\newcommand{\insertimageleftline}[5][]{
+	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
+}
+\newcommand{\insertimageleftlineboxed}[6][]{
+	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}
+	\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
+	\emptyvarerr{\insertimageleftlineboxed}{#5}{Ancho de la linea no definido}
+	\checkoutsideenvimage
+	\begin{wrapfigure}[#4]{l}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#5 pt}
+			\centering
+			\fbox{\includegraphics[width=\linewidth]{#2}}
+		\endgroup
+		\ifx\hfuzz#6\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#6 #1}
+		\fi
+	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
+}
+\newcommand{\insertimageright}[4][]{
+	\insertimagerightboxed[#1]{#2}{#3}{0}{#4}
+}
+\newcommand{\insertimagerightboxed}[5][]{
+	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
+	\checkoutsideenvimage
+	\begin{wrapfigure}{r}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#4 pt}
+			\centering
+			\fbox{\includegraphics[width=\linewidth]{#2}}
+		\endgroup
+		\ifx\hfuzz#5\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#5 #1}
+		\fi
+	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
+}
+\newcommand{\insertimagerightline}[5][]{
+	\insertimagerightlineboxed[#1]{#2}{#3}{#4}{0}{#5}
+}
+\newcommand{\insertimagerightlineboxed}[6][]{
+	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimagerightlineboxed}{#4}{Altura en lineas de la imagen flotante derecha no definida}
+	\emptyvarerr{\insertimagerightlineboxed}{#5}{Ancho de la linea no definido}
+	\checkoutsideenvimage
+	\begin{wrapfigure}[#4]{r}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#5 pt}
+			\centering
+			\fbox{\includegraphics[width=\linewidth]{#2}}
+		\endgroup
+		\ifx\hfuzz#6\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#6 #1}
+		\fi
+	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
+}

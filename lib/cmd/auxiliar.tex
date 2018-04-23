@@ -11,4 +11,142 @@
 % Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-\newcommand{\newquestion}[1]{\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}\sectionanum{#1}}\newcommand{\newboxquestion}[1]{\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}\phantomsection\newp \fbox{\ \textbf{#1}.-\ } \noindent\pdfbookmark[1]{#1}{toc}}\newenvironment{images}[2][]{\def\envimageslabelvar {#1}\def\envimagescaptionvar {#2}\def\envimagesinitialized {true}\vspace{\margintopimages cm}\captionsetup{margin=\captionmarginmultimg cm}\begin{figure}[H] \centering\vspace{-\marginrightmultimage cm}\vspace{-\marginrightmultimage cm}\vspace{-\marginrightmultimage cm}}{\setcaptionmargincm{\captionlrmargin}\ifx\hfuzz\envimagescaptionvar\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{\envimagescaptionvar\envimageslabelvar}\fi\end{figure}\setcaptionmargincm{\captionlrmargin}\vspace{\marginbottomimages cm}\def\envimagesinitialized {false}}\def\envimagesinitialized {false}\newenvironment{references}{\ifthenelse{\equal{\stylecitereferences}{bibtex}}{}{\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}}\begingroup\ifthenelse{\equal{\donumrefsection}{true}}{\section{\namereferences}}{\sectionanum{\namereferences}}\renewcommand{\section}[2]{}\begin{thebibliography}{99}}{\end{thebibliography}\endgroup}\newenvironment{anexo}{\begingroup\clearpage\phantomsection\ifthenelse{\equal{\showappendixsectitle}{true}}{\appendixpage}{}\appendixtitleon\appendicestocpagenum\appendixtitletocon\bookmarksetup{numbered,openlevel=0}\begin{appendices}\bookmarksetupnext{level=part}\ifthenelse{\equal{\showappendixsecindex}{true}}{}{\belowpdfbookmark{\nameappendixsection}{contents}}\setcounter{secnumdepth}{3}\setcounter{tocdepth}{3}\ifthenelse{\equal{\appendixindepobjnum}{true}}{\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{lstlisting}{section}\counterwithin{table}{section}}{}}{\end{appendices}\bookmarksetupnext{level=0}\endgroup}\lstnewenvironment{sourcecode}[3][]{\emptyvarerr{\equationresize}{#2}{Estilo no definido}\ifthenelse{\equal{\showlinenumbers}{true}}{\rightlinenumbers}{}\ifthenelse{\equal{#2}{c}}{}{\ifthenelse{\equal{#2}{cpp}}{}{\ifthenelse{\equal{#2}{csharp}}{}{\ifthenelse{\equal{#2}{docker}}{}{\ifthenelse{\equal{#2}{html5}}{}{\ifthenelse{\equal{#2}{java}}{}{\ifthenelse{\equal{#2}{js}}{}{\ifthenelse{\equal{#2}{json}}{}{\ifthenelse{\equal{#2}{matlab}}{}{\ifthenelse{\equal{#2}{latex}}{}{\ifthenelse{\equal{#2}{perl}}{}{\ifthenelse{\equal{#2}{php}}{}{\ifthenelse{\equal{#2}{python}}{}{\ifthenelse{\equal{#2}{ruby}}{}{\ifthenelse{\equal{#2}{sql}}{}{\ifthenelse{\equal{#2}{xml}}{}{\def\sourcecodestyle {#2}\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,cpp,csharp,docker,html5,java,js,json,matlab,latex,perl,php,python,ruby,sql,xml}}}}}}}}}}}}}}}}}\ifthenelse{\equal{\codecaptiontop}{true}}{\ifx\hfuzz#3\hfuzz\lstset{style=#2,captionpos=t}\else\lstset{style=#2,caption={#3 #1},captionpos=t}\fi}{\ifx\hfuzz#3\hfuzz\lstset{style=#2,captionpos=b}\else\lstset{style=#2,caption={#3 #1},captionpos=b}\fi}}{\ifthenelse{\equal{\showlinenumbers}{true}}{\leftlinenumbers}{}}
+\newcommand{\newquestion}[1]{
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
+	\sectionanum{#1}
+}
+\newcommand{\newboxquestion}[1]{
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
+	\phantomsection
+	\newp \fbox{\ \textbf{#1}.-\ } \noindent
+	\pdfbookmark[1]{#1}{toc}
+}
+\newenvironment{images}[2][]{
+	\def\envimageslabelvar {#1}
+	\def\envimagescaptionvar {#2}
+	\def\envimagesinitialized {true}
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=\captionmarginmultimg cm}
+	\begin{figure}[H] \centering
+		\vspace{-\marginrightmultimage cm}
+		\vspace{-\marginrightmultimage cm}
+		\vspace{-\marginrightmultimage cm}
+	}{
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz\envimagescaptionvar\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{\envimagescaptionvar\envimageslabelvar}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+	\def\envimagesinitialized {false}
+}
+\def\envimagesinitialized {false}
+\newenvironment{references}{
+	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	}{
+		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
+	}
+	\begingroup
+	\ifthenelse{\equal{\donumrefsection}{true}}{
+		\section{\namereferences}
+	}{
+		\sectionanum{\namereferences}
+	}
+	\renewcommand{\section}[2]{}
+	\begin{thebibliography}{99}
+	}
+	{
+	\end{thebibliography}
+	\endgroup
+}
+\newenvironment{anexo}{
+	\begingroup
+	\clearpage
+	\phantomsection
+	\ifthenelse{\equal{\showappendixsectitle}{true}}{
+		\appendixpage}{
+	}
+	\appendixtitleon
+	\appendicestocpagenum
+	\appendixtitletocon
+	\bookmarksetup{
+		numbered,
+		openlevel=0
+	}
+	\begin{appendices}
+		\bookmarksetupnext{level=part}
+		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
+			\belowpdfbookmark{\nameappendixsection}{contents}
+		}
+		\setcounter{secnumdepth}{3}
+		\setcounter{tocdepth}{3}
+		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
+			\counterwithin{equation}{section}
+			\counterwithin{figure}{section}
+			\counterwithin{lstlisting}{section}
+			\counterwithin{table}{section}}{
+		}
+	}{
+	\end{appendices}
+	\bookmarksetupnext{level=0}
+	\endgroup
+}
+\lstnewenvironment{sourcecode}[3][]{
+	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\rightlinenumbers}{
+	}
+	\ifthenelse{\equal{#2}{c}}{}{
+	\ifthenelse{\equal{#2}{cpp}}{}{
+	\ifthenelse{\equal{#2}{csharp}}{}{
+	\ifthenelse{\equal{#2}{docker}}{}{
+	\ifthenelse{\equal{#2}{html5}}{}{
+	\ifthenelse{\equal{#2}{java}}{}{
+	\ifthenelse{\equal{#2}{js}}{}{
+	\ifthenelse{\equal{#2}{json}}{}{
+	\ifthenelse{\equal{#2}{matlab}}{}{
+	\ifthenelse{\equal{#2}{latex}}{}{
+	\ifthenelse{\equal{#2}{perl}}{}{
+	\ifthenelse{\equal{#2}{php}}{}{
+	\ifthenelse{\equal{#2}{python}}{}{
+	\ifthenelse{\equal{#2}{ruby}}{}{
+	\ifthenelse{\equal{#2}{sql}}{}{
+	\ifthenelse{\equal{#2}{xml}}{}{
+		\def\sourcecodestyle {#2}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,cpp,csharp,docker,html5,java,js,json,matlab,latex,perl,php,python,ruby,sql,xml}
+	}}}}}}}}}}}}}}}}
+	\ifthenelse{\equal{\codecaptiontop}{true}}{
+		\ifx\hfuzz#3\hfuzz
+			\lstset{
+				style=#2,
+				captionpos=t
+			}
+		\else
+			\lstset{
+				style=#2,
+				caption={#3 #1},
+				captionpos=t
+			}
+		\fi
+	}{
+		\ifx\hfuzz#3\hfuzz
+			\lstset{
+				style=#2,
+				captionpos=b
+			}
+		\else
+			\lstset{
+				style=#2,
+				caption={#3 #1},
+				captionpos=b
+			}
+		\fi
+	}
+}{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
