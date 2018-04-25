@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      5.0.1 (24/04/2018)
+% Versión:      5.0.2 (24/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -29,8 +29,8 @@
 \newcommand{\checkvardefined}[1]{
 	\ifthenelse{\isundefined{#1}}{
 		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
-		\stop
-	}{}
+		\stop}{
+	}
 }
 \newcommand{\checkextravarexist}[2]{
 	\ifthenelse{\isundefined{#1}}{
@@ -39,8 +39,8 @@
 			\errmessage{LaTeX Warning: Defina la variable en el bloque de INFORMACION DEL DOCUMENTO al comienzo del archivo principal del Template}
 		\else
 			\errmessage{LaTeX Warning: #2}
-		\fi
-	}{}
+		\fi}{
+	}
 }
 \newcommand{\emptyvarerr}[3]{
 	\ifx\hfuzz#2\hfuzz
@@ -77,14 +77,14 @@
 \newcommand{\checkoutsideenvimage}{
 	\ifthenelse{\equal{\envimagesinitialized}{true}}{
 		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}
-		\stop
-	}{}
+		\stop}{
+	}
 }
 \newcommand{\alertdeprecatedcmdimage}[1]{
 	\throwwarning{Funcion \noexpand#1 deprecada, se recomienda utilizar el entorno \noexpand\images en su lugar}
 }
 \newcommand{\coreimporttikz}{
 	\ifthenelse{\equal{\importtikz}{false}}{
-		\usepackage{tikz}
-	}{}
+		\usepackage{tikz}}{
+	}
 }
