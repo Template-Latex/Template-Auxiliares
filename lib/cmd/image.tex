@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      5.0.2 (24/04/2018)
+% Versión:      5.0.3 (25/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -246,6 +246,8 @@
 	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
 	\checkoutsideenvimage
+	~
+	\vspace{-\baselineskip}
 	\begin{wrapfigure}{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -266,7 +268,7 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 \newcommand{\insertimageleftline}[5][]{
-	\insertimageleftlineboxed[#1]{#2}{#3}{#4}{0}{#5}
+	\insertimageleftlineboxed[#1]{#2}{#3}{0}{#4}{#5}
 }
 \newcommand{\insertimageleftlineboxed}[6][]{
 	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
@@ -274,6 +276,8 @@
 	\emptyvarerr{\insertimageleftlineboxed}{#4}{Ancho de la linea no definido}
 	\emptyvarerr{\insertimageleftlineboxed}{#5}{Altura en lineas de la imagen flotante izquierda no definida}
 	\checkoutsideenvimage
+	~
+	\vspace{-\baselineskip}
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -300,6 +304,8 @@
 	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
 	\checkoutsideenvimage
+	~
+	\vspace{-\baselineskip}
 	\begin{wrapfigure}{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -320,7 +326,7 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 \newcommand{\insertimagerightline}[5][]{
-	\insertimagerightlineboxed[#1]{#2}{#3}{#4}{0}{#5}
+	\insertimagerightlineboxed[#1]{#2}{#3}{0}{#4}{#5}
 }
 \newcommand{\insertimagerightlineboxed}[6][]{
 	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}
@@ -328,6 +334,8 @@
 	\emptyvarerr{\insertimagerightlineboxed}{#4}{Ancho de la linea no definido}
 	\emptyvarerr{\insertimagerightlineboxed}{#5}{Altura en lineas de la imagen flotante derecha no definida}
 	\checkoutsideenvimage
+	~
+	\vspace{-\baselineskip}
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -348,6 +356,8 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 \newcommand{\insertimageleftp}[5][]{
+	\xspace~\\
+	\vspace{-2\baselineskip}
 	\insertimageleftboxedp[#1]{#2}{#3}{#4}{0}{#5}
 }
 \newcommand{\insertimageleftboxedp}[6][]{
@@ -356,16 +366,18 @@
 	\emptyvarerr{\insertimageleftboxedp}{#4}{Propiedades de la imagen no defindos}
 	\emptyvarerr{\insertimageleftboxedp}{#5}{Ancho de la linea no definido}
 	\checkoutsideenvimage
+	~
+	\vspace{-\baselineskip}
 	\begin{wrapfigure}{l}{#3}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
 		}
 		\begingroup
-		\setlength{\fboxsep}{0 pt}
-		\setlength{\fboxrule}{#5 pt}
-		\centering
-		\fbox{\includegraphics[#4]{#2}}
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#5 pt}
+			\centering
+			\fbox{\includegraphics[#4]{#2}}
 		\endgroup
 		\ifx\hfuzz#6\hfuzz
 			\vspace{\captionlessmarginimage cm}
@@ -376,7 +388,7 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 \newcommand{\insertimageleftlinep}[6][]{
-	\insertimageleftlineboxedp[#1]{#2}{#3}{#4}{#5}{0}{#6}
+	\insertimageleftlineboxedp[#1]{#2}{#3}{#4}{0}{#5}{#6}
 }
 \newcommand{\insertimageleftlineboxedp}[7][]{
 	\emptyvarerr{\insertimageleftlineboxedp}{#2}{Direccion de la imagen no definida}
@@ -385,16 +397,18 @@
 	\emptyvarerr{\insertimageleftlineboxedp}{#5}{Ancho de la linea no definido}
 	\emptyvarerr{\insertimageleftlineboxedp}{#6}{Altura en lineas de la imagen flotante izquierda no definida}
 	\checkoutsideenvimage
+	~
+	\vspace{-\baselineskip}
 	\begin{wrapfigure}[#6]{l}{#3}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
 		}
 		\begingroup
-		\setlength{\fboxsep}{0 pt}
-		\setlength{\fboxrule}{#5 pt}
-		\centering
-		\fbox{\includegraphics[#4]{#2}}
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#5 pt}
+			\centering
+			\fbox{\includegraphics[#4]{#2}}
 		\endgroup
 		\ifx\hfuzz#7\hfuzz
 			\vspace{\captionlessmarginimage cm}
@@ -405,6 +419,8 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 \newcommand{\insertimagerightp}[5][]{
+	\xspace~\\
+	\vspace{-2\baselineskip}
 	\insertimagerightboxedp[#1]{#2}{#3}{#4}{0}{#5}
 }
 \newcommand{\insertimagerightboxedp}[6][]{
@@ -413,16 +429,18 @@
 	\emptyvarerr{\insertimagerightboxedp}{#4}{Propiedades de la imagen no definidos}
 	\emptyvarerr{\insertimagerightboxedp}{#5}{Ancho de la linea no definido}
 	\checkoutsideenvimage
+	~
+	\vspace{-\baselineskip}
 	\begin{wrapfigure}{r}{#3}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
 		}
 		\begingroup
-		\setlength{\fboxsep}{0 pt}
-		\setlength{\fboxrule}{#5 pt}
-		\centering
-		\fbox{\includegraphics[#4]{#2}}
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#5 pt}
+			\centering
+			\fbox{\includegraphics[#4]{#2}}
 		\endgroup
 		\ifx\hfuzz#6\hfuzz
 			\vspace{\captionlessmarginimage cm}
@@ -433,7 +451,7 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 \newcommand{\insertimagerightlinep}[6][]{
-	\insertimagerightlineboxedp[#1]{#2}{#3}{#4}{#5}{0}{#6}
+	\insertimagerightlineboxedp[#1]{#2}{#3}{#4}{0}{#5}{#6}
 }
 \newcommand{\insertimagerightlineboxedp}[7][]{
 	\emptyvarerr{\insertimagerightlineboxedp}{#2}{Direccion de la imagen no definida}
@@ -442,16 +460,18 @@
 	\emptyvarerr{\insertimagerightlineboxedp}{#5}{Ancho de la linea no definido}
 	\emptyvarerr{\insertimagerightlineboxedp}{#6}{Altura en lineas de la imagen flotante derecha no definida}
 	\checkoutsideenvimage
+	~
+	\vspace{-\baselineskip}
 	\begin{wrapfigure}[#6]{r}{#3}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
 		}
 		\begingroup
-		\setlength{\fboxsep}{0 pt}
-		\setlength{\fboxrule}{#5 pt}
-		\centering
-		\fbox{\includegraphics[#4]{#2}}
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#5 pt}
+			\centering
+			\fbox{\includegraphics[#4]{#2}}
 		\endgroup
 		\ifx\hfuzz#7\hfuzz
 			\vspace{\captionlessmarginimage cm}
