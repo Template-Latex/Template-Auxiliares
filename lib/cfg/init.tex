@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      5.1.3 (15/05/2018)
+% Versión:      5.1.4 (15/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -70,9 +70,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={5.1.3-AUX-N},
-		Template.Version.Hash={7FB7C7C9F0B358F14133C1C121A7D81E},
-		Template.Version.Release={5.1.3},
+		Template.Version.Dev={5.1.4-AUX-N},
+		Template.Version.Hash={F2D928C18E301FAA3F1DB6DC6BBE8528},
+		Template.Version.Release={5.1.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -84,7 +84,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v5.1.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v5.1.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -224,6 +224,15 @@
 		\endlist\end{multicols}}}{}
 \makeatother
 \patchcmd{\appendices}{\quad}{\sectionappendixlastchar\quad}{}{}
+\begingroup
+	\makeatletter
+	\let\newcounter\@gobble\let\setcounter\@gobbletwo
+	\globaldefs\@ne\let\c@loldepth\@ne
+	\newlistof{listings}{lol}{\lstlistlistingname}
+	\newlistentry{lstlisting}{lol}{0}
+\def\cftlstlistingindent {1.5em}
+	\makeatother
+\endgroup
 \makeatletter
 	\def\ifGm@preamble#1{\@firstofone}
 	\appto\restoregeometry{
