@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuraciones del template
-% Versión:      5.1.4 (15/05/2018)
+% Versión:      5.1.5 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -16,8 +16,9 @@
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11}       % Tamaño del salto de línea [pt]
 \def\documentlang {es-CL}          % Define el idioma del documento
-\def\fontdocument {lmodern}        % Tipografía (lmodern,arial,helvet)
-\def\importtikz {false}            % Importar la librería tikz
+\def\fontdocument {lmodern}        % Tipografía base, ver soportadas en manual
+\def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual
+\def\importtikz {false}            % Utilizar la librería tikz
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
 \def\pointdecimal {false}          % N° decimales con punto en vez de coma
 \def\showlinenumbers {false}       % Muestra los n° de línea del documento
@@ -58,6 +59,7 @@
 \def\maintextcolor {black}         % Color principal del texto
 \def\numcitecolor {black}          % Color del n° de las referencias o citas
 \def\showborderonlinks {false}     % Color de un link por un recuadro de color
+\def\sourcecodebgcolor {lgray}     % Color de fondo del código fuente
 \def\subsubtitlecolor {black}      % Color de los sub-subtítulos
 \def\subtitlecolor {black}         % Color de los subtítulos
 \def\tablelinecolor {black}        % Color de las líneas de las tablas
@@ -102,7 +104,7 @@
 \def\cfgpdffitwindow {false}       % Ajusta la ventana del lector tamaño pdf
 \def\cfgpdfmenubar {true}          % Muestra el menú del lector
 \def\cfgpdfpagemode {OneColumn}    % Modo de página (OneColumn,SinglePage)
-\def\cfgpdfpageview {FitH}         % (Fit,FitH,FitV,FitR,FitB,FitBH,FitBV)
+\def\cfgpdfpageview {FitH}         % Fit,FitH,FitV,FitR,FitB,FitBH,FitBV
 \def\cfgpdfsecnumbookmarks {true}  % Número de la sec. en marcadores del pdf
 \def\cfgpdftoolbar {true}          % Muestra barra de herramientas lector pdf
 \def\cfgshowbookmarkmenu {false}   % Muestra menú marcadores al abrir el pdf
