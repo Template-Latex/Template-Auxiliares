@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Archivo principal
-% Versión:      5.1.5 (21/05/2018)
+% Versión:      5.1.6 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -11,64 +11,4 @@
 % Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-% CREACIÓN DEL DOCUMENTO
-\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, 11pt
-\usepackage[utf8]{inputenc} % Codificación UTF-8
-
-% INFORMACIÓN DEL DOCUMENTO
-\def\tituloauxiliar {Título de la auxiliar}
-\def\temaatratar {Tema de la auxiliar}
-
-\def\autordeldocumento {Nombre del autor}
-\def\nombredelcurso {Curso}
-\def\codigodelcurso {CO-1234}
-
-\def\nombreuniversidad {Universidad de Chile}
-\def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
-\def\departamentouniversidad {Departamento de la Universidad}
-\def\imagendepartamento {departamentos/fcfm}
-\def\imagendepartamentoescala {0.2}
-\def\localizacionuniversidad {Santiago, Chile}
-
-% EQUIPO DOCENTE
-\def\equipodocente {
-\begin{centering}\begin{tabular}{lll}
-\begin{tabular}[t]{@{}c@{}}
-Profesor Auxiliar 1 \\ \centering
-\insertemail{correo1@mail.com}
-\end{tabular}
-&
-& \begin{tabular}[t]{@{}c@{}}
-Profesor Auxiliar 2 \\ \centering
-\insertemail{correo2@mail.com}
-\end{tabular} \\
-\end{tabular}\end{centering}}{
-}
-
-% CONFIGURACIONES
-\input{lib/config}
-
-% IMPORTACIÓN DE LIBRERÍAS
-\input{lib/env/imports}
-
-% IMPORTACIÓN DE FUNCIONES
-\input{lib/cmd/all}
-
-% IMPORTACIÓN DE ESTILOS
-\input{lib/style/all}
-
-% CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\input{lib/cfg/init}
-
-% INICIO DE LAS PÁGINAS
-\begin{document}
-
-% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\input{lib/cfg/page}
-
-% ======================= INICIO DEL DOCUMENTO =======================
-
-\input{lib/etc/example} % Ejemplo, se puede borrar
-
-% FIN DEL DOCUMENTO
-\end{document}
+% CREACIÓN DEL DOCUMENTO\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, 11pt\usepackage[utf8]{inputenc} % Codificación UTF-8% INFORMACIÓN DEL DOCUMENTO\def\tituloauxiliar {Título de la auxiliar}\def\temaatratar {Tema de la auxiliar}\def\autordeldocumento {Nombre del autor}\def\nombredelcurso {Curso}\def\codigodelcurso {CO-1234}\def\nombreuniversidad {Universidad de Chile}\def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}\def\departamentouniversidad {Departamento de la Universidad}\def\imagendepartamento {departamentos/fcfm}\def\imagendepartamentoescala {0.2}\def\localizacionuniversidad {Santiago, Chile}% EQUIPO DOCENTE\def\equipodocente {\begin{centering}\begin{tabular}{lll}\begin{tabular}[t]{@{}c@{}}Profesor Auxiliar 1 \\ \centering\insertemail{correo1@mail.com}\end{tabular}&& \begin{tabular}[t]{@{}c@{}}Profesor Auxiliar 2 \\ \centering\insertemail{correo2@mail.com}\end{tabular} \\\end{tabular}\end{centering}}{}% CONFIGURACIONES\input{lib/config}% IMPORTACIÓN DE LIBRERÍAS\input{lib/env/imports}% IMPORTACIÓN DE FUNCIONES\input{lib/cmd/all}% IMPORTACIÓN DE ESTILOS\input{lib/style/all}% CONFIGURACIÓN INICIAL DEL DOCUMENTO\input{lib/cfg/init}% INICIO DE LAS PÁGINAS\begin{document}% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS\input{lib/cfg/page}% ======================= INICIO DEL DOCUMENTO =======================\input{lib/etc/example} % Ejemplo, se puede borrar% FIN DEL DOCUMENTO\end{document}
