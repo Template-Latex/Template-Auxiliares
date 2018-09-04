@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuraciones del template
-% Versión:      5.2.7 (01/09/2018)
+% Versión:      5.2.8 (04/09/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -62,6 +62,7 @@
 \def\numcitecolor {black}          % Color del n° de las referencias o citas
 \def\showborderonlinks {false}     % Color de un link por un recuadro de color
 \def\sourcecodebgcolor {lgray}     % Color de fondo del código fuente
+\def\ssstitlecolor {black}         % Color de los sub-sub-subtitulos
 \def\subsubtitlecolor {black}      % Color de los sub-subtítulos
 \def\subtitlecolor {black}         % Color de los subtítulos
 \def\tablelinecolor {black}        % Color de las líneas de las tablas
@@ -87,11 +88,13 @@
 \def\twocolumnreferences {false}   % Referencias en dos columnas
 
 % CONFIGURACIÓN DE LOS TÍTULOS
-\def\anumsecaddtocounter {true}    % Insertar títulos 'anum' aumenta n° de sec
+\def\anumsecaddtocounter {false}   % Insertar títulos 'anum' aumenta n° de sec
+\def\fontsizessstitle{\normalsize} % Tamaño sub-sub-subtítulos
 \def\fontsizesubsubtitle {\large}  % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}     % Tamaño subtítulos
 \def\fontsizetitle {\huge}         % Tamaño títulos
-\def\showdotontitles {false}       % Punto al final de n° (ti/sub)título
+\def\showdotontitles {false}       % Punto al final de n° (ti/sub/subsub)título
+\def\stylessstitle {\bfseries}     % Estilo sub-sub-subtitulos
 \def\stylesubsubtitle {\bfseries}  % Estilo sub-subtítulos
 \def\stylesubtitle {\bfseries}     % Estilo subtítulos
 \def\styletitle {\bfseries}        % Estilo títulos
