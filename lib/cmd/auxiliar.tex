@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      5.3.0 (30/09/2018)
+% Versión:      5.3.1 (01/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -11,4 +11,207 @@
 % Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-\newcommand{\newquestion}[1]{\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}\sectionanum{#1}}\newcommand{\newboxquestion}[1]{\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}\phantomsection\newp \fbox{\ \textbf{#1}.-\ } \noindent\pdfbookmark[1]{#1}{toc}}\newenvironment{images}[2][]{\def\envimageslabelvar {#1}\def\envimagescaptionvar {#2}\def\envimagesinitialized {true}\vspace{\margintopimages cm}\captionsetup{margin=\captionmarginmultimg cm}\begin{figure}[H] \centering\vspace{-\marginrightmultimage cm}\vspace{-\marginrightmultimage cm}\vspace{-\marginrightmultimage cm}}{\setcaptionmargincm{\captionlrmargin}\ifx\hfuzz\envimagescaptionvar\hfuzz\vspace{\captionlessmarginimage cm}\else\caption{\envimagescaptionvar\envimageslabelvar}\fi\end{figure}\setcaptionmargincm{\captionlrmargin}\vspace{\marginbottomimages cm}\def\envimagesinitialized {false}}\def\envimagesinitialized {false}\newenvironment{references}{\ifthenelse{\equal{\stylecitereferences}{bibtex}}{}{\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}}\begingroup\ifthenelse{\equal{\donumrefsection}{true}}{\section{\namereferences}}{\sectionanum{\namereferences}}\renewcommand{\section}[2]{}\begin{thebibliography}{99}}{\end{thebibliography}\endgroup}\newenvironment{anexo}{\begingroup\clearpage\phantomsection\ifthenelse{\equal{\showappendixsectitle}{true}}{\appendixpage}{}\appendixtitleon\appendicestocpagenum\appendixtitletocon\bookmarksetup{numbered,openlevel=0}\begin{appendices}\bookmarksetupnext{level=part}\ifthenelse{\equal{\showappendixsecindex}{true}}{}{\belowpdfbookmark{\nameappendixsection}{contents}}\setcounter{secnumdepth}{3}\setcounter{tocdepth}{3}\ifthenelse{\equal{\appendixindepobjnum}{true}}{\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{lstlisting}{section}\counterwithin{table}{section}}{}}{\end{appendices}\bookmarksetupnext{level=0}\endgroup}\lstnewenvironment{sourcecodep}[4][]{\emptyvarerr{sourcecodep}{#2}{Estilo no definido}\checkvalidsourcecodestyle{#2}\ifthenelse{\equal{\showlinenumbers}{true}}{\rightlinenumbers}{}\lstset{backgroundcolor=\color{\sourcecodebgcolor}}\ifthenelse{\equal{\codecaptiontop}{true}}{\ifx\hfuzz#4\hfuzz\ifx\hfuzz#3\hfuzz\lstset{style=#2}\else\lstset{style=#2,#3}\fi\else\ifx\hfuzz#3\hfuzz\lstset{caption={#4 #1},captionpos=t,style=#2}\else\lstset{caption={#4 #1},captionpos=t,style=#2,#3}\fi\fi}{\ifx\hfuzz#4\hfuzz\ifx\hfuzz#3\hfuzz\lstset{style=#2}\else\lstset{style=#2,#3}\fi\else\ifx\hfuzz#3\hfuzz\lstset{caption={#4 #1},captionpos=b,style=#2}\else\lstset{caption={#4 #1},captionpos=b,style=#2,#3}\fi\fi}}{\ifthenelse{\equal{\showlinenumbers}{true}}{\leftlinenumbers}{}}\lstnewenvironment{sourcecode}[3][]{\emptyvarerr{\equationresize}{#2}{Estilo no definido}\checkvalidsourcecodestyle{#2}\ifthenelse{\equal{\showlinenumbers}{true}}{\rightlinenumbers}{}\lstset{backgroundcolor=\color{\sourcecodebgcolor}}\ifthenelse{\equal{\codecaptiontop}{true}}{\ifx\hfuzz#3\hfuzz\lstset{style=#2}\else\lstset{style=#2,caption={#3 #1},captionpos=t}\fi}{\ifx\hfuzz#3\hfuzz\lstset{style=#2}\else\lstset{style=#2,caption={#3 #1},captionpos=b}\fi}}{\ifthenelse{\equal{\showlinenumbers}{true}}{\leftlinenumbers}{}}\newenvironment{itemizebf}[1][]{\begin{itemize}[font=\bfseries,#1]}{\end{itemize}}\newenvironment{enumeratebf}[1][]{\begin{enumerate}[font=\bfseries,#1]}{\end{enumerate}}
+\newcommand{\newquestion}[1]{
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
+	\sectionanum{#1}
+}
+\newcommand{\newboxquestion}[1]{
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
+	\phantomsection
+	\newp \fbox{\ \textbf{#1}.-\ } \noindent
+	\pdfbookmark[1]{#1}{toc}
+}
+\newenvironment{images}[2][]{
+	\def\envimageslabelvar {#1}
+	\def\envimagescaptionvar {#2}
+	\def\envimagesinitialized {true}
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=\captionmarginmultimg cm}
+	\begin{figure}[H] \centering
+		\vspace{-\marginrightmultimage cm}
+		\vspace{-\marginrightmultimage cm}
+		\vspace{-\marginrightmultimage cm}
+	}{
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz\envimagescaptionvar\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{\envimagescaptionvar\envimageslabelvar}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+	\def\envimagesinitialized {false}
+}
+\def\envimagesinitialized {false}
+\newenvironment{references}{
+	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	}{
+		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
+	}
+	\begingroup
+	\ifthenelse{\equal{\donumrefsection}{true}}{
+		\section{\namereferences}
+	}{
+		\sectionanum{\namereferences}
+	}
+	\renewcommand{\section}[2]{}
+	\begin{thebibliography}{99}
+	}
+	{
+	\end{thebibliography}
+	\endgroup
+}
+\newenvironment{anexo}{
+	\begingroup
+	\clearpage
+	\phantomsection
+	\ifthenelse{\equal{\showappendixsectitle}{true}}{
+		\appendixpage}{
+	}
+	\appendixtitleon
+	\appendicestocpagenum
+	\appendixtitletocon
+	\bookmarksetup{
+		numbered,
+		openlevel=0
+	}
+	\begin{appendices}
+		\bookmarksetupnext{level=part}
+		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
+			\belowpdfbookmark{\nameappendixsection}{contents}
+		}
+		\setcounter{secnumdepth}{3}
+		\setcounter{tocdepth}{3}
+		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
+			\counterwithin{equation}{section}
+			\counterwithin{figure}{section}
+			\counterwithin{lstlisting}{section}
+			\counterwithin{table}{section}}{
+		}
+	}{
+	\end{appendices}
+	\bookmarksetupnext{level=0}
+	\endgroup
+}
+\lstnewenvironment{sourcecodep}[4][]{
+	\emptyvarerr{sourcecodep}{#2}{Estilo no definido}
+	\checkvalidsourcecodestyle{#2}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\rightlinenumbers}{
+	}
+	\lstset{
+		backgroundcolor=\color{\sourcecodebgcolor}
+	}
+	\ifthenelse{\equal{\codecaptiontop}{true}}{
+		\ifx\hfuzz#4\hfuzz
+			\ifx\hfuzz#3\hfuzz
+				\lstset{
+					style=#2
+				}
+			\else
+				\lstset{
+					style=#2,
+					#3
+				}
+			\fi
+		\else
+			\ifx\hfuzz#3\hfuzz
+				\lstset{
+					caption={#4 #1},
+					captionpos=t,
+					style=#2
+				}
+			\else
+				\lstset{
+					caption={#4 #1},
+					captionpos=t,
+					style=#2,
+					#3
+				}
+			\fi
+		\fi
+	}{
+		\ifx\hfuzz#4\hfuzz
+			\ifx\hfuzz#3\hfuzz
+				\lstset{
+					style=#2
+				}
+			\else
+				\lstset{
+					style=#2,
+					#3
+				}
+			\fi
+		\else
+			\ifx\hfuzz#3\hfuzz
+				\lstset{
+					caption={#4 #1},
+					captionpos=b,
+					style=#2
+				}
+			\else
+				\lstset{
+					caption={#4 #1},
+					captionpos=b,
+					style=#2,
+					#3
+				}
+			\fi
+		\fi	
+	}
+}{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
+\lstnewenvironment{sourcecode}[3][]{
+	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
+	\checkvalidsourcecodestyle{#2}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\rightlinenumbers}{
+	}
+	\lstset{
+		backgroundcolor=\color{\sourcecodebgcolor}
+	}
+	\ifthenelse{\equal{\codecaptiontop}{true}}{
+		\ifx\hfuzz#3\hfuzz
+			\lstset{
+				style=#2
+			}
+		\else
+			\lstset{
+				style=#2,
+				caption={#3 #1},
+				captionpos=t
+			}
+		\fi
+	}{
+		\ifx\hfuzz#3\hfuzz
+			\lstset{
+				style=#2
+			}
+		\else
+			\lstset{
+				style=#2,
+				caption={#3 #1},
+				captionpos=b
+			}
+		\fi
+	}
+}{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
+\newenvironment{itemizebf}[1][]{
+	\begin{itemize}[font=\bfseries,#1]
+	}{
+	\end{itemize}
+}
+\newenvironment{enumeratebf}[1][]{
+	\begin{enumerate}[font=\bfseries,#1]
+	}{
+	\end{enumerate}
+}
+
