@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      5.3.1 (01/10/2018)
+% Versión:      6.0.0 (13/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -45,44 +45,45 @@
 }
 \def\envimagesinitialized {false}
 \newenvironment{references}{
-	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	}{
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
-	\ifthenelse{\equal{\donumrefsection}{true}}{
+\ifthenelse{\equal{\donumrefsection}{true}}{
 		\section{\namereferences}
 	}{
 		\sectionanum{\namereferences}
 	}
 	\renewcommand{\section}[2]{}
-	\begin{thebibliography}{99}
+\begin{thebibliography}{99}
 	}
 	{
 	\end{thebibliography}
-	\endgroup
+\endgroup
 }
 \newenvironment{anexo}{
-	\begingroup
+\begingroup
 	\clearpage
 	\phantomsection
 	\ifthenelse{\equal{\showappendixsectitle}{true}}{
 		\appendixpage}{
 	}
-	\appendixtitleon
+\def\GLOBALsectionalph{true}
+\appendixtitleon
 	\appendicestocpagenum
 	\appendixtitletocon
 	\bookmarksetup{
 		numbered,
 		openlevel=0
 	}
-	\begin{appendices}
+\begin{appendices}
 		\bookmarksetupnext{level=part}
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
 			\belowpdfbookmark{\nameappendixsection}{contents}
 		}
-		\setcounter{secnumdepth}{3}
-		\setcounter{tocdepth}{3}
+		\setcounter{secnumdepth}{4}
+		\setcounter{tocdepth}{4}
 		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
 			\counterwithin{equation}{section}
 			\counterwithin{figure}{section}
@@ -91,10 +92,11 @@
 		}
 	}{
 	\end{appendices}
-	\bookmarksetupnext{level=0}
+\def\GLOBALsectionalph{false}
+\bookmarksetupnext{level=0}
 	\endgroup
 }
-\lstnewenvironment{sourcecodep}[4][]{
+\newcommand{\coreinitsourcecodep}[4]{
 	\emptyvarerr{sourcecodep}{#2}{Estilo no definido}
 	\checkvalidsourcecodestyle{#2}
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
@@ -160,12 +162,22 @@
 			\fi
 		\fi	
 	}
+}
+\lstnewenvironment{sourcecodep}[4][]{
+	\coreinitsourcecodep{#1}{#2}{#3}{#4}
 }{
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
 	}
 }
-\lstnewenvironment{sourcecode}[3][]{
+\newcommand{\importsourcecodep}[5][]{
+	\coreinitsourcecodep{#1}{#2}{#3}{#5}
+	\inputlisting{#4}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
+\newcommand{\coreinitsourcecode}[3]{
 	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
 	\checkvalidsourcecodestyle{#2}
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
@@ -199,7 +211,17 @@
 			}
 		\fi
 	}
+}
+\lstnewenvironment{sourcecode}[3][]{
+	\coreinitsourcecode{#1}{#2}{#3}
 }{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
+\newcommand{\importsourcecode}[4][]{
+	\coreinitsourcecode{#1}{#2}{#4}
+	\lstinputlisting{#3}
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
 	}
@@ -214,4 +236,3 @@
 	}{
 	\end{enumerate}
 }
-

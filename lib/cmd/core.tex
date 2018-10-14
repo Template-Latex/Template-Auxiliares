@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      5.3.1 (01/10/2018)
+% Versión:      6.0.0 (13/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -11,6 +11,11 @@
 % Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
+\def\GLOBALcoretikzimported {false}
+\def\GLOBALenvimageintialized {false}
+\def\GLOBALsectionalph {false}
+\def\GLOBALsectionanumenabled {false}
+\def\GLOBALsubsectionanumenabled {false}
 \newcommand{\throwerror}[2]{
 	\errmessage{LaTeX Error: \noexpand#1 #2 (linea \the\inputlineno)}
 	\stop
@@ -55,33 +60,24 @@
 	\list{}{\rightmargin#2\leftmargin#1}\item[]
 }
 \let\endchangemargin=\endlist
-\def\beginplandscape {
-	\newgeometry{landscape,left=\pagemarginleft cm,top=\pagemargintop cm,right=\pagemarginright cm,bottom=\pagemarginbottom cm}
-	\headwidth=\textwidth
-}
-\def\endplandscape {
-	\restoregeometry
-	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\headwidth=\textwidth
+\newcommand{\coreimporttikz}{
+	\ifthenelse{\equal{\GLOBALcoretikzimported}{false}}{
+		\ifthenelse{\equal{\importtikz}{false}}{
+			\usepackage{tikz}}{
+		}
+		\def\GLOBALcoretikzimported{true}
+		}{
+	}
 }
 \newcommand{\checkonlyonenvimage}{
-	\ifthenelse{\equal{\envimagesinitialized}{true}}{}{
+	\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{}{
 		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}
 		\stop
 	}
 }
 \newcommand{\checkoutsideenvimage}{
-	\ifthenelse{\equal{\envimagesinitialized}{true}}{
+	\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{
 		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}
 		\stop}{
 	}
 }
-\newcommand{\alertdeprecatedcmdimage}[1]{
-	\throwwarning{Funcion \noexpand#1 deprecada, se recomienda utilizar el entorno \noexpand\images en su lugar}
-}
-\newcommand{\coreimporttikz}{
-	\ifthenelse{\equal{\importtikz}{false}}{
-		\usepackage{tikz}}{
-	}
-}
-
