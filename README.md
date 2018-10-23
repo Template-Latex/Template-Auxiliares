@@ -5,7 +5,7 @@
   <br /><br />
   Template-Auxiliares</h1>
 <p align="center">Template para crear enunciados de auxiliares en LaTeX</p>
-<div align="center"><a href="http://ppizarror.com"><img alt="@ppizarror" src="https://latex.ppizarror.com/res/badges/autor.svg" /></a>
+<div align="center"><a href="https://ppizarror.com"><img alt="@ppizarror" src="https://latex.ppizarror.com/res/badges/autor.svg" /></a>
 <a href="https://opensource.org/licenses/MIT/"><img alt="Licencia MIT" src="https://latex.ppizarror.com//res/badges/licenciamit.svg" /></a>
 <a href="https://gitter.im/Template-Latex/Template-Auxiliares"><img alt="Chat" src="https://latex.ppizarror.com/res/badges/chat.svg" /></a>
 <br><a href="https://github.com/Template-Latex/Template-Auxiliares/"><img alt="Template-Auxiliares" src="https://latex.ppizarror.com/res/badges/auxiliares.svg" /></a>
