@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones para insertar ecuaciones
-% Versión:      6.0.2 (27/10/2018)
+% Versión:      6.0.3 (03/11/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -50,12 +50,12 @@
 			\begin{equation}
 				\text{#1} #2
 			\end{equation}
-			\vspace{\marginequationcaptiontop cm}
+			\vspace{\margineqncaptiontop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#3}
-				\vspace{\marginequationcaptionbottom cm}
+				\vspace{\margineqncaptionbottom cm}
 			\end{changemargin}
-			\vspace{\marginequationcaptionbottom cm}
+			\vspace{\margineqncaptionbottom cm}
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -74,12 +74,12 @@
 		\begin{equation*}
 			\ensuremath{#1}
 		\end{equation*}
-		\vspace{\marginequationcaptiontop cm}
+		\vspace{\margineqncaptiontop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{\marginequationcaptionbottom cm}
+			\vspace{\margineqncaptionbottom cm}
 		\end{changemargin}
-		\vspace{\marginequationcaptionbottom cm}
+		\vspace{\margineqncaptionbottom cm}
 	\fi
 }
 \newcommand{\insertgather}[1]{
@@ -112,12 +112,12 @@
 			\begin{gather}
 				\ensuremath{#1}
 			\end{gather}
-			\vspace{\margingathercaptiontop cm}
+			\vspace{\margingathercapttop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#2}
-				\vspace{\margingathercaptionbottom cm}
+				\vspace{\margingathercaptbottom cm}
 			\end{changemargin}
-			\vspace{\margingathercaptionbottom cm}
+			\vspace{\margingathercaptbottom cm}
 		}{
 			\insertgathercaptionedanum{#1}{#2}
 		}
@@ -132,12 +132,12 @@
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{\margingathercaptiontop cm}
+		\vspace{\margingathercapttop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{\margingathercaptionbottom cm}
+			\vspace{\margingathercaptbottom cm}
 		\end{changemargin}
-		\vspace{\margingathercaptionbottom cm}
+		\vspace{\margingathercaptbottom cm}
 	\fi
 }
 \newcommand{\insertgathered}[2][]{
@@ -178,12 +178,12 @@
 					\text{#1} \ensuremath{#2}
 				\end{gathered}
 			\end{equation}
-			\vspace{\margingathercaptiontop cm}
+			\vspace{\margingathercapttop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#3}
-				\vspace{\margingathercaptionbottom cm}
+				\vspace{\margingathercaptbottom cm}
 			\end{changemargin}
-			\vspace{\margingathercaptionbottom cm}
+			\vspace{\margingathercaptbottom cm}
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -202,12 +202,12 @@
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{\margingathercaptiontop cm}
+		\vspace{\margingathercapttop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{\margingathercaptionbottom cm}
+			\vspace{\margingathercaptbottom cm}
 		\end{changemargin}
-		\vspace{\margingathercaptionbottom cm}
+		\vspace{\margingathercaptbottom cm}
 	\fi
 }
 \newcommand{\insertalign}[1]{
@@ -240,12 +240,12 @@
 			\begin{align}
 				\ensuremath{#1}
 			\end{align}
-			\vspace{\marginaligncaptiontop cm}
+			\vspace{\marginaligncapttop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#2}
-				\vspace{\marginaligncaptionbottom cm}
+				\vspace{\marginaligncaptbottom cm}
 			\end{changemargin}
-			\vspace{\marginaligncaptionbottom cm}
+			\vspace{\marginaligncaptbottom cm}
 		}{
 			\insertaligncaptionedanum{#1}{#2}
 		}
@@ -260,12 +260,12 @@
 		\begin{align*}
 			\ensuremath{#1}
 		\end{align*}
-		\vspace{\marginaligncaptiontop cm}
+		\vspace{\marginaligncapttop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{\marginaligncaptionbottom cm}
+			\vspace{\marginaligncaptbottom cm}
 		\end{changemargin}
-		\vspace{\marginaligncaptionbottom cm}
+		\vspace{\marginaligncaptbottom cm}
 	\fi
 }
 \newcommand{\insertaligned}[2][]{
@@ -306,12 +306,12 @@
 					\text{#1} \ensuremath{#2}
 				\end{aligned}
 			\end{equation}
-			\vspace{\marginaligncaptiontop cm}
+			\vspace{\marginaligncapttop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#3}
-				\vspace{\marginaligncaptionbottom cm}
+				\vspace{\marginaligncaptbottom cm}
 			\end{changemargin}
-			\vspace{\marginaligncaptionbottom cm}
+			\vspace{\marginaligncaptbottom cm}
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -332,11 +332,11 @@
 				\ensuremath{#1}
 			\end{aligned}
 		\end{equation}
-		\vspace{\marginaligncaptiontop cm}
+		\vspace{\marginaligncapttop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{\marginaligncaptionbottom cm}
+			\vspace{\marginaligncaptbottom cm}
 		\end{changemargin}
-		\vspace{\marginaligncaptionbottom cm}
+		\vspace{\marginaligncaptbottom cm}
 	\fi
 }

@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      6.0.2 (27/10/2018)
+% Versión:      6.0.3 (03/11/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -12,7 +12,9 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 \def\GLOBALcoretikzimported {false}
-\def\GLOBALenvimageintialized {false}
+\def\GLOBALenvimageadded {false}
+\def\GLOBALenvimageinitialized {false}
+\def\GLOBALenvimagenewlinemarg {0.25}
 \def\GLOBALsectionalph {false}
 \def\GLOBALsectionanumenabled {false}
 \def\GLOBALsubsectionanumenabled {false}
@@ -69,14 +71,9 @@
 		}{
 	}
 }
-\newcommand{\checkonlyonenvimage}{
-	\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{}{
-		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}
-		\stop
-	}
-}
+\newcommand{\checkonlyonenvimage}{\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{}{\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}\stop}}
 \newcommand{\checkoutsideenvimage}{
-	\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{
+	\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{
 		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}
 		\stop}{
 	}
