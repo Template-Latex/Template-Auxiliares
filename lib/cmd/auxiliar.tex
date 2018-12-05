@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      6.0.4 (22/11/2018)
+% Versión:      6.0.5 (05/12/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -48,7 +48,7 @@
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
-\ifthenelse{\equal{\donumrefsection}{true}}{
+\ifthenelse{\equal{\sectionrefenv}{true}}{
 		\section{\namereferences}
 	}{
 		\sectionanum{\namereferences}
@@ -64,9 +64,6 @@
 \begingroup
 	\clearpage
 	\phantomsection
-	\ifthenelse{\equal{\showappendixsectitle}{true}}{
-		\appendixpage}{
-	}
 \def\GLOBALsectionalph{true}
 \appendixtitleon
 	\appendicestocpagenum
