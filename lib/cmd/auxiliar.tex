@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      6.0.5 (05/12/2018)
+% Versión:      6.0.6 (14/12/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -26,10 +26,10 @@
 	\def\envimagescaptionvar {#2}
 	\def\GLOBALenvimageinitialized {true}
 	\def\GLOBALenvimageadded {false}
-	\vspace{\margintopimages cm}
+	\vspace{\marginimagetop cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
 	\begin{figure}[H] \centering
-		\vspace{\margintopmultimages cm}
+		\vspace{\marginimagemulttop cm}
 	}{
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz\envimagescaptionvar\hfuzz
@@ -39,7 +39,7 @@
 		\fi
 	\end{figure}
 	\setcaptionmargincm{\captionlrmargin}
-	\vspace{\marginbottomimages cm}
+	\vspace{\marginimagebottom cm}
 	\def\GLOBALenvimageinitialized {false}
 }
 \newenvironment{references}{

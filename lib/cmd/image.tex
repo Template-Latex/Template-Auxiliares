@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      6.0.5 (05/12/2018)
+% Versión:      6.0.6 (14/12/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -12,7 +12,7 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 \newcommand{\addimage}[3]{\addimageboxed{#1}{#2}{0}{#3}}
-\newcommand{\addimageboxed}[4]{\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginrightmultimage cm}\hspace{-0.125cm}}{}\subfloat[#4]{\fbox{\includegraphics[#2]{#1}}}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}}
+\newcommand{\addimageboxed}[4]{\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\subfloat[#4]{\fbox{\includegraphics[#2]{#1}}}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}}
 \newcommand{\addimagenewline}{\checkonlyonenvimage\def\GLOBALenvimageadded {false}\\\hspace{\GLOBALenvimagenewlinemarg cm}}
 \newcommand{\insertimage}[4][]{
 	\insertimageboxed[#1]{#2}{#3}{0}{#4}
@@ -22,7 +22,7 @@
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
 	\checkoutsideenvimage
-	\vspace{\margintopimages cm}
+	\vspace{\marginimagetop cm}
 	\begin{figure}[H]
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
@@ -36,7 +36,7 @@
 			\hspace{0cm}\caption{#5 #1}
 		\fi
 	\end{figure}
-	\vspace{\marginbottomimages cm}
+	\vspace{\marginimagebottom cm}
 }
 \newcommand{\insertimageleft}[4][]{
 	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
