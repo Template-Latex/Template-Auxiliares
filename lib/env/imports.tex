@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      6.0.6 (14/12/2018)
+% Versión:      6.0.7 (26/12/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -25,6 +25,9 @@
 \ifthenelse{\equal{\fontdocument}{arial}}{
 	\usepackage{helvet}
 	\renewcommand{\familydefault}{\sfdefault}
+}{
+\ifthenelse{\equal{\fontdocument}{arial2}}{
+	\usepackage{arial}
 }{
 \ifthenelse{\equal{\fontdocument}{accantis}}{
 	\usepackage{accanthis}
@@ -294,7 +297,7 @@
 	\usepackage[lf]{venturis}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,helvet,
+	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,arial2,helvet,
 	accantis,alegreya,alegreyasans,algolrevived,antiqua,antpolt,antpoltlight,
 	anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,
 	avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,
@@ -308,7 +311,7 @@
 	overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,
 	raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,
 	sourcesanspro,uarial,ugq,universalis,universaliscondensed,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 \ifthenelse{\equal{\fonttypewriter}{tmodern}}{
 	\renewcommand*\ttdefault{lmvtt}
@@ -422,7 +425,7 @@
 \usepackage[figure,table,lstlisting]{totalcount}
 \usepackage[normalem]{ulem}
 \usepackage[usenames,dvipsnames]{xcolor}
-\ifthenelse{\equal{\showdotontitles}{true}}{
+\ifthenelse{\equal{\showdotaftersnum}{true}}{
 	\usepackage{secdot}
 	\sectiondot{subsection}
 	\sectiondot{subsubsection}}{

@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.0.6 (14/12/2018)
+% Versión:      6.0.7 (26/12/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -64,15 +64,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={14/12/2018},
+		Template.Fecha={26/12/2018},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.0.6-AUX-N},
-		Template.Version.Hash={01FE0F90E75E0F5E7737EE49D4C16E0D},
-		Template.Version.Release={6.0.6},
+		Template.Version.Dev={6.0.7-AUX-N},
+		Template.Version.Hash={480BBFEB66AAE71868AEF1F356751868},
+		Template.Version.Release={6.0.7},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -84,7 +84,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v6.0.6 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v6.0.7 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -252,7 +252,7 @@
 \setcounter{secnumdepth}{4}
 \newcounter{subsubsubsection}[subsubsection]
 \titleclass{\subsubsubsection}{straight}[\subsection]
-\ifthenelse{\equal{\showdotontitles}{true}}{
+\ifthenelse{\equal{\showdotaftersnum}{true}}{
 	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
 	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
 }{
@@ -271,7 +271,7 @@
 		{3.25ex \@plus 1ex \@minus .2ex}
 		{-1em}
 		{\normalfont\normalsize\bfseries}}
-	\ifthenelse{\equal{\showdotontitles}{true}}{
+	\ifthenelse{\equal{\showdotaftersnum}{true}}{
 \def\l@subsubsubsection{\@dottedtocline{4}{7.83em}{4.15em}}
 		\def\l@paragraph{\@dottedtocline{5}{11.98em}{4.92em}}
 		\def\l@subparagraph{\@dottedtocline{6}{14.65em}{5.69em}}

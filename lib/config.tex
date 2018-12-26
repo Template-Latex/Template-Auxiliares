@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuraciones del template
-% Versión:      6.0.6 (14/12/2018)
+% Versión:      6.0.7 (26/12/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -16,11 +16,11 @@
 \def\defaultnewlinesize {11}       % Tamaño del salto de línea [pt]
 \def\documentlang {es-CL}          % Define el idioma del documento
 \def\fontdocument {lmodern}        % Tipografía base, ver soportadas en manual
-\def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual
+\def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual online
 \def\importtikz {false}            % Utilizar la librería tikz
 \def\pointdecimal {true}           % N° decimales con punto en vez de coma
 \def\predocuseromannumber {true}   % Pág. con número romano previo a inicio doc.
-\def\showlinenumbers {false}       % Muestra los n° de línea del documento
+\def\showlinenumbers {false}       % Muestra los números de línea del documento
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
 \def\captionalignment {justified}  % Posición {centered,justified,left,right}
@@ -32,7 +32,7 @@
 \def\captiontextbold {false}       % Etiqueta (código,figura,tabla) en negrita
 \def\codecaptiontop {true}         % Leyenda arriba del código fuente
 \def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
-\def\showsectioncaption {none}     % N° sec. en objeto {none, (s/ss/sss/ssss)ec}
+\def\showsectioncaption {none}     % N° sec. en objeto {none,(s/ss/sss/ssss)ec}
 \def\tablecaptiontop {true}        % Leyenda arriba de las tablas
 
 % ANEXO, CITAS, REFERENCIAS
@@ -53,21 +53,29 @@
 \def\equationrestart {sec}         % N° ecuación {none,page,(s/ss/sss/ssss)ec}
 \def\footnoterestart {none}        % N° footnote {none,page,(s/ss/sss/ssss)ec}
 \def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
-\def\marginalignbottom {-0.30}     % Margen inferior ecuaciones [cm]
-\def\marginaligncaptbottom {0.05}  % Margen inferior caption ecuación [cm]
-\def\marginaligncapttop {-0.60}    % Margen superior caption ecuación [cm]
-\def\marginaligntop {-0.40}        % Margen superior ecuaciones [cm]
+\def\marginalignbottom {-0.30}     % Margen inferior entorno align [cm]
+\def\marginaligncaptbottom {0.05}  % Margen inferior entorno align caption[cm]
+\def\marginaligncapttop {-0.60}    % Margen superior entorno align caption [cm]
+\def\marginaligntop {-0.40}        % Margen superior entorno align [cm]
+\def\marginalignedbottom {-0.30}   % Margen inferior entorno aligned [cm]
+\def\marginalignedcaptbottom {0.0} % Margen inferior entorno aligned caption[cm]
+\def\marginalignedcapttop {-0.60}  % Margen superior entorno aligned caption [cm]
+\def\marginalignedtop {-0.40}      % Margen superior entorno aligned [cm]
 \def\margineqncaptionbottom {0.0}  % Margen inferior caption ecuación [cm]
 \def\margineqncaptiontop {-0.65}   % Margen superior caption ecuación [cm]
-\def\marginequationbottom {-0.05}  % Margen inferior ecuaciones [cm]
+\def\marginequationbottom {-0.15}  % Margen inferior ecuaciones [cm]
 \def\marginequationtop {0.0}       % Margen superior ecuaciones [cm]
-\def\marginfloatimages {-13.0}     % Mrg. sup. fig \insertimageleft/right [pt]
+\def\marginfloatimages {-13.0}     % Margen sup. fig. \insertimageleft/right [pt]
 \def\marginfootnote {10.0}         % Margen derecho footnote [pt]
-\def\margingatherbottom {0.0}      % Margen inferior ecuaciones [cm]
-\def\margingathercaptbottom {0.05} % Margen inferior caption ecuación [cm]
-\def\margingathercapttop {-0.77}   % Margen superior caption ecuación [cm]
-\def\margingathertop {-0.40}       % Margen superior ecuaciones [cm]
-\def\marginimagebottom {-0.10}     % Margen inferior figura [cm]
+\def\margingatherbottom {-0.20}    % Margen inferior entorno gather [cm]
+\def\margingathercaptbottom {0.05} % Margen inferior entorno gather caption [cm]
+\def\margingathercapttop {-0.77}   % Margen superior entorno gather [cm]
+\def\margingathertop {-0.40}       % Margen superior entorno gather [cm]
+\def\margingatheredbottom {-0.10}  % Margen inf. entorno gathered [cm]
+\def\margingatheredcaptbottom{0.0} % Margen inf. entorno gathered caption [cm]
+\def\margingatheredcapttop {-0.77} % Margen superior entorno gathered [cm]
+\def\margingatheredtop {-0.40}     % Margen superior entorno gathered [cm]
+\def\marginimagebottom {-0.15}     % Margen inferior figura [cm]
 \def\marginimagemultright {0.50}   % Margen derecho imágenes múltiples [cm]
 \def\marginimagemulttop {-0.30}    % Margen superior imágenes múltiples [cm]
 \def\marginimagetop {0.0}          % Margen superior figuras [cm]
@@ -84,20 +92,20 @@
 \def\fontsizessstitle{\normalsize} % Tamaño sub-sub-subtítulos
 \def\fontsizesubsubtitle {\large}  % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}     % Tamaño subtítulos
-\def\fontsizetitle {\huge}         % Tamaño títulos
-\def\showdotontitles {false}       % Punto al final de n° (s/ss/sss/ssss)ection
+\def\fontsizetitle {\LARGE}        % Tamaño títulos
+\def\showdotaftersnum {true}       % Punto al final de n° (s/ss/sss/ssss)ection
 \def\stylessstitle {\bfseries}     % Estilo sub-sub-subtítulos
 \def\stylesubsubtitle {\bfseries}  % Estilo sub-subtítulos
 \def\stylesubtitle {\bfseries}     % Estilo subtítulos
 \def\styletitle {\bfseries}        % Estilo títulos
 
 % CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
-\def\captioncolor {black}          % Color de la ley. (código,figura,tabla)
+\def\captioncolor {black}          % Color de la leyenda (código,figura,tabla)
 \def\captiontextcolor {black}      % Color de la leyenda
 \def\colorpage {white}             % Color de la página
 \def\highlightcolor {yellow}       % Color del subrayado con \hl
 \def\linenumbercolor {gray}        % Color del n° de línea (\showlinenumbers)
-\def\linkcolor {black}             % Color de los links del doc.
+\def\linkcolor {black}             % Color de los links del documento
 \def\maintextcolor {black}         % Color principal del texto
 \def\numcitecolor {black}          % Color del n° de las referencias o citas
 \def\showborderonlinks {false}     % Color de un link por un recuadro de color
@@ -107,7 +115,7 @@
 \def\subtitlecolor {black}         % Color de los subtítulos
 \def\tablelinecolor {black}        % Color de las líneas de las tablas
 \def\titlecolor {black}            % Color de los títulos
-\def\urlcolor {magenta}            % Color de los enlaces web (\url,\href)
+\def\urlcolor {magenta}            % Color de los enlaces web (\href,\url)
 
 % MÁRGENES DE PÁGINA
 \def\pagemarginbottom {2.7}        % Margen inferior página [cm]
@@ -138,3 +146,4 @@
 \def\nomltwfigure {Figura}         % Etiqueta leyenda de las figuras
 \def\nomltwsrc {Código}            % Etiqueta leyenda del código fuente
 \def\nomltwtable {Tabla}           % Etiqueta leyenda de las tablas
+false
