@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.0.7 (26/12/2018)
+% Versión:      6.0.8 (01/01/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -64,15 +64,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={26/12/2018},
+		Template.Fecha={01/01/2019},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.0.7-2-AUX-N},
-		Template.Version.Hash={2EC7E0F8EAD489AD292398F7CDDC5543},
-		Template.Version.Release={6.0.7},
+		Template.Version.Dev={6.0.8-AUX-N},
+		Template.Version.Hash={4A05FD8645A59F40791255FDD5D84CFB},
+		Template.Version.Release={6.0.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -84,7 +84,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v6.0.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v6.0.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -134,6 +134,22 @@
 }
 \captionsetup{
 	labelfont={color=\captioncolor, \captiontextbold},
+	labelformat={\captionlabelformat},
+	labelsep={\captionlabelsep},
+	textfont={color=\captiontextcolor},
+	singlelinecheck=on
+}
+\captionsetup[subfigure]{
+	labelfont={color=\captioncolor, \captiontextbold},
+	labelformat={\subcaptionlabelformat},
+	labelsep={\subcaptionlabelsep},
+	textfont={color=\captiontextcolor},
+	singlelinecheck=on
+}
+\captionsetup[subtable]{
+	labelfont={color=\captioncolor, \captiontextbold},
+	labelformat={\subcaptionlabelformat},
+	labelsep={\subcaptionlabelsep},
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
 }
