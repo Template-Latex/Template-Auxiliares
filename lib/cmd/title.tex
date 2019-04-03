@@ -37,3 +37,10 @@
 	\addcontentsline{toc}{subsubsubsection}{#1}
 	\stepcounter{subsubsubsection}
 }
+\newcommand{\changeheadertitle}[1]{
+	\emptyvarerr{\changeheadertitle}{#1}{Titulo no definido}
+	\markboth{#1}{}
+}
+\newcommand{\clearheadertitle}{
+	\markboth{}{}
+}
