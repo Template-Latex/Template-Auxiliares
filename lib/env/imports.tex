@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      6.1.1 (03/04/2019)
+% Versión:      6.1.2 (14/04/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -17,8 +17,96 @@
 }
 \usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}
 \usepackage{ifthen}
+\ifthenelse{\equal{\equationleftalign}{true}}{
+	\usepackage[fleqn]{amsmath}
+}{
+	\usepackage{amsmath}
+}
 \let\counterwithout\relax
 \let\counterwithin\relax
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{bigstrut}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{changepage}
+\usepackage{chngcntr}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{csquotes}
+\usepackage{datetime}
+\usepackage{floatpag}
+\usepackage{floatrow}
+\usepackage{framed}
+\usepackage{gensymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{needspace}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{physics}
+\usepackage{rotating}
+\usepackage{sectsty}
+\usepackage{selinput}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{soul}
+\usepackage{subfig}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{wasysym}
+\usepackage{wrapfig}
+\usepackage{xspace}
+\usepackage[makeroom]{cancel}
+\usepackage[inline]{enumitem}
+\usepackage[bottom,norule,hang]{footmisc}
+\usepackage[subfigure,titles]{tocloft}
+\usepackage[pdfencoding=auto,psdextra]{hyperref}
+\usepackage[figure,table,lstlisting]{totalcount}
+\usepackage[normalem]{ulem}
+\usepackage[usenames,dvipsnames]{xcolor}
+\ifthenelse{\equal{\showdotaftersnum}{true}}{
+	\usepackage{secdot}
+	\sectiondot{subsection}
+	\sectiondot{subsubsection}}{
+}
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{
+	\ifthenelse{\equal{\natbibrefstyle}{apa}}{
+		\usepackage{natbib}
+	}{
+	\ifthenelse{\equal{\natbibrefstyle}{ieeetr}}{
+		\usepackage[numbers]{natbib}
+	}{
+	\ifthenelse{\equal{\natbibrefstyle}{unsrt}}{
+		\usepackage[numbers]{natbib}
+	}{
+	\ifthenelse{\equal{\natbibrefstyle}{abbrvnat}}{
+		\usepackage[numbers]{natbib}
+	}{
+		\usepackage{natbib}
+	}}}}
+}{
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+		\usepackage{apacite}
+	}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+		}{}
+	}
+}
+\usepackage{appendix}
+\usepackage{bookmark}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{hyperxmp}
+\usepackage{multirow}
+\usepackage{titlesec}
 \ifthenelse{\equal{\fontdocument}{lmodern}}{
 	\usepackage{lmodern}
 }{
@@ -376,87 +464,4 @@
 \ifthenelse{\equal{\showlinenumbers}{true}}{
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{array}
-\usepackage{bigstrut}
-\usepackage{bm}
-\usepackage{booktabs}
-\usepackage{caption}
-\usepackage{changepage}
-\usepackage{chngcntr}
-\usepackage{color}
-\usepackage{colortbl}
-\usepackage{csquotes}
-\usepackage{datetime}
-\usepackage{floatpag}
-\usepackage{floatrow}
-\usepackage{framed}
-\usepackage{gensymb}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{lipsum}
-\usepackage{listings}
-\usepackage{listingsutf8}
-\usepackage{longtable}
-\usepackage{mathtools}
-\usepackage{multicol}
-\usepackage{needspace}
-\usepackage{pdflscape}
-\usepackage{pdfpages}
-\usepackage{physics}
-\usepackage{rotating}
-\usepackage{sectsty}
-\usepackage{selinput}
-\usepackage{setspace}
-\usepackage{siunitx}
-\usepackage{soul}
-\usepackage{subfig}
-\usepackage{textcomp}
-\usepackage{url}
-\usepackage{wasysym}
-\usepackage{wrapfig}
-\usepackage{xspace}
-\usepackage[makeroom]{cancel}
-\usepackage[inline]{enumitem}
-\usepackage[bottom,norule,hang]{footmisc}
-\usepackage[subfigure,titles]{tocloft}
-\usepackage[pdfencoding=auto,psdextra]{hyperref}
-\usepackage[figure,table,lstlisting]{totalcount}
-\usepackage[normalem]{ulem}
-\usepackage[usenames,dvipsnames]{xcolor}
-\ifthenelse{\equal{\showdotaftersnum}{true}}{
-	\usepackage{secdot}
-	\sectiondot{subsection}
-	\sectiondot{subsubsection}}{
-}
-\ifthenelse{\equal{\stylecitereferences}{natbib}}{
-	\ifthenelse{\equal{\natbibrefstyle}{apa}}{
-		\usepackage{natbib}
-	}{
-	\ifthenelse{\equal{\natbibrefstyle}{ieeetr}}{
-		\usepackage[numbers]{natbib}
-	}{
-	\ifthenelse{\equal{\natbibrefstyle}{unsrt}}{
-		\usepackage[numbers]{natbib}
-	}{
-	\ifthenelse{\equal{\natbibrefstyle}{abbrvnat}}{
-		\usepackage[numbers]{natbib}
-	}{
-		\usepackage{natbib}
-	}}}}
-}{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{
-		\usepackage{apacite}
-	}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
-		}{}
-	}
-}
-\usepackage{appendix}
-\usepackage{bookmark}
-\usepackage{fancyhdr}
-\usepackage{float}
-\usepackage{hyperxmp}
-\usepackage{multirow}
-\usepackage{titlesec}
+
