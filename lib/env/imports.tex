@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      6.1.4 (13/05/2019)
+% Versión:      6.1.5 (05/06/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -66,12 +66,16 @@
 \usepackage{xspace}
 \usepackage[makeroom]{cancel}
 \usepackage[inline]{enumitem}
-\usepackage[bottom,norule,hang]{footmisc}
 \usepackage[subfigure,titles]{tocloft}
 \usepackage[pdfencoding=auto,psdextra]{hyperref}
 \usepackage[figure,table,lstlisting]{totalcount}
 \usepackage[normalem]{ulem}
 \usepackage[usenames,dvipsnames]{xcolor}
+\ifthenelse{\equal{\footnotepagetoprule}{true}}{
+\usepackage[bottom,hang]{footmisc}
+}{
+	\usepackage[bottom,norule,hang]{footmisc}
+}
 \ifthenelse{\equal{\showdotaftersnum}{true}}{
 	\usepackage{secdot}
 	\sectiondot{subsection}
