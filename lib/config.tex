@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuraciones del template
-% Versión:      6.1.5 (05/06/2019)
+% Versión:      6.2.0 (09/06/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -67,11 +67,11 @@
 \def\marginalignbottom {-0.30}     % Margen inferior entorno align [cm]
 \def\marginaligncaptbottom {0.05}  % Margen inferior entorno align caption[cm]
 \def\marginaligncapttop {-0.60}    % Margen superior entorno align caption [cm]
-\def\marginaligntop {-0.40}        % Margen superior entorno align [cm]
 \def\marginalignedbottom {-0.30}   % Margen inferior entorno aligned [cm]
 \def\marginalignedcaptbottom {0.0} % Margen inferior entorno aligned caption[cm]
 \def\marginalignedcapttop {-0.60}  % Margen superior entorno aligned caption [cm]
 \def\marginalignedtop {-0.40}      % Margen superior entorno aligned [cm]
+\def\marginaligntop {-0.40}        % Margen superior entorno align [cm]
 \def\margineqncaptionbottom {0.0}  % Margen inferior caption ecuación [cm]
 \def\margineqncaptiontop {-0.65}   % Margen superior caption ecuación [cm]
 \def\marginequationbottom {-0.15}  % Margen inferior ecuaciones [cm]
@@ -81,18 +81,18 @@
 \def\margingatherbottom {-0.20}    % Margen inferior entorno gather [cm]
 \def\margingathercaptbottom {0.05} % Margen inferior entorno gather caption [cm]
 \def\margingathercapttop {-0.77}   % Margen superior entorno gather [cm]
-\def\margingathertop {-0.40}       % Margen superior entorno gather [cm]
 \def\margingatheredbottom {-0.10}  % Margen inf. entorno gathered [cm]
 \def\margingatheredcaptbottom{0.0} % Margen inf. entorno gathered caption [cm]
 \def\margingatheredcapttop {-0.77} % Margen superior entorno gathered [cm]
 \def\margingatheredtop {-0.40}     % Margen superior entorno gathered [cm]
+\def\margingathertop {-0.40}       % Margen superior entorno gather [cm]
 \def\marginimagebottom {-0.15}     % Margen inferior figura [cm]
 \def\marginimagemultright {0.50}   % Margen derecho imágenes múltiples [cm]
 \def\marginimagemulttop {-0.30}    % Margen superior imágenes múltiples [cm]
 \def\marginimagetop {0.0}          % Margen superior figuras [cm]
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
 \def\tabledefaultplacement {H}     % Posición por defecto de las tablas
-\def\tablepaddingh {1.0}           % Espaciado horizontal de celda de las tablas
+\def\tablepaddingh {0.85}          % Espaciado horizontal de celda de las tablas
 \def\templatestyle {style1}        % Estilo del template: style1,style2
 \def\tablepaddingv {1.0}           % Espaciado vertical de celda de las tablas
 \def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
@@ -148,7 +148,9 @@
 \def\cfgpdfsecnumbookmarks {true}  % Número de la sec. en marcadores del pdf
 \def\cfgpdftoolbar {true}          % Muestra barra de herramientas lector pdf
 \def\cfgshowbookmarkmenu {false}   % Muestra menú marcadores al abrir el pdf
-\def\pdfcompileversion {7}         % Versión mínima del pdf compilado (1.x)
+\def\pdfcompilecompression {9}     % Factor de compresión del pdf (0-9)
+\def\pdfcompileobjcompression {2}  % Nivel compresión objetos del pdf (0-3)
+\def\pdfcompileversion {7}         % Versión mínima del pdf compilado
 
 % NOMBRE DE OBJETOS
 \def\nameappendixsection {Anexos}  % Nombre de la sec. de anexos/apéndices

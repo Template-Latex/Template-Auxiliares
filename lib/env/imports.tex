@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      6.1.5 (05/06/2019)
+% Versión:      6.2.0 (09/06/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -67,7 +67,6 @@
 \usepackage[makeroom]{cancel}
 \usepackage[inline]{enumitem}
 \usepackage[subfigure,titles]{tocloft}
-\usepackage[pdfencoding=auto,psdextra]{hyperref}
 \usepackage[figure,table,lstlisting]{totalcount}
 \usepackage[normalem]{ulem}
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -105,6 +104,7 @@
 	}
 }
 \usepackage{appendix}
+\usepackage[pdfencoding=auto,psdextra]{hyperref}
 \usepackage{bookmark}
 \usepackage{fancyhdr}
 \usepackage{float}
@@ -120,6 +120,12 @@
 }{
 \ifthenelse{\equal{\fontdocument}{arial2}}{
 	\usepackage{arial}
+}{
+\ifthenelse{\equal{\fontdocument}{times}}{
+	\usepackage{mathptmx}
+}{
+\ifthenelse{\equal{\fontdocument}{helvet}}{
+	\usepackage{helvet}
 }{
 \ifthenelse{\equal{\fontdocument}{accantis}}{
 	\usepackage{accanthis}
@@ -389,7 +395,7 @@
 	\usepackage[lf]{venturis}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,arial2,helvet,
+	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,arial2,helvet,times,
 	accantis,alegreya,alegreyasans,algolrevived,antiqua,antpolt,antpoltlight,
 	anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,
 	avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,
@@ -403,7 +409,7 @@
 	overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,
 	raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,
 	sourcesanspro,uarial,ugq,universalis,universaliscondensed,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 \ifthenelse{\equal{\fonttypewriter}{tmodern}}{
 	\renewcommand*\ttdefault{lmvtt}
@@ -461,11 +467,14 @@
 \ifthenelse{\equal{\fonttypewriter}{texgyrecursor}}{
 	\usepackage{tgcursor}
 }{
-	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,cmpica,courier,dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,newtxtt,nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
+	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,cmpica,courier,
+		dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,newtxtt,
+		nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
 	}}}}}}}}}}}}}}}}
 }
 \usepackage[T1]{fontenc}
 \ifthenelse{\equal{\showlinenumbers}{true}}{
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
+\inputencoding{utf8}
 
