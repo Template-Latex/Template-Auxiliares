@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuraciones del template
-% Versión:      6.2.0 (09/06/2019)
+% Versión:      6.2.1 (16/06/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -28,7 +28,7 @@
 \def\captionlabelsep {colon}       % Sep. {none,colon,period,space,quad,newline}
 \def\captionlessmarginimage {0.1}  % Margen sup/inf de fig. si no hay ley. [cm]
 \def\captionlrmargin {2.0}         % Márgenes izq/der de la leyenda [cm]
-\def\captionmarginmultimg {0.45}   % Margen izq/der leyendas múltiple img [cm]
+\def\captionmarginmultimg {0.0}    % Margen izq/der leyendas múltiple img [cm]
 \def\captionnumcode {arabic}       % N° código {arabic,alph,Alph,roman,Roman}
 \def\captionnumfigure {arabic}     % N° figuras {arabic,alph,Alph,roman,Roman}
 \def\captionnumsubfigure {alph}    % N° subfiguras {arabic,alph,Alph,roman,Roman}
@@ -47,9 +47,9 @@
 % ANEXO, CITAS, REFERENCIAS
 \def\apaciterefsep {9}             % Separación entre refs. {apacite} [pt]
 \def\appendixindepobjnum {true}    % Anexo usa n° objetos independientes
-\def\bibtexrefsep {9}              % Separación entre refs. {bibtex} [pt]
+\def\bibtexrefsep {5}              % Separación entre refs. {bibtex} [pt]
 \def\natbibrefsep {5}              % Separación entre referencia {natbib} [pt]
-\def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc..}
+\def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc...}
 \def\sectionappendixlastchar {.}   % Carácter entre n° de sec. anexo y título
 \def\sectionrefenv {false}         % Las referencias se consideran como sección
 \def\stylecitereferences {bibtex}  % Estilo cita/ref. {apacite,bibtex,natbib}
@@ -94,12 +94,11 @@
 \def\tabledefaultplacement {H}     % Posición por defecto de las tablas
 \def\tablepaddingh {0.85}          % Espaciado horizontal de celda de las tablas
 \def\templatestyle {style1}        % Estilo del template: style1,style2
-\def\tablepaddingv {1.0}           % Espaciado vertical de celda de las tablas
+\def\tablepaddingv {1.05}          % Espaciado vertical de celda de las tablas
 \def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
 
 % CONFIGURACIÓN DE LOS TÍTULOS
-\def\anumsecaddtocounter {false}   % Insertar títulos 'anum' aumenta n° de sec
-\def\disablehfrightmark {false}    % Desactiva el rightmark del header-footer
+\def\anumsecaddtocounter {false}   % Insertar títulos anum. aumenta n° de sec
 \def\fontsizessstitle{\normalsize} % Tamaño sub-sub-subtítulos
 \def\fontsizesubsubtitle {\large}  % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}     % Tamaño subtítulos
@@ -125,6 +124,8 @@
 \def\subsubtitlecolor {black}      % Color de los sub-subtítulos
 \def\subtitlecolor {black}         % Color de los subtítulos
 \def\tablelinecolor {black}        % Color de las líneas de las tablas
+\def\tablerowfirstcolor {none}     % Primer color de celda de las tablas
+\def\tablerowsecondcolor {gray!20} % Segundo color de celda de las tablas
 \def\titlecolor {black}            % Color de los títulos
 \def\urlcolor {magenta}            % Color de los enlaces web (\href,\url)
 

@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones para insertar elementos
-% Versión:      6.2.0 (09/06/2019)
+% Versión:      6.2.1 (16/06/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -11,15 +11,9 @@
 % Sitio web:    [https://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-\newcommand{\newp}{
-	\hbadness=10000 \vspace{\defaultnewlinesize pt} \par
-}
-\newcommand{\newpar}[1]{
-	\hbadness=10000 #1 \newp
-}
-\newcommand{\newparnl}[1]{
-	#1 \par
-}
+\newcommand{\newp}{\hbadness=10000 \vspace{\defaultnewlinesize pt} \par}
+\newcommand{\newpar}[1]{\hbadness=10000 #1 \newp}
+\newcommand{\newparnl}[1]{#1 \par}
 \newcommand{\itemresize}[2]{
 	\emptyvarerr{\itemresize}{#1}{Tamano del nuevo objeto no definido}
 	\emptyvarerr{\itemresize}{#2}{Objeto a redimensionar no definido}
@@ -42,8 +36,89 @@
 	\includepdf[pages=-,pagecommand={\pagestyle{fancy}},#1]{#2}
 }
 \newcommand{\quotes}[1]{\enquote*{#1}}
+\newcommand{\scite}[1]{\textsuperscript{\cite{#1}}}
 \newcommand{\insertemail}[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand{\insertphone}[1]{\href{tel:#1}{\texttt{#1}}}
 \newcommand{\restartequation}{\setcounter{equation}{0}}
 \newcommand{\disablecaptionmargin}{\setcaptionmargincm{0}}
 \newcommand{\resetcaptionmargin}{\setcaptionmargincm{\captionlrmargin}}
+\newcommand{\settablerowcolors}[1]{
+	\emptyvarerr{\settablerowcolors}{#1}{Posicion de fila no definida}
+	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{
+		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{#1}{}{}
+			}{
+				\rowcolors{#1}{\tablerowsecondcolor}{}
+			}
+		}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{#1}{}{\tablerowfirstcolor}
+			}{
+				\rowcolors{#1}{\tablerowsecondcolor}{\tablerowfirstcolor}
+			}
+		}
+	}{
+		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{#1}{}{}
+			}{
+				\rowcolors{#1}{}{\tablerowsecondcolor}
+			}
+		}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{#1}{\tablerowfirstcolor}{}
+			}{
+				\rowcolors{#1}{\tablerowfirstcolor}{\tablerowsecondcolor}
+			}
+		}
+	}
+\def\GLOBALtablerowcolorindex{#1}
+}
+\newcommand{\settablerowcolorslast}{
+	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{
+		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{\GLOBALtablerowcolorindex}{}{}
+			}{
+				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowsecondcolor}{}
+			}
+		}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{\GLOBALtablerowcolorindex}{}{\tablerowfirstcolor}
+			}{
+				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowsecondcolor}{\tablerowfirstcolor}
+			}
+		}
+	}{
+		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{\GLOBALtablerowcolorindex}{}{}
+			}{
+				\rowcolors{\GLOBALtablerowcolorindex}{}{\tablerowsecondcolor}
+			}
+		}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowfirstcolor}{}
+			}{
+				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowfirstcolor}{\tablerowsecondcolor}
+			}
+		}
+	}
+}
+\newcommand{\enabletablerowcolor}[1][]{
+	\ifx\hfuzz#1\hfuzz
+		\settablerowcolors{2}
+	\else
+		\settablerowcolors{#1}
+	\fi
+}
+\newcommand{\disabletablerowcolor}{\rowcolors{2}{}{}}
+\newcommand{\switchtablerowcolors}{
+	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{
+		\def\GLOBALtablerowcolorswitch{true}
+	}{
+		\def\GLOBALtablerowcolorswitch{false}
+	}
+	\settablerowcolorslast
+}
