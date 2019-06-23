@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Estilos de código fuente
-% Versión:      6.2.1 (16/06/2019)
+% Versión:      6.2.2 (23/06/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -111,6 +111,10 @@
 \lstdefinestyle{docker}{
 	language=docker,
 	breakatwhitespace=true
+}
+\lstdefinestyle{fortran}{
+	language=[95]Fortran,
+	breakatwhitespace=false
 }
 \lstdefinelanguage{GLSL}{
 	alsoletter={\#},
@@ -272,6 +276,24 @@
 		textregistered,textsuperscript,texttt,throwbadconfig,unboldmath,url,
 		xspace}
 }
+\lstdefinestyle{lisp}{
+	language=Lisp,
+	morekeywords={if}
+}
+\lstdefinelanguage{Maple}{
+	morecomment=[l]\#,
+	morekeywords={and,assuming,break,by,catch,description,do,done,
+		elif,else,end,error,export,fi,finally,for,from,global,if,
+		implies,in,intersect,local,minus,mod,module,next,not,od, 
+		option,options,or,proc,quit,read,restart,return,save,stop,
+		subset,then,to,try,union,use,uses,with,while,xor},
+	morestring=[b]",
+	morestring=[d],
+	sensitive=true
+} 
+\lstdefinestyle{maple}{
+	language=Maple
+}
 \lstdefinestyle{matlab}{
 	language=Matlab,
 	flexiblecolumns=true,
@@ -282,6 +304,13 @@
 		factorial,for,if,isa,ltitr,matlab2tikz,methods,movegui,normcdf,
 		normpdf,ones,parse,poissrnd,properties,repmat,strcat,try,var,
 		warning,xlim,ylim}
+}
+\lstdefinestyle{octave}{
+	language=Octave,
+	flexiblecolumns=true,
+	keepspaces=true,
+	morecomment=[l]\%,
+	morecomment=[n]{\%\{\^^M}{\%\}\^^M}
 }
 \lstdefinestyle{opencl}{
 	language=C++,
@@ -407,6 +436,16 @@
 	morestring=[b]""",
 	otherkeywords={=>,<-,<\%,<:,>:,\#,@}
 }
+\lstdefinestyle{scheme}{
+	language=Lisp,
+	morecomment=[l]{;},
+	morekeywords={and,begin,case,case-lambda,cond,cond-expand,define,delay,
+		delay-force,do,else,force,guard,if,lambda,let,let*,let*-values,
+		let-syntax,let-values,letrec,letrec*,letrec-syntax,make-parameter,
+		make-promise,map,or,parameterize,promise?,quasiquote,quote,set!,
+		syntax-rules,unless,when},
+	morestring = [b]"
+}
 \lstdefinestyle{sql}{
 	language=SQL,
 	breakatwhitespace=true
@@ -416,6 +455,10 @@
 	breakatwhitespace=false,
 	keepspaces=true,
 	morecomment=[l]{\#}
+}
+\lstdefinestyle{vbscript}{
+	language=[Visual]Basic,
+	extendedchars=true,
 }
 \lstdefinelanguage{XML}{
 	morecomment=[s]{<?}{?>},
@@ -469,6 +512,7 @@
 	\ifthenelse{\equal{#1}{css}}{}{
 	\ifthenelse{\equal{#1}{cuda}}{}{
 	\ifthenelse{\equal{#1}{docker}}{}{
+	\ifthenelse{\equal{#1}{fortran}}{}{
 	\ifthenelse{\equal{#1}{glsl}}{}{
 	\ifthenelse{\equal{#1}{haskell}}{}{
 	\ifthenelse{\equal{#1}{html5}}{}{
@@ -477,7 +521,10 @@
 	\ifthenelse{\equal{#1}{json}}{}{
 	\ifthenelse{\equal{#1}{kotlin}}{}{
 	\ifthenelse{\equal{#1}{latex}}{}{
+	\ifthenelse{\equal{#1}{lisp}}{}{
+	\ifthenelse{\equal{#1}{maple}}{}{
 	\ifthenelse{\equal{#1}{matlab}}{}{
+	\ifthenelse{\equal{#1}{octave}}{}{
 	\ifthenelse{\equal{#1}{opencl}}{}{
 	\ifthenelse{\equal{#1}{opensees}}{}{
 	\ifthenelse{\equal{#1}{pascal}}{}{
@@ -489,12 +536,16 @@
 	\ifthenelse{\equal{#1}{r}}{}{
 	\ifthenelse{\equal{#1}{ruby}}{}{
 	\ifthenelse{\equal{#1}{scala}}{}{
+	\ifthenelse{\equal{#1}{scheme}}{}{
 	\ifthenelse{\equal{#1}{sql}}{}{
 	\ifthenelse{\equal{#1}{tcl}}{}{
+	\ifthenelse{\equal{#1}{vbscript}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
-		csharp,css,cuda,docker,glsl,haskell,html5,java,js,json,kotlin,latex,matlab,
-		opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,sql,tcl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,
+			cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,
+			kotlin,latex,lisp,maple,matlab,octave,opencl,opensees,pascal,perl,
+			php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,
+			xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
