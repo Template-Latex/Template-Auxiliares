@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Estilos de código fuente
-% Versión:      6.2.2 (23/06/2019)
+% Versión:      6.2.3 (29/06/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -296,6 +296,7 @@
 }
 \lstdefinestyle{matlab}{
 	language=Matlab,
+	deletekeywords={fft},
 	flexiblecolumns=true,
 	keepspaces=true,
 	morecomment=[l]\%,
@@ -472,12 +473,13 @@
 }
 \lstset{
 	aboveskip=0.75em,
-	basicstyle={\small\ttfamily},
+	basicstyle={\sourcecodefonts\sourcecodefontf},
 	belowskip=1em,
 	breaklines=true,
-	columns=fullflexible,
-	commentstyle=\color{dkgreen}\ttfamily\upshape,
+	columns=flexible,
+	commentstyle=\color{dkgreen}\upshape,
 	extendedchars=true,
+	fontadjust=true,
 	identifierstyle=\color{black},
 	keepspaces=true,
 	keywordstyle=\color{blue},
@@ -494,7 +496,7 @@
 		{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1 {«}{{\guillemotleft}}1
 		{»}{{\guillemotright}}1,
 	numbers=left,
-	numbersep=5pt,
+	numbersep={\sourcecodenumbersep},
 	numberstyle=\tiny\color{dkgray},
 	postbreak=\mbox{$\hookrightarrow$\space},
 	showspaces=false,
@@ -502,7 +504,7 @@
 	showtabs=false,
 	stepnumber=1,
 	stringstyle=\color{mauve},
-	tabsize=3
+	tabsize={\sourcecodetabsize}
 }
 \newcommand{\checkvalidsourcecodestyle}[1]{
 	\ifthenelse{\equal{#1}{bash}}{}{
