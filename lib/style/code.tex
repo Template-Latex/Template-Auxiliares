@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Estilos de código fuente
-% Versión:      6.2.3 (29/06/2019)
+% Versión:      6.2.4 (04/07/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -11,6 +11,23 @@
 % Sitio web:    [https://latex.ppizarror.com/Template-Auxiliares/]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
+\lstdefinelanguage
+	[x64]{Assembler}
+	[x86masm]{Assembler}
+	{morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD,
+		POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS,
+		rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp,
+		r8,r8d,r8w,r8b,r9,r9d,r9w,r9b,
+		r10,r10d,r10w,r10b,r11,r11d,r11w,r11b,
+		r12,r12d,r12w,r12b,r13,r13d,r13w,r13b,
+		r14,r14d,r14w,r14b,r15,r15d,r15w,r15b}
+}
+\lstdefinestyle{assemblerx64}{
+	language=[x64]Assembler
+}
+\lstdefinestyle{assemblerx86}{
+	language=[x86masm]Assembler
+}
 \lstdefinestyle{bash}{
 	language=bash,
 	breakatwhitespace=false,
@@ -280,6 +297,9 @@
 	language=Lisp,
 	morekeywords={if}
 }
+\lstdefinestyle{lua}{
+	language={[5.2]Lua}
+}
 \lstdefinelanguage{Maple}{
 	morecomment=[l]\#,
 	morekeywords={and,assuming,break,by,catch,description,do,done,
@@ -461,6 +481,24 @@
 	language=[Visual]Basic,
 	extendedchars=true,
 }
+\lstdefinestyle{verilog}{
+	language=Verilog
+}
+\lstdefinelanguage{VHDL}{
+	morekeywords=[1]{
+		library,use,all,entity,is,port,in,out,end,architecture,of,
+		begin,and,or,Not,downto,ALL
+	},
+	morekeywords=[2]{
+		STD_LOGIC_VECTOR,STD_LOGIC,IEEE,STD_LOGIC_1164,
+		NUMERIC_STD,STD_LOGIC_ARITH,STD_LOGIC_UNSIGNED,std_logic_vector,
+		std_logic
+	},
+	morecomment=[l]--
+}
+\lstdefinestyle{vhdl}{
+	language=VHDL
+}
 \lstdefinelanguage{XML}{
 	morecomment=[s]{<?}{?>},
 	morekeywords={encoding,type,version,xmlns},
@@ -507,6 +545,8 @@
 	tabsize={\sourcecodetabsize}
 }
 \newcommand{\checkvalidsourcecodestyle}[1]{
+	\ifthenelse{\equal{#1}{assemblerx64}}{}{
+	\ifthenelse{\equal{#1}{assemblerx86}}{}{
 	\ifthenelse{\equal{#1}{bash}}{}{
 	\ifthenelse{\equal{#1}{c}}{}{
 	\ifthenelse{\equal{#1}{cpp}}{}{
@@ -524,6 +564,7 @@
 	\ifthenelse{\equal{#1}{kotlin}}{}{
 	\ifthenelse{\equal{#1}{latex}}{}{
 	\ifthenelse{\equal{#1}{lisp}}{}{
+	\ifthenelse{\equal{#1}{lua}}{}{
 	\ifthenelse{\equal{#1}{maple}}{}{
 	\ifthenelse{\equal{#1}{matlab}}{}{
 	\ifthenelse{\equal{#1}{octave}}{}{
@@ -542,12 +583,10 @@
 	\ifthenelse{\equal{#1}{sql}}{}{
 	\ifthenelse{\equal{#1}{tcl}}{}{
 	\ifthenelse{\equal{#1}{vbscript}}{}{
+	\ifthenelse{\equal{#1}{verilog}}{}{
+	\ifthenelse{\equal{#1}{vhdl}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,
-			cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,
-			kotlin,latex,lisp,maple,matlab,octave,opencl,opensees,pascal,perl,
-			php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,
-			xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{assemblerx64,assemblerx86,bash,c,cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
