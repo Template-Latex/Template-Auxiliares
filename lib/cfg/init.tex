@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.2.5 (05/07/2019)
+% Versión:      6.2.6 (06/07/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -65,15 +65,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={05/07/2019},
+		Template.Fecha={06/07/2019},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.2.5-AUX-N},
-		Template.Version.Hash={3147320F51FBDBA44A3C551BC6D8A71A},
-		Template.Version.Release={6.2.5},
+		Template.Version.Dev={6.2.6-7-AUX-N},
+		Template.Version.Hash={2FBB9CABA203DB013AC0042FEEA98356},
+		Template.Version.Release={6.2.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -85,7 +85,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v6.2.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v6.2.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -94,7 +94,6 @@
 	pdftoolbar={\cfgpdftoolbar}
 }
 \graphicspath{{./\defaultimagefolder}{./\defaultimagefolder/departamentos/}}
-\newcounter{templatepagecounter}
 \renewcommand{\baselinestretch}{\defaultinterline}
 \setlength{\headheight}{64 pt}
 \setlength{\footnotemargin}{\marginfootnote pt}
@@ -334,20 +333,19 @@
 \ifthenelse{\equal{\equationrestart}{none}}{
 }{
 \ifthenelse{\equal{\equationrestart}{sec}}{
-	\counterwithin*{equation}{section}
 }{
 \ifthenelse{\equal{\equationrestart}{ssec}}{
-	\counterwithin*{equation}{subsection}
 }{
 \ifthenelse{\equal{\equationrestart}{sssec}}{
-	\counterwithin*{equation}{subsubsection}
 }{
 \ifthenelse{\equal{\equationrestart}{ssssec}}{
-	\counterwithin*{equation}{subsubsubsection}
 }{
-\ifthenelse{\equal{\equationrestart}{page}}{
-	\counterwithin*{equation}{page}
-}{
-	\throwbadconfig{Formato reinicio numero ecuacion desconocido}{\footnoterestart}{none,page,sec,ssec,sssec,ssssec}}}}}}
+	\throwbadconfig{Formato reinicio numero ecuacion desconocido}{\equationrestart}{none,sec,ssec,sssec,ssssec}}}}}
 }
 \unaccentedoperators
+\AtEndDocument{
+	\setcounter{equation}{\value{templateEquations}}
+	\setcounter{figure}{\value{templateFigures}}
+	\setcounter{lstlisting}{\value{templateListings}}
+	\setcounter{table}{\value{templateTables}}
+}

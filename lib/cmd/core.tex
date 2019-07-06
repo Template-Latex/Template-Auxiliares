@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      6.2.5 (05/07/2019)
+% Versión:      6.2.6 (06/07/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -20,6 +20,11 @@
 \def\GLOBALsubsectionanumenabled {false}
 \def\GLOBALtablerowcolorindex {2}
 \def\GLOBALtablerowcolorswitch {false}
+\newcounter{templateEquations}
+\newcounter{templateFigures}
+\newcounter{templatePageCounter}
+\newcounter{templateTables}
+\newcounter{templateListings}
 \newcommand{\throwerror}[2]{
 	\errmessage{LaTeX Error: \noexpand#1 #2 (linea \the\inputlineno)}
 	\stop
