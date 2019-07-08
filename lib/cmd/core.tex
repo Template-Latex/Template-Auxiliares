@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      6.2.7 (06/07/2019)
+% Versión:      6.2.8 (07/07/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -46,7 +46,7 @@
 	\ifthenelse{\isundefined{#1}}{
 		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
 		\ifx\hfuzz#2\hfuzz
-			\errmessage{LaTeX Warning: Defina la variable en el bloque de INFORMACION DEL DOCUMENTO al comienzo del archivo principal del Template}
+			\errmessage{LaTeX Warning: Defina la variable en el bloque de INFORMACION DEL DOCUMENTO al comienzo del archivo principal del template}
 		\else
 			\errmessage{LaTeX Warning: #2}
 		\fi}{

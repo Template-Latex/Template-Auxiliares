@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.2.7 (06/07/2019)
+% Versión:      6.2.8 (07/07/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -65,15 +65,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={06/07/2019},
+		Template.Fecha={07/07/2019},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.2.7-1-AUX-N},
-		Template.Version.Hash={A8CCD1E5BF9EDE9FE20DCF513B089CAD},
-		Template.Version.Release={6.2.7},
+		Template.Version.Dev={6.2.8-AUX-N},
+		Template.Version.Hash={12281C325925A64CE43F760C6104962C},
+		Template.Version.Release={6.2.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -85,7 +85,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v6.2.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v6.2.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -343,8 +343,8 @@
 }
 \unaccentedoperators
 \AtEndDocument{
-	\setcounter{equation}{\value{templateEquations}}
-	\setcounter{figure}{\value{templateFigures}}
-	\setcounter{lstlisting}{\value{templateListings}}
-	\setcounter{table}{\value{templateTables}}
+	\addtocounter{equation}{\value{templateEquations}}
+	\addtocounter{figure}{\value{templateFigures}}
+	\addtocounter{lstlisting}{\value{templateListings}}
+	\addtocounter{table}{\value{templateTables}}
 }
