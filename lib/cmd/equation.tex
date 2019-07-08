@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones para insertar ecuaciones
-% Versión:      6.2.8 (07/07/2019)
+% Versión:      6.2.8 (08/07/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -155,7 +155,11 @@
 		\else
 			\throwwarning{Label invalido en ecuacion (gathered) sin numero}
 		\fi
-		\insertgatherededanum{#2}
+\vspace{\margingatheredtop cm}
+		\begin{gather*}
+			\ensuremath{#2}
+		\end{gather*}
+		\vspace{\margingatheredbottom cm}
 	}
 }
 \newcommand{\insertgatheredanum}[1]{
