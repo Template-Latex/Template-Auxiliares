@@ -28,7 +28,7 @@
             "ALT": "@ppizarror"
         },
         "1": {
-            "IMAGE": "https://latex.ppizarror.com//res/badges/licenciamit.svg",
+            "IMAGE": "https://latex.ppizarror.com/res/badges/licenciamit.svg",
             "HREF": "https://opensource.org/licenses/MIT/",
             "ALT": "Licencia MIT"
         },
@@ -44,7 +44,7 @@
             "IMAGE": "https://latex.ppizarror.com/res/badges/tesis.svg",
             "HREF": "https://github.com/Template-Latex/Template-Tesis/",
             "ALT": "Template-Tesis",
-            "SHOW": false
+            "SHOW": true
         },
         "5": {
             "IMAGE": "https://latex.ppizarror.com/res/badges/apunte.svg",
