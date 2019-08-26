@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://latex.ppizarror.com/auxiliares.html" title="Template-Auxiliares">
+  <a href="https://latex.ppizarror.com/auxiliares" title="Template-Auxiliares">
     <img alt="Template-Auxiliares" src="https://latex.ppizarror.com/res/favicon-informe/icon.png" width="200px" height="200px" />
   </a>
   <br /><br />
