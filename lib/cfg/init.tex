@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.3.7 (02/09/2019)
+% Versión:      6.3.8 (03/09/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -65,15 +65,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={02/09/2019},
+		Template.Fecha={03/09/2019},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.3.7-1-AUX-N},
-		Template.Version.Hash={18BE74F9190129501DD27D6DD5DD4022},
-		Template.Version.Release={6.3.7},
+		Template.Version.Dev={6.3.8-AUX-N},
+		Template.Version.Hash={AC3AE15A04D3B48179CF6CC4F27219BA},
+		Template.Version.Release={6.3.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/Template-Auxiliares/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -85,7 +85,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v6.3.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v6.3.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -199,10 +199,14 @@
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
 	\bibliographystyle{\natbibrefstyle}
 	\setlength{\bibsep}{\natbibrefsep pt}
+	\newcommand{\shortcite}[1]{\texttt{\textbackslash shortcite\{#1\}}}
+	\newcommand{\fullcite}[1]{\texttt{\textbackslash fullcite\{#1\}}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\bibliographystyle{apacite}
 	\setlength{\bibitemsep}{\apaciterefsep pt}
+	\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}}
+	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	\bibliographystyle{apa}

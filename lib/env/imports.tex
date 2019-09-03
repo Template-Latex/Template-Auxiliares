@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      6.3.7 (02/09/2019)
+% Versión:      6.3.8 (03/09/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -92,6 +92,7 @@
 	\sectiondot{subsection}
 	\sectiondot{subsubsection}}{
 }
+\usepackage[pdfencoding=auto,psdextra]{hyperref}
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
 	\ifthenelse{\equal{\natbibrefstyle}{apa}}{
 		\ifthenelse{\equal{\natbibsquare}{true}}{
@@ -146,7 +147,6 @@
 	}
 }
 \usepackage{appendix}
-\usepackage[pdfencoding=auto,psdextra]{hyperref}
 \usepackage{bookmark}
 \usepackage{fancyhdr}
 \usepackage{float}
