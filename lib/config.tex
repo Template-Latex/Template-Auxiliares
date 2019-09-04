@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuraciones del template
-% Versión:      6.3.8 (03/09/2019)
+% Versión:      6.4.0 (04/09/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -22,6 +22,7 @@
 \def\pointdecimal {true}           % N° decimales con punto en vez de coma
 \def\predocpageromanupper {false}  % Páginas en número romano en mayúsculas
 \def\showlinenumbers {false}       % Muestra los números de línea del documento
+\def\templatestyle {style1}        % Estilo del template: style1,style2,style3
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
 \def\captionalignment {justified}  % Posición {centered,justified,left,right}
@@ -70,7 +71,7 @@
 \def\columnsepwidth {2.1}          % Separación entre columnas [em]
 \def\defaultimagefolder {img/}     % Carpeta raíz de las imágenes
 \def\equationleftalign {false}     % Ecuaciones alineadas a la izquierda
-\def\equationrestart {none}       % Reinicio n° {none,chap,(s/ss/sss/ssss)ec}
+\def\equationrestart {none}        % Reinicio n° {none,chap,(s/ss/sss/ssss)ec}
 \def\footnotepagetoprule {false}   % Footnote en pag. tienen separador superior
 \def\footnoterestart {none}        % N° footnote {none,chap,page,(s/ss/sss/ssss)ec}
 \def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
@@ -107,7 +108,6 @@
 \def\sourcecodetabsize {3}         % Tamaño tabulación código fuente
 \def\tabledefaultplacement {H}     % Posición por defecto de las tablas
 \def\tablepaddingh {0.85}          % Espaciado horizontal de celda de las tablas
-\def\templatestyle {style1}        % Estilo del template: style1,style2
 \def\tablepaddingv {1.05}          % Espaciado vertical de celda de las tablas
 \def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
 
@@ -168,13 +168,13 @@
 
 % NOMBRE DE OBJETOS
 \def\nameappendixsection {Anexos}  % Nombre de la sec. de anexos/apéndices
-\def\namemathcol {Corolario}          % Nombre de los colorarios
-\def\namemathdefn {Definición}        % Nombre de las definiciones
-\def\namemathej {Ejemplo}             % Nombre de los ejemplos
-\def\namemathlem {Lema}               % Nombre de los lemas
-\def\namemathobs {Observación}        % Nombre de las observaciones
-\def\namemathprp {Proposición}        % Nombre de las proposiciones
-\def\namemaththeorem {Teorema}        % Nombre de los teoremas
+\def\namemathcol {Corolario}       % Nombre de los colorarios
+\def\namemathdefn {Definición}     % Nombre de las definiciones
+\def\namemathej {Ejemplo}          % Nombre de los ejemplos
+\def\namemathlem {Lema}            % Nombre de los lemas
+\def\namemathobs {Observación}     % Nombre de las observaciones
+\def\namemathprp {Proposición}     % Nombre de las proposiciones
+\def\namemaththeorem {Teorema}     % Nombre de los teoremas
 \def\namereferences {Referencias}  % Nombre de la sección de referencias
 \def\nomltappendixsection {Anexo}  % Etiqueta sección en anexo/apéndices
 \def\nomltwfigure {Figura}         % Etiqueta leyenda de las figuras
