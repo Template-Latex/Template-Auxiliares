@@ -5,7 +5,9 @@ Este corresponde a un template para confeccionar auxiliares en Latex, contiene f
 </p>
 
 ## Manual de uso
-El manual de uso de las funciones opcionales se encuentra disponible en la página web del template de informes: <a href="https://ppizarror.com/Template-Informe/">Template-Informe</a>
+
+El manual de uso de las funciones opcionales se encuentra disponible en la página web del template de informes: <a href="https://latex.ppizarror.com/informe">Template-Informe</a>
 
 ## Licencia
+
 Este proyecto está licenciado bajo la licencia MIT [https://opensource.org/licenses/MIT]
