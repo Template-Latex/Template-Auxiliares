@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.4.3 (02/10/2019)
+% Versión:      6.4.4 (18/11/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -65,15 +65,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={02/10/2019},
+		Template.Fecha={18/11/2019},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.4.3-AUX-N},
-		Template.Version.Hash={699EE74473143300E7AB22712AEE60E1},
-		Template.Version.Release={6.4.3},
+		Template.Version.Dev={6.4.4-AUX-N},
+		Template.Version.Hash={45A65A2EBA6A50CA1082D2870B37B6FC},
+		Template.Version.Release={6.4.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\departamentouniversidad},
@@ -85,7 +85,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v6.4.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v6.4.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -203,13 +203,13 @@
 	\newcommand{\fullcite}[1]{\texttt{\textbackslash fullcite\{#1\}}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
-	\bibliographystyle{apacite}
+	\bibliographystyle{\apacitestyle}
 	\setlength{\bibitemsep}{\apaciterefsep pt}
 	\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}}
 	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
-	\bibliographystyle{apa}
+	\bibliographystyle{\bibtexstyle}
 	\newlength{\bibitemsep}
 	\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
 	\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
