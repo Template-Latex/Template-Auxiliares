@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      6.5.0 (05/04/2020)
+% Versión:      6.5.1 (05/04/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -68,7 +68,10 @@
 	\captionsetup{margin=#1cm}
 }
 \newcommand{\setpagemargincm}[4]{
-	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}
+	\ifthenelse{\equal{\compilertype}{lualatex}}{
+	}{
+		\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}
+	}
 }
 \newcommand{\setindexcaption}[1]{\def\GLOBALcaptiondefn{#1}}
 \newcommand{\resetindexcaption}{\def\GLOBALcaptiondefn{EMPTY-VAR}}

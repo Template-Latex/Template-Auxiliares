@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.5.0 (05/04/2020)
+% Versión:      6.5.1 (05/04/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -71,9 +71,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.5.0-1-AUX-N},
-		Template.Version.Hash={4FB8DE2F7B7C7D120431DC1D321C7E5D},
-		Template.Version.Release={6.5.0},
+		Template.Version.Dev={6.5.1-2-AUX-N},
+		Template.Version.Hash={ACB20B8814FA730A98869D411C0617C1},
+		Template.Version.Release={6.5.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\departamentouniversidad},
@@ -85,7 +85,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v6.5.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v6.5.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -298,7 +298,13 @@
 	\pdfinclusionerrorlevel=0
 	\pdfminorversion=\pdfcompileversion
 	\pdfobjcompresslevel=\pdfcompileobjcompression
-}{}
+}{
+\ifthenelse{\equal{\compilertype}{xelatex}}{
+}{
+\ifthenelse{\equal{\compilertype}{lualatex}}{
+}{
+	\throwbadconfig{Compilador desconocido}{\compilertype}{pdf2latex,xelatex,lualatex}}}
+}
 \setcounter{secnumdepth}{4}
 \newcounter{subsubsubsection}[subsubsection]
 \ifthenelse{\equal{\showdotaftersnum}{true}}{
