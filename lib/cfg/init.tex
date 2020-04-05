@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.4.9 (02/04/2020)
+% Versión:      6.4.9 (05/04/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -65,14 +65,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={02/04/2020},
+		Template.Fecha={05/04/2020},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.4.9-AUX-N},
-		Template.Version.Hash={0DFC235C3FBA84EA903C0ACD4F0DFF30},
+		Template.Version.Dev={6.4.9-3-AUX-N},
+		Template.Version.Hash={0BDB57E54D380DF685AB322587A564D8},
 		Template.Version.Release={6.4.9},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
@@ -263,6 +263,13 @@
 	\newlistentry{lstlisting}{lol}{0}
 	\makeatother
 \endgroup
+\newcommand{\listindexequationsname}{\nomlteqn}
+\newlistof{myindexequations}{equ}{\listindexequationsname}
+\newcommand{\myindexequations}[1]{
+	\addcontentsline{equ}{myindexequations}{\protect\numberline{\theequation}#1}
+}
+\setcounter{templateIndexEquations}{0}
+\DeclareTotalCounter{templateIndexEquations}
 \makeatletter
 	\def\ifGm@preamble#1{\@firstofone}
 	\appto\restoregeometry{
