@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.5.1 (05/04/2020)
+% Versión:      6.5.2 (11/04/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -65,15 +65,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={05/04/2020},
+		Template.Fecha={11/04/2020},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.5.1-2-AUX-N},
-		Template.Version.Hash={ACB20B8814FA730A98869D411C0617C1},
-		Template.Version.Release={6.5.1},
+		Template.Version.Dev={6.5.2-AUX-N},
+		Template.Version.Hash={45FD44887A6DAFE83B593AF85F5A6EB6},
+		Template.Version.Release={6.5.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\departamentouniversidad},
@@ -85,7 +85,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Auxiliares v6.5.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v6.5.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -284,6 +284,9 @@
 \hbadness=\maxdimen
 \vbadness=\maxdimen
 \makeatletter
+\def\Hv@scale{.95}
+\makeatother
+\makeatletter
 \preto\tabular{\global\rownum=\z@}
 \preto\tabularx{\global\rownum=\z@}
 \makeatother
@@ -291,6 +294,9 @@
 \titlespacing{\section}{0pt}{20pt}{10pt}
 \titlespacing{\subsection}{0pt}{15pt}{10pt}
 \ttfamily \hyphenchar\the\font=`\-
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
 \urlstyle{\fonturl}
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
 	\pdfcompresslevel=\pdfcompilecompression
@@ -430,3 +436,7 @@
 	\addtocounter{lstlisting}{\value{templateListings}}
 	\addtocounter{table}{\value{templateTables}}
 }
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
