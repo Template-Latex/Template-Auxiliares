@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.5.2 (11/04/2020)
+% Versión:      6.5.2 (20/04/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -39,15 +39,36 @@
 	\bookmarksetup{numbered}}{
 }
 \ifthenelse{\equal{\cfgshowbookmarkmenu}{true}}{
-	\def\cdfpagemodepdf {UseOutlines}
+	\def\cfgpdfpagemode {UseOutlines}
 	}{
-	\def\cdfpagemodepdf {UseNone}
+	\def\cfgpdfpagemode {UseNone}
+}
+\ifthenelse{\equal{\usepdfmetadata}{true}}{
+	\def\pdfmetainfoautor {\autordeldocumento}
+	\def\pdfmetainfocodigodelcurso {\codigodelcurso}
+	\def\pdfmetainfonombredelcurso {\nombredelcurso}
+	\def\pdfmetainfoautor {\autordeldocumento}
+	\def\pdfmetainfotema {\temaatratar}
+	\def\pdfmetainfotitulo {\tituloauxiliar}
+	\def\pdfmetainfounidepto {\departamentouniversidad}
+	\def\pdfmetainfouninombre {\departamentouniversidad}
+	\def\pdfmetainfouniubicacion {\departamentouniversidad}
+}{
+	\def\pdfmetainfoautor {}
+	\def\pdfmetainfocodigodelcurso {}
+	\def\pdfmetainfonombredelcurso {}
+	\def\pdfmetainfoautor {}
+	\def\pdfmetainfotema {}
+	\def\pdfmetainfotitulo {}
+	\def\pdfmetainfounidepto {}
+	\def\pdfmetainfouninombre {}
+	\def\pdfmetainfouniubicacion {}
 }
 \hypersetup{
 	bookmarksopen={\cfgpdfbookmarkopen},
 	bookmarksopenlevel={\cfgbookmarksopenlevel},
 	bookmarkstype={toc},
-	pdfauthor={\autordeldocumento},
+	pdfauthor={\pdfmetainfoautor},
 	pdfcenterwindow={\cfgpdfcenterwindow},
 	pdfcopyright={\cfgpdfcopyright},
 	pdfcreator={LaTeX},
@@ -55,42 +76,42 @@
 	pdfencoding={unicode},
 	pdffitwindow={\cfgpdffitwindow},
 	pdfinfo={
-		Curso.Codigo={\codigodelcurso},
-		Curso.Nombre={\nombredelcurso},
-		Documento.Autor={\autordeldocumento},
-		Documento.Tema={\temaatratar},
-		Documento.Titulo={\tituloauxiliar},
+		Curso.Codigo={\pdfmetainfocodigodelcurso},
+		Curso.Nombre={\pdfmetainfonombredelcurso},
+		Documento.Autor={\pdfmetainfoautor},
+		Documento.Tema={\pdfmetainfotema},
+		Documento.Titulo={\pdfmetainfotitulo},
 		Template.Autor.Alias={ppizarror},
 		Template.Autor.Email={pablo@ppizarror.com},
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={11/04/2020},
+		Template.Fecha={20/04/2020},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.5.2-1-AUX-N},
-		Template.Version.Hash={16952C458D17E33FEE492D04B875D357},
+		Template.Version.Dev={6.5.2-4-AUX-N},
+		Template.Version.Hash={AD70A98155E538A3C212B4985499FE70},
 		Template.Version.Release={6.5.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
-		Universidad.Departamento={\departamentouniversidad},
-		Universidad.Nombre={\nombreuniversidad},
-		Universidad.Ubicacion={\localizacionuniversidad}
+		Universidad.Departamento={\pdfmetainfounidepto},
+		Universidad.Nombre={\pdfmetainfouninombre},
+		Universidad.Ubicacion={\pdfmetainfouniubicacion}
 	},
 	pdfkeywords={\cfgpdfkeywords},
 	pdflang={\documentlang},
 	pdfmenubar={\cfgpdfmenubar},
-	pdfpagelayout={\cfgpdfpagemode},
-	pdfpagemode={\cdfpagemodepdf},
+	pdfpagelayout={\cfgpdflayout},
+	pdfpagemode={\cfgpdfpagemode},
 	pdfproducer={Template-Auxiliares v6.5.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
-	pdfsubject={\temaatratar},
-	pdftitle={\tituloauxiliar},
+	pdfsubject={\pdfmetainfotema},
+	pdftitle={\pdfmetainfotitulo},
 	pdftoolbar={\cfgpdftoolbar}
 }
 \graphicspath{{./\defaultimagefolder}{./\defaultimagefolder/departamentos/}}
