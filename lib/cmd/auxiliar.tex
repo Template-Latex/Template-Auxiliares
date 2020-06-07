@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      6.5.3 (22/04/2020)
+% Versión:      6.5.4 (07/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -55,6 +55,19 @@
 	}
 	\renewcommand{\section}[2]{}
 \begin{thebibliography}{}
+\ifthenelse{\equal{\natbibtextalign}{justify}}{
+		}{
+		\ifthenelse{\equal{\natbibtextalign}{left}}{
+			\raggedright
+		}{
+		\ifthenelse{\equal{\natbibtextalign}{right}}{
+			\raggedleft
+		}{
+		\ifthenelse{\equal{\natbibtextalign}{center}}{
+			\centering
+		}{
+			\throwbadconfig{Ajuste de linea referencias desconocido}{\natbibtextalign}{justified,left,right,center}}}}
+		}
 	}
 	{
 	\end{thebibliography}
