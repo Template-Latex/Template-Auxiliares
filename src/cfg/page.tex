@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      6.5.5 (15/06/2020)
+% Versión:      7.0.0 (15/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,6 +11,7 @@
 % Sitio web:    [https://latex.ppizarror.com/auxiliares]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
+\newcommand{\templatePagecfg}{
 \newpage
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
@@ -217,9 +218,9 @@
 \setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 \def\arraystretch {\tablepaddingv}
 \setlength{\tabcolsep}{\tablepaddingh em}
-\ifthenelse{\equal{\pointdecimal}{true}}{
-	\decimalpoint}{
-}
+	\ifthenelse{\equal{\pointdecimal}{true}}{
+		\decimalpoint}{
+	}
 \renewcommand{\appendixname}{\nomltappendixsection}
 \renewcommand{\appendixpagename}{\nameappendixsection}
 \renewcommand{\appendixtocname}{\nameappendixsection}
@@ -231,11 +232,11 @@
 \renewcommand{\refname}{\namereferences}
 \renewcommand{\bibname}{\namereferences}
 \renewcommand{\tablename}{\nomltwtable}
-\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
-\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
-\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
-\titleformat{\subsubsubsection}{\color{\ssstitlecolor} \normalfont \fontsizessstitle \stylessstitle}{\thesubsubsubsection}{1em}{}
-\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
+	\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
+	\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
+	\titleformat{\subsubsubsection}{\color{\ssstitlecolor} \normalfont \fontsizessstitle \stylessstitle}{\thesubsubsubsection}{1em}{}
+	\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \fancyheadoffset{0pt}
 \ifthenelse{\equal{\templatestyle}{style1}}{
 	\pagestyle{fancy}
@@ -404,7 +405,8 @@
 	\fancyheadoffset{0pt}
 	\COREstyledefinition
 }
-\titleclass{\subsubsubsection}{straight}[\subsection]
-\ifthenelse{\equal{\showlinenumbers}{true}}{
-	\linenumbers}{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\linenumbers}{
+	}
 }
+\titleclass{\subsubsubsection}{straight}[\subsection]
