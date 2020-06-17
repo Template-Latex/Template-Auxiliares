@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.0.0 (16/06/2020)
+% Versión:      7.0.0 (17/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -87,6 +87,11 @@
 }{
 	\usepackage{amsmath}
 }
+
+% Tamaño de la fuente del documento
+\usepackage{scrextend}
+\usepackage{anyfontsize}
+\changefontsizes{\documentfontsize pt}
 
 % -----------------------------------------------------------------------------
 % LIBRERÍAS INDEPENDIENTES
@@ -1580,6 +1585,56 @@
 	\resetindexcaption
 }
 
+% Insertar una imagen completa en un entorno multicol
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Posición, "top" o "bottom"
+%	#5	Leyenda de la imagen (opcional)
+\newcommand{\insertimagemc}[5][]{
+	\insertimageboxedmc[#1]{#2}{#3}{0}{#4}{#5}
+}
+
+
+% Insertar una imagen completa con recuadro en un entorno multicol
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Ancho de la línea (en pt)
+%	#5	Posición, "top" o "bottom"
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\insertimageboxedmc}[6][]{
+	\emptyvarerr{\insertimageboxedmc}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageboxedmc}{#3}{Parametros de la imagen no definidos}
+	\emptyvarerr{\insertimageboxedmc}{#4}{Ancho de la linea no definido}
+	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}
+	\checkoutsideenvimage
+	\setcaptionmargincm{\captionlrmarginmc}
+	\ifthenelse{\equal{#5}{bottom}}{
+		\begin{figure*}[b!]
+	}{
+	\ifthenelse{\equal{#5}{top}}{
+		\begin{figure*}[t!]
+	}{
+		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
+	}}
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#4 pt}
+			\centering
+			\fbox{\includegraphics[#3]{#2}}
+		\endgroup
+		\ifx\hfuzz#6\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\hspace{0cm}
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
+		\fi
+	\end{figure*}
+	\setcaptionmargincm{\captionlrmargin}
+	\resetindexcaption
+}
+
 % Insertar una imagen dentro de una tabla
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
@@ -2193,7 +2248,7 @@
 	\markboth{}{}
 }
 % Insertar párrafo
-\newcommand{\newp}{\hbadness=10000 \vspace{\defaultnewlinesize pt} \par}
+\newcommand{\newp}{\hbadness=10000 \vspace{\baselineskip} \par}
 
 % Insertar párrafo
 % 	#1	Párrafo
@@ -2520,7 +2575,7 @@
 	
 	% Configura caption y márgenes
 	\vspace{\marginimagetop cm}
-	\captionsetup{margin=\captionmarginmultimg cm}
+	\setcaptionmargincm{\captionmarginmultimg}
 	
 	% Inicia la figura
 	\begin{figure}[H] \centering
@@ -3471,7 +3526,6 @@
 	\ifthenelse{\equal{#1}{verilog}}{}{
 	\ifthenelse{\equal{#1}{vhdl}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
-		\def\sourcecodestyle {#1}
 		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,c,cpp,csharp,css,csv,cuda,docker,fortran,glsl,haskell,html5,ini,java,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
 	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
@@ -3637,14 +3691,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={16/06/2020},
+		Template.Fecha={17/06/2020},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.0.0-alpha-5-AUX},
-		Template.Version.Hash={48C96A679838ED60F559C1E43F2657FD},
+		Template.Version.Dev={7.0.0-beta-1-AUX},
+		Template.Version.Hash={8A76E973D1AF25E371FCF9B92770CC48},
 		Template.Version.Release={7.0.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
@@ -3674,7 +3728,7 @@
 % -----------------------------------------------------------------------------
 % Definición de valores e dimensiones
 % -----------------------------------------------------------------------------
-\renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
+\renewcommand{\baselinestretch}{\documentinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
 % \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
 \setlength{\footnotemargin}{\marginfootnote pt} % Margen del footnote
@@ -3823,7 +3877,7 @@
 	\bibliographystyle{\apacitestyle}
 	\setlength{\bibitemsep}{\apaciterefsep pt}
 	\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}}
-	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}
+	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}	
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	\def\twocolumnreferencesmargin{-0.35cm}
@@ -3853,6 +3907,14 @@
 	}{}
 }{}
 \makeatother
+% Desactiva la URL de apacite
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+	\ifthenelse{\equal{\apaciteshowurl}{false}}{
+		\renewenvironment{APACrefURL}[1][]{}{}
+		\AtBeginEnvironment{APACrefURL}{\renewcommand{\url}[1]{}}
+		\renewcommand{\doiprefix}{doi:~\kern-1pt}
+	}{}
+}{}
 % Referencias en 2 columnas
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
