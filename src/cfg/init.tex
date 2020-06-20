@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      7.0.0 (19/06/2020)
+% Versión:      7.0.0 (20/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -88,14 +88,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={19/06/2020},
+		Template.Fecha={20/06/2020},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.0.0-beta-4-AUX},
-		Template.Version.Hash={72F193DB16F4F99D7197DB341A6C4A45},
+		Template.Version.Dev={7.0.0-beta-5-AUX},
+		Template.Version.Hash={B5B872610FE05746F8F638A6E6EF3102},
 		Template.Version.Release={7.0.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
@@ -232,15 +232,15 @@
 	\def\twocolumnreferencesmargin{-0.35cm}
 	\bibliographystyle{\natbibrefstyle}
 	\setlength{\bibsep}{\natbibrefsep pt}
-	\newcommand{\shortcite}[1]{\texttt{\textbackslash shortcite\{#1\}}}
-	\newcommand{\fullcite}[1]{\texttt{\textbackslash fullcite\{#1\}}}
+	\newcommand{\shortcite}[1]{\citep{#1}}
+	\newcommand{\fullcite}[1]{\citet{#1}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\def\twocolumnreferencesmargin{-0.39cm}
 	\bibliographystyle{\apacitestyle}
 	\setlength{\bibitemsep}{\apaciterefsep pt}
-	\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}}
-	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}	
+	\newcommand{\citep}[1]{\fullcite{#1}}
+	\newcommand{\citet}[1]{\shortcite{#1}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	\def\twocolumnreferencesmargin{-0.35cm}

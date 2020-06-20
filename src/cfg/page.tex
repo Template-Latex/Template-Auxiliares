@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      7.0.0 (19/06/2020)
+% Versión:      7.0.0 (20/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -288,16 +288,17 @@
 \begin{center}
 		\vspace*{0.75cm}
 		\huge {\tituloauxiliar} ~ \\
-		\vspace{0.2cm}
-		\large {\temaatratar} ~ \\
-		\ifx\hfuzz\equipodocente\hfuzz
-		\else
+		\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\vspace{0.2cm}
+			\large {\temaatratar} ~ \\
+		}
+		\ifdefempty{\equipodocente}{}{
 			\vspace{0.7cm}
 			\begin{normalsize}
 				\equipodocente
 			\end{normalsize}
 			\vspace{0.4cm}
-		\fi
+		}
 	\end{center}
 }{
 \ifthenelse{\equal{\templatestyle}{style2}}{
@@ -342,16 +343,17 @@
 		\LARGE {\textbf{\tituloauxiliar}} ~ \\
 		\vspace{0.3cm}
 		\Large {\codigodelcurso \nombredelcurso} ~ \\
-		\vspace{0.2cm}
-		\large {\temaatratar} ~ \\
-		\ifx\hfuzz\equipodocente\hfuzz
-		\else
+		\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\vspace{0.2cm}
+			\large {\temaatratar} ~ \\
+		}
+		\ifdefempty{\equipodocente}{}{
 			\vspace{0.5cm}
 			\begin{normalsize}
 				\equipodocente
 			\end{normalsize}
 			\vspace{0.4cm}
-		\fi
+		}
 	\end{center}
 }{
 \ifthenelse{\equal{\templatestyle}{style3}}{
@@ -396,16 +398,17 @@
 		\LARGE {\textbf{\tituloauxiliar}} ~ \\
 		\vspace{0.3cm}
 		\Large {\codigodelcurso \nombredelcurso} ~ \\
-		\vspace{0.2cm}
-		\large {\temaatratar} ~ \\
-		\ifx\hfuzz\equipodocente\hfuzz
-		\else
+		\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\vspace{0.2cm}
+			\large {\temaatratar} ~ \\
+		}
+		\ifdefempty{\equipodocente}{}{
 			\vspace{0.5cm}
 			\begin{normalsize}
 				\equipodocente
 			\end{normalsize}
 			\vspace{0.4cm}
-		\fi
+		}
 	\end{center}
 }{
 	\throwbadconfigondoc{Estilo de template incorrecto}{\templatestyle}{style1,style2,style3}}}
