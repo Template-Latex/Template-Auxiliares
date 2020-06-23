@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      7.0.0 (20/06/2020)
+% Versión:      7.0.0 (23/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -28,16 +28,17 @@
 	\def\GLOBALenvimageadded {false}
 	\vspace{\marginimagetop cm}
 	\setcaptionmargincm{\captionmarginmultimg}
-	\begin{figure}[H] \centering
-		\vspace{\marginimagemulttop cm}
+\begin{figure}[H] \centering
+	\thisfloatpagestyle{fancy}%
+		\vspace{\marginimagemulttop cm}%
 		}{
-		\setcaptionmargincm{\captionlrmargin}
+		\setcaptionmargincm{\captionlrmargin}%
 \ifthenelse{\equal{\envimagescaptionvar}{}}{
-			\vspace{\captionlessmarginimage cm}
-		}{
-			\caption{\envimagescaptionvar\envimageslabelvar}
-		}
-	\end{figure}
+			\vspace{\captionlessmarginimage cm}%
+		}{%
+			\caption{\envimagescaptionvar\envimageslabelvar}%
+		}%
+	\end{figure}%
 	\setcaptionmargincm{\captionlrmargin}
 	\vspace{\marginimagebottom cm}
 	\def\GLOBALenvimageinitialized {false}

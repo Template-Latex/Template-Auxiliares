@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      7.0.0 (20/06/2020)
+% Versión:      7.0.0 (23/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,6 +16,7 @@
 \def\GLOBALcoretikzimported {false}
 \def\GLOBALenvimageadded {false}
 \def\GLOBALenvimageinitialized {false}
+\def\GLOBALenvmulticol {false}
 \def\GLOBALsectionalph {false}
 \def\GLOBALsectionanumenabled {false}
 \def\GLOBALsubsectionanumenabled {false}
@@ -97,6 +98,12 @@
 		\stop}{
 	}
 }
+\newcommand{\checkinsidemulticol}{
+	\ifthenelse{\equal{\GLOBALenvmulticol}{false}}{
+		\throwwarning{Esta funcion solo puede usarse dentro de multicols}
+		\stop}{
+	}
+}
 \makeatletter
 \newcommand\addpathimage[1]{\gappto\Ginput@path{{#1}}}
 \makeatother
@@ -111,8 +118,9 @@
 	\ifthenelse{\equal{#1}{HUGE}}{}{
 	\ifthenelse{\equal{#1}{footnotesize}}{}{
 	\ifthenelse{\equal{#1}{scriptsize}}{}{
-		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}
+	\ifthenelse{\equal{#1}{tiny}}{}{
+		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: tiny,scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}
 		\stop
-		}}}}}}}}}
+		}}}}}}}}}}
 	}
 }
