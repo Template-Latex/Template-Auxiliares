@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.0.8 (03/11/2020)
+% Versión:      7.0.9 (21/11/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -2004,7 +2004,7 @@
 %	#4	Propiedades de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftp}[5][]{%
-	\xspace~\\%
+	\xspace ~ \\%
 	\vspace{-2\baselineskip}%
 	\par%
 	\insertimageleftboxedp[#1]{#2}{#3}{#4}{0}{#5}
@@ -2106,7 +2106,7 @@
 %	#4	Propiedades de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightp}[5][]{%
-	\xspace~\\%
+	\xspace ~ \\%
 	\vspace{-2\baselineskip}%
 	\par%
 	\insertimagerightboxedp[#1]{#2}{#3}{#4}{0}{#5}
@@ -2199,6 +2199,13 @@
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}
 	\resetindexcaption
+}
+
+% Inserta una imagen con parametros keyvals almacenados en una variable
+% 	#1	Parámetros (keyvals)
+%	#2	Dirección de la imagen
+\newcommand{\coreinsertkeyimage}[2]{%
+	\expandafter\includegraphics\expandafter[#1]{\expandafter#2}%
 }
 
 % Define la clave resolution al insertar imágenes
@@ -3890,15 +3897,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={03/11/2020},
+		Template.Fecha={21/11/2020},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.0.8-1-AUX},
-		Template.Version.Hash={A25F455B6D18C741785679FB854A2ACF},
-		Template.Version.Release={7.0.8},
+		Template.Version.Dev={7.0.9-2-AUX},
+		Template.Version.Hash={F151FEA12107EE16822A1AAD07D70CDC},
+		Template.Version.Release={7.0.9},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -3910,7 +3917,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.0.8 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v7.0.9 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -4748,7 +4755,7 @@
 			~\hspace{-0.25cm}~
 			\begin{minipage}[t]{0.4\linewidth}
 				\begin{flushright}
-					\vspace{-4.96em}\nobreak~\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
+					\vspace{-4.75em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
 				\end{flushright}
 			\end{minipage}
 			\\
@@ -4804,7 +4811,7 @@
 			\hspace{-0.60cm}
 			\begin{minipage}[t]{1.0\linewidth}
 				\begin{flushleft}
-					\vspace{-4.96em}\nobreak~\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
+					\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
 				\end{flushleft}
 			\end{minipage}
 			\\
@@ -4861,7 +4868,7 @@
 			\hspace{-0.33cm}
 			\begin{minipage}[t]{1.0\linewidth}
 				\begin{flushright}
-					\vspace{-4.96em}\nobreak~\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
+					\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
 				\end{flushright}
 			\end{minipage}
 			\\
@@ -4924,7 +4931,7 @@
 			~\hspace{-0.25cm}~
 			\begin{minipage}[t]{0.4\linewidth}
 				\begin{flushright}
-					\vspace{-4.96em}\nobreak~\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
+					\vspace{-4.75em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
 				\end{flushright}
 			\end{minipage}
 			\\
