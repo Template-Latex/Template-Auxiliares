@@ -111,6 +111,7 @@
 \usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
+\usepackage{graphicx}      % Propiedades extra para los gráficos
 \usepackage{lipsum}        % Permite crear párrafos de prueba
 \usepackage{listings}      % Permite añadir código fuente
 \usepackage{longtable}     % Permite utilizar tablas en varias hojas
@@ -161,11 +162,14 @@
 % LIBRERÍAS CONDICIONALES
 % -----------------------------------------------------------------------------
 
-% Carga las imagenes
-\ifthenelse{\equal{\graphicxdraft}{false}}{
-	\usepackage{graphicx}
-}{
-	\usepackage[draft]{graphicx}
+% Imágenes en modo draft
+\ifthenelse{\equal{\graphicxdraft}{true}}{
+	\usepackage[
+		allfiguresdraft,
+		filename,
+		size={scriptsize},
+		style={tt}
+	]{draftfigure}}{
 }
 
 % Acepta codificación UTF-8 en código fuente
@@ -4213,8 +4217,8 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.1.6-AUX},
-		Template.Version.Hash={F49429014533CA3AD8681BD2DF85ED0B},
+		Template.Version.Dev={7.1.6-1-AUX},
+		Template.Version.Hash={459A5B5653BB94554EB4B6039F8B34C5},
 		Template.Version.Release={7.1.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
