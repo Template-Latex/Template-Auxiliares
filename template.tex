@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.1.7 (31/03/2021)
+% Versión:      7.1.8 (13/04/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -46,9 +46,11 @@
 % Manejo de condicionales
 \usepackage{ifthen}
 
-% Idioma español, borrar esta línea si se desea usar otro idioma
+% Carga el idioma
 \ifthenelse{\equal{\usespanishbabel}{true}}{
 	\usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}}{
+\ifthenelse{\equal{\useenglishbabel}{true}}{
+	\usepackage[english]{babel}}{}
 }
 
 % Cambia el estilo de los títulos
@@ -4212,15 +4214,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={31/03/2021},
+		Template.Fecha={13/04/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.1.7-3-AUX},
-		Template.Version.Hash={4138341C30DC768BA797AF582AEFEE1B},
-		Template.Version.Release={7.1.7},
+		Template.Version.Dev={7.1.8-AUX},
+		Template.Version.Hash={14720C0BD42DAD4F620D13EF6D91C19E},
+		Template.Version.Release={7.1.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares/},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4232,7 +4234,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.1.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v7.1.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -4652,6 +4654,7 @@
 % Restauración número footnote
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\footnoterestart}{none}}{
+	% \counterwithout*{footnote}{chapter}
 }{
 \ifthenelse{\equal{\footnoterestart}{sec}}{
 	\counterwithin*{footnote}{section}
@@ -5286,7 +5289,7 @@
 	% -----------------------------------------------------------------------------
 	\ifthenelse{\isundefined{\abstractname}}{
 		\newcommand{\abstractname}{\nameabstract}
-		\throwwarning{La variable \noexpand\abstractname no existe, lo que indica que la libreria babel no se ha cargado. Si ha desactivado la configuracion \noexpand\usespanishbabel debe cargar manualmente la libreria babel con algun otro idioma, como por ejemplo \noexpand\usepackage[english]{babel}}
+		\throwwarning{La variable \noexpand\abstractname no existe, lo que indica que la libreria babel no se ha cargado. Si ha desactivado la configuracion \noexpand\usespanishbabel debe cargar manualmente la libreria babel con algun otro idioma, como por ejemplo \noexpand\usepackage[english]{babel}, o bien define en true la configuracion \noexpand\useenglishbabel}
 	}{
 		\renewcommand{\abstractname}{\nameabstract}
 	}
