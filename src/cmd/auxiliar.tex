@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      7.1.8 (13/04/2021)
+% Versión:      7.1.9 (22/04/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -19,7 +19,7 @@
 	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
 	\phantomsection
 	\newp \fbox{\ \textbf{#1}.-\ } \noindent
-	\pdfbookmark[1]{#1}{toc}
+	\pdfbookmark[1]{#1}{question}
 }
 \newenvironment{images}[2][]{
 	\def\envimageslabelvar {#1}
@@ -88,7 +88,7 @@
 	\bookmarksetupnext{level=part}
 \begin{appendices}
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
-\pdfbookmark{\nameappendixsection}{contents}
+\pdfbookmark{\nameappendixsection}{appendix}
 		}
 		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
 			\counterwithin{equation}{section}
