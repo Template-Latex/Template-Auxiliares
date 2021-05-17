@@ -1,4 +1,4 @@
-# Archivos creados por TeXstudio.
+# Archivos creados por TeXstudio
 *.aux
 *.lof
 *.lomycapequ
@@ -11,17 +11,17 @@
 *.bbl
 *.blg
 
-# Releases.
+# Releases
 .releases/*
 *.zip
 
 # Version antigua
 _old/
 
-# Windows.
+# Windows
 desktop.ini
 
-# OSX.
+# OSX
 __MACOSX/
 .DS_Store
 
