@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.2.0 (17/05/2021)
+% Versión:      7.2.1 (25/05/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -4194,8 +4194,9 @@
 	\def\pdfmetainfotema {\temaatratar}
 	\def\pdfmetainfotitulo {\tituloauxiliar}
 	\def\pdfmetainfounidepto {\departamentouniversidad}
-	\def\pdfmetainfouninombre {\departamentouniversidad}
-	\def\pdfmetainfouniubicacion {\departamentouniversidad}
+	\def\pdfmetainfounifacultad {\nombrefacultad}
+	\def\pdfmetainfouninombre {\nombreuniversidad}
+	\def\pdfmetainfouniubicacion {\localizacionuniversidad}
 }{
 	\def\pdfmetainfoautor {}
 	\def\pdfmetainfocodigodelcurso {}
@@ -4204,6 +4205,7 @@
 	\def\pdfmetainfotema {}
 	\def\pdfmetainfotitulo {}
 	\def\pdfmetainfounidepto {}
+	\def\pdfmetainfounifacultad {}
 	\def\pdfmetainfouninombre {}
 	\def\pdfmetainfouniubicacion {}
 }
@@ -4229,18 +4231,19 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={17/05/2021},
+		Template.Fecha={25/05/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.2.0-1-AUX},
-		Template.Version.Hash={4C826BB6B3BDD6486EA0FB2035B117B7},
-		Template.Version.Release={7.2.0},
+		Template.Version.Dev={7.2.1-AUX},
+		Template.Version.Hash={A44A8ABA5CD042CCE4E94D983140D7CA},
+		Template.Version.Release={7.2.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\pdfmetainfounidepto},
+		Universidad.Facultad={\pdfmetainfounifacultad},
 		Universidad.Nombre={\pdfmetainfouninombre},
 		Universidad.Ubicacion={\pdfmetainfouniubicacion}
 	},
@@ -4249,7 +4252,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.2.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v7.2.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
