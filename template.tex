@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.2.1 (26/05/2021)
+% Versión:      7.2.2 (01/06/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -42,7 +42,6 @@
 % -----------------------------------------------------------------------------
 % LIBRERÍAS DEL NÚCLEO
 % -----------------------------------------------------------------------------
-
 % Manejo de condicionales
 \usepackage{ifthen}
 
@@ -123,7 +122,6 @@
 \usepackage{pdflscape}     % Modo página horizontal de página
 \usepackage{pdfpages}      % Permite administrar páginas en pdf
 \usepackage{physics}       % Paquete de matemáticas
-% \usepackage{ragged2e}    % Redefine centering
 \usepackage{rotating}      % Permite rotación de objetos
 \usepackage{selinput}      % Compatibilidad con acentos
 \usepackage{setspace}      % Cambia el espacio entre líneas
@@ -133,21 +131,6 @@
 \usepackage{url}           % Permite añadir enlaces
 \usepackage{wrapfig}       % Posición de imágenes
 \usepackage{xspace}        % Adminsitra espacios en párrafos y líneas
-
-% En v6.3.7 se desactiva cellspace
-% \usepackage{cellspace}   % Tamaños en celdas de tablas
-
-% \usepackage{colortbl}, xcolor al cargar table ya importa colortbl (v6.3.3)
-% El paquete colortbl queda obsoleto con array+xcolor si la versión es inferior
-% a v1.0c, se recomienda actualizar o ocurren errores asociados a @parbox
-
-% Se prefiere no utilizar matlab-prettifier ya que es muy pesada para lo que
-% la librería ofrece
-% \usepackage{matlab-prettifier}
-
-% Tampoco se recomienda el uso de subfigure, posee errores de compatibilidad y
-% está obsoleto
-% \usepackage{subfigure}
 
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CON PARÁMETROS
@@ -163,7 +146,6 @@
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CONDICIONALES
 % -----------------------------------------------------------------------------
-
 % Imágenes en modo draft
 \ifthenelse{\equal{\graphicxdraft}{true}}{
 	\usepackage[
@@ -277,9 +259,8 @@
 % -----------------------------------------------------------------------------
 % TIPOGRAFÍA DEL DOCUMENTO
 % -----------------------------------------------------------------------------
-
 % Tipografías clásicas
-\ifthenelse{\equal{\fontdocument}{lmodern}}{ % Default
+\ifthenelse{\equal{\fontdocument}{lmodern}}{
 	\usepackage{lmodern}
 }{
 \ifthenelse{\equal{\fontdocument}{arial}}{
@@ -425,7 +406,7 @@
 	\usepackage[defaultsans]{droidsans}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-\ifthenelse{\equal{\fontdocument}{fetamont}}{ % Falta implementar aún
+\ifthenelse{\equal{\fontdocument}{fetamont}}{
 	\usepackage{fetamont}
 	\renewcommand*\familydefault{\sfdefault}
 }{
@@ -586,7 +567,7 @@
 % -----------------------------------------------------------------------------
 % TIPOGRAFÍA TYPEWRITER
 % -----------------------------------------------------------------------------
-\ifthenelse{\equal{\fonttypewriter}{tmodern}}{ % Default
+\ifthenelse{\equal{\fonttypewriter}{tmodern}}{
 	\renewcommand*\ttdefault{lmvtt}
 }{
 \ifthenelse{\equal{\fonttypewriter}{anonymouspro}}{
@@ -799,7 +780,6 @@
 }
 \let\endchangemargin=\endlist
 
-% Imagen de prueba tikz
 % Chequea que las funciones sólo puedan usarse en el entorno images
 \newcommand{\checkonlyonenvimage}{\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{}{\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}\stop}}
 
@@ -1666,7 +1646,7 @@
 	\fi
 }
 
-% Añade una imagen a un env 'image' con borde
+% Añade una imagen a un env "image" con borde
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
@@ -1675,7 +1655,7 @@
 	\addimageboxed[#1]{#2}{#3}{0}{#4}%
 }
 
-% Añade una imagen a un env 'image' con borde
+% Añade una imagen a un env "image" con borde
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
@@ -1685,14 +1665,14 @@
 	\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#4 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\subfloat[#5]{\fbox{\includegraphics[#3]{#2}}#1}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}%
 }
 
-% Añade una imagen a un env 'image' con borde sin leyenda
+% Añade una imagen a un env "image" con borde sin leyenda
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 \newcommand{\addimageanum}[2]{%
 	\addimageboxedanum{#1}{#2}{0}%
 }
 
-% Añade una imagen a un env 'image' con borde sin leyenda
+% Añade una imagen a un env "image" con borde sin leyenda
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
@@ -2533,9 +2513,6 @@
 	\newcolumn\newcolumn\clearpage%
 }
 
-% Inserta un lipsum corregido
-% \newcommand{\slipsum}[1][]{~\lipsum[#1]}
-
 % Redimensiona un ítem
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Objeto a redimensionar
@@ -2608,12 +2585,6 @@
 \newcommand{\hreftext}[1]{%
 	\ifthenelse{\equal{\fonturl}{same}}{#1}{\ifthenelse{\equal{\fonturl}{tt}}{\texttt{#1}}{\ifthenelse{\equal{\fonturl}{rm}}{\textrm{#1}}{\ifthenelse{\equal{\fonturl}{sf}}{\textsf{#1}}{}}}}%
 }
-
-% Parcha href para incluir el estilo
-% \let\oldhref=\href
-% \renewcommand{\href}[2]{
-% 	\oldhref{#1}{\insertHREFtext{#2}}
-% }
 
 % Inserta un email con un link cliqueable
 %	#1 	Dirección email
@@ -4231,15 +4202,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={26/05/2021},
+		Template.Fecha={01/06/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.2.1-1-AUX},
-		Template.Version.Hash={C4E61D9E9C0DB93D9C4BA2974B7D38E7},
-		Template.Version.Release={7.2.1},
+		Template.Version.Dev={7.2.2-2-AUX},
+		Template.Version.Hash={0C2592C4F2D6DBDFF3A1B84D4A95997C},
+		Template.Version.Release={7.2.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4248,11 +4219,10 @@
 		Universidad.Ubicacion={\pdfmetainfouniubicacion}
 	},
 	pdfkeywords={\cfgpdfkeywords},
-	pdflang={\documentlang},
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.2.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v7.2.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -4327,7 +4297,6 @@
 % -----------------------------------------------------------------------------
 % Configuración de las leyendas
 % -----------------------------------------------------------------------------
-
 % Márgenes de las leyendas por defecto
 \setcaptionmargincm{\captionlrmargin}
 \ifthenelse{\equal{\captiontextbold}{true}}{ % Texto en negrita en etiquetas
@@ -4553,7 +4522,6 @@
 \vfuzz=200pt
 \hbadness=\maxdimen
 \vbadness=\maxdimen
-% \sloppy Sloppy arruina portadas al exigir "justify", desde 6.4.2 se desactiva
 
 % -----------------------------------------------------------------------------
 % Configura las fuentes
@@ -4775,7 +4743,6 @@
 % -----------------------------------------------------------------------------
 % Configuraciones del idioma
 % -----------------------------------------------------------------------------
-
 % Desactiva carácteres acentuados en operaciones matemáticas
 \unaccentedoperators
 
