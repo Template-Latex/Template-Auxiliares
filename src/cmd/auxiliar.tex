@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      7.2.4 (20/06/2021)
+% Versión:      7.2.5 (23/06/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,52 +11,73 @@
 % Sitio web:    [https://latex.ppizarror.com/auxiliares]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-\newcommand{\newquestion}[1]{
-	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
-	\sectionanum{#1}
+% Insertar nuevo título de pregunta
+%	#1	Título
+\newcommand{\newquestion}[1]{%
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
+	\sectionanum{#1}%
 }
-\newcommand{\newboxquestion}[1]{
-	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
-	\phantomsection
-	\newp \fbox{\ \textbf{#1}.-\ } \noindent
-	\pdfbookmark[1]{#1}{question}
+
+% Insertar nuevo título de pregunta encerrado en un recuadro
+%	#1	Número pregunta
+\newcommand{\newboxquestion}[1]{%
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
+	\phantomsection%
+	\newp \fbox{\ \textbf{#1}.-\ } \noindent%
+	\pdfbookmark[1]{#1}{question}%
 }
+
+% Crea una sección de imágenes múltiples
+%	#1	Label (opcional)
+%	#2	Caption
 \newenvironment{images}[2][]{
+	% Modifica globales
 	\def\envimageslabelvar {#1}
 	\def\envimagescaptionvar {#2}
 	\def\GLOBALenvimageinitialized {true}
 	\def\GLOBALenvimageadded {false}
+	
+	% Configura caption y márgenes
 	\vspace{\marginimagetop cm}
 	\setcaptionmargincm{\captionmarginmultimg}
-\begin{figure}[H] \centering
+	
+	% Inicia la figura
+	\begin{figure}[H] \centering%
 	\thisfloatpagestyle{fancy}%
 		\vspace{\marginimagemulttop cm}%
 		}{
 		\setcaptionmargincm{\captionlrmargin}%
-\ifthenelse{\equal{\envimagescaptionvar}{}}{
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\vspace{\captionlessmarginimage cm}%
 		}{%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\caption{\envimagescaptionvar\envimageslabelvar}%
 		}%
 	\end{figure}%
+
+	% Reestablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
 	\vspace{\marginimagebottom cm}
+	
+	% Reestablece globales
 	\def\GLOBALenvimageinitialized {false}
 }
+
+% Crea una sección de referencias solo para bibtex
 \newenvironment{references}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Verifica configuraciones
 	}{
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
-\ifthenelse{\equal{\bibtexenvrefsecnum}{true}}{
+	\ifthenelse{\equal{\bibtexenvrefsecnum}{true}}{ % Se configura las referencias como una sección
 		\section{\namereferences}
 	}{
 		\sectionanum{\namereferences}
 	}
 	\renewcommand{\section}[2]{}
-\begin{thebibliography}{}
-\ifthenelse{\equal{\bibtextextalign}{justify}}{
+	\begin{thebibliography}{} % Inicia la bibliografía
+		\ifthenelse{\equal{\bibtextextalign}{justify}}{ % Formato ajuste de línea
 		}{
 		\ifthenelse{\equal{\bibtextextalign}{left}}{
 			\raggedright
@@ -72,24 +93,30 @@
 	}
 	{
 	\end{thebibliography}
-\endgroup
+	\endgroup % Termina el grupo
 }
+
+% Crea una sección de anexos
 \newenvironment{anexo}{
-\begingroup
+	\begingroup % Inicia el grupo en nueva página y sección
+	% \clearpage
 	\phantomsection
-\changeheadertitle{\nomltappendixsection}
-\def\GLOBALsectionalph{true}
+	\changeheadertitle{\nomltappendixsection} % Cambia el nombre del header
+	\def\GLOBALsectionalph {true} % Modifica formato de secciones con sección alph
 	\bookmarksetup{
 		numbered={true},
 		openlevel={\thetemplateBookmarksLevelPrev}
 	}
 	\appendixtitleon
 	\appendixtitletocon
+	%\addappheadtotoc
 	\bookmarksetupnext{level=part}
-\begin{appendices}
+	\begin{appendices} % Crea la sección
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
-\pdfbookmark{\nameappendixsection}{appendix}
+			\pdfbookmark{\nameappendixsection}{appendix} % Si false
 		}
+		% \setcounter{secnumdepth}{4}
+		% \setcounter{tocdepth}{4}
 		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
 			\counterwithin{equation}{section}
 			\counterwithin{figure}{section}
@@ -98,14 +125,20 @@
 		}
 	}{
 	\end{appendices}
-\def\GLOBALsectionalph{false}
-\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}}
+	\def\GLOBALsectionalph {false} % Desactiva formato de secciones con sección alph
+	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Reestablece índice marcador
 	\bookmarksetup{
 		numbered={\cfgpdfsecnumbookmarks},
 		openlevel={\cfgbookmarksopenlevel}
 	}
 	\endgroup
 }
+
+% Inicia código fuente con parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Parámetros
+%	#4	Caption
 \newcommand{\coreinitsourcecodep}[4]{
 	\emptyvarerr{\coreinitsourcecodep}{#2}{Estilo de codigo no definido}
 	\checkvalidsourcecodestyle{#2}
@@ -180,6 +213,12 @@
 		\fi	
 	}
 }
+
+% Inserta código fuente con parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Parámetros
+%	#4	Caption
 \lstnewenvironment{sourcecodep}[4][]{
 	\coreinitsourcecodep{#1}{#2}{#3}{#4}
 }{
@@ -187,6 +226,13 @@
 		\leftlinenumbers}{
 	}
 }
+
+% Importa código fuente desde un archivo con parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Parámetros
+%	#4	Archivo de código fuente
+%	#5	Caption
 \newcommand{\importsourcecodep}[5][]{
 	\coreinitsourcecodep{#1}{#2}{#3}{#5}
 	\inputlisting{#4}
@@ -194,6 +240,11 @@
 		\leftlinenumbers}{
 	}
 }
+
+% Inicia código fuente sin parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Caption
 \newcommand{\coreinitsourcecode}[3]{
 	\emptyvarerr{\coreinitsourcecode}{#2}{Estilo de codigo no definido}
 	\checkvalidsourcecodestyle{#2}
@@ -233,6 +284,11 @@
 		\fi
 	}
 }
+
+% Inserta código fuente sin parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Caption
 \lstnewenvironment{sourcecode}[3][]{
 	\coreinitsourcecode{#1}{#2}{#3}
 }{
@@ -240,6 +296,12 @@
 		\leftlinenumbers}{
 	}
 }
+
+% Importa código fuente desde un archivo sin parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Archivo de código fuente
+%	#4	Caption
 \newcommand{\importsourcecode}[4][]{
 	\coreinitsourcecode{#1}{#2}{#4}
 	\lstinputlisting{#3}
@@ -247,11 +309,17 @@
 		\leftlinenumbers}{
 	}
 }
+
+% Itemize en negrita
+%	#1	Parámetros opcionales
 \newenvironment{itemizebf}[1][]{
 	\begin{itemize}[font=\bfseries,#1]
 	}{
 	\end{itemize}
 }
+
+% Enumerate en negrita
+%	#1	Parámetros opcionales
 \newenvironment{enumeratebf}[1][]{
 	\begin{enumerate}[font=\bfseries,#1]
 	}{
