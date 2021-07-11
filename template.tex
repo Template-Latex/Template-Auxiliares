@@ -2010,7 +2010,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}[#5]{l}{#3\linewidth}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
@@ -2055,7 +2054,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}{r}{#3\linewidth}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2104,7 +2102,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}[#5]{r}{#3\linewidth}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2156,7 +2153,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}{l}{#3}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2208,7 +2204,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}[#6]{l}{#3}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2260,7 +2255,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}{r}{#3}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2312,7 +2306,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}[#6]{r}{#3}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2944,11 +2937,11 @@
 		}%
 	\end{figure}%
 
-	% Reestablece caption y márgenes
+	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
 	\vspace{\marginimagebottom cm}
 	
-	% Reestablece globales
+	% Restablece globales
 	\def\GLOBALenvimageinitialized {false}
 }
 
@@ -3015,7 +3008,7 @@
 	}{
 	\end{appendices}
 	\def\GLOBALsectionalph {false} % Desactiva formato de secciones con sección alph
-	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Reestablece índice marcador
+	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
 	\bookmarksetup{
 		numbered={\cfgpdfsecnumbookmarks},
 		openlevel={\cfgbookmarksopenlevel}
@@ -4182,8 +4175,8 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.2.8-AUX},
-		Template.Version.Hash={4D0E17D744D48D6F7DC0EAB659CA3001},
+		Template.Version.Dev={7.2.8-1-AUX},
+		Template.Version.Hash={A519FC73E18CA0E2DE8EE5366820C167},
 		Template.Version.Release={7.2.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
@@ -4518,7 +4511,7 @@
 \strictpagecheck
 
 % -----------------------------------------------------------------------------
-% Actualización márgen títulos
+% Actualización margen títulos
 % -----------------------------------------------------------------------------
 \titlespacing{\section}{0pt}{20pt}{10pt}
 \titlespacing{\subsection}{0pt}{15pt}{10pt}
@@ -4564,14 +4557,9 @@
 }
 
 % -----------------------------------------------------------------------------
-% Profundidad de las secciones
+% Crea las sub-sub-sub-secciones
 % -----------------------------------------------------------------------------
-\setcounter{secnumdepth}{4} % Límite máximo subsubsubsección
-
-% Crea las subsubsubsecciones
 \newcounter{subsubsubsection}[subsubsection]
-
-% Establece el número de las subsubsubsecciones
 \ifthenelse{\equal{\showdotaftersnum}{true}}{ % Agrega punto tras el número
 	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
 	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
@@ -4580,9 +4568,10 @@
 	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}}
 }
 
-% -----------------------------------------------------------------------------
-% Agrega compatibilidad de subsubsubsecciones al TOC
-% -----------------------------------------------------------------------------
+% Límite máximo profundidad
+\setcounter{secnumdepth}{4}
+
+% Agrega compatibilidad de sub-sub-sub-secciones al TOC
 \makeatletter
 	\def\toclevel@subsubsubsection {4}
 	\def\toclevel@paragraph {5}
@@ -4715,7 +4704,7 @@
 % -----------------------------------------------------------------------------
 % Configuraciones del idioma
 % -----------------------------------------------------------------------------
-% Desactiva carácteres acentuados en operaciones matemáticas
+% Desactiva caracteres acentuados en operaciones matemáticas
 \unaccentedoperators
 
 % -----------------------------------------------------------------------------
