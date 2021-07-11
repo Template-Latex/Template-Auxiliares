@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      7.2.7 (09/07/2021)
+% Versión:      7.2.8 (11/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -245,6 +245,7 @@
 	\renewcommand{\listfigurename}{\nomltfigure} % Nombre del índice de figuras
 	\renewcommand{\listtablename}{\nomlttable} % Nombre del índice de tablas
 	\renewcommand{\lstlistingname}{\nomltwsrc} % Nombre leyenda del código fuente
+	\renewcommand{\lstlistlistingname}{\nomltsrc} % Nombre índice código fuente
 	\renewcommand{\refname}{\namereferences} % Nombre de las referencias (bibtex)
 	\renewcommand{\bibname}{\namereferences} % Nombre de las referencias (natbib)
 	\renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
@@ -432,7 +433,6 @@
 		\begin{center} % Tabla de datos
 			\vspace*{0.35cm}
 			\LARGE {\textbf{\tituloauxiliar}} ~ \\
-			\vspace{0.3cm}
 			\Large {\codigodelcurso \nombredelcurso} ~ \\
 			\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
 				\vspace{0.2cm}
