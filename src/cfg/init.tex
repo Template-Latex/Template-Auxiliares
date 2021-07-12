@@ -119,8 +119,8 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.3.0-1-AUX},
-		Template.Version.Hash={8D07C5792540E1776B9D6794E46D73F0},
+		Template.Version.Dev={7.3.0-2-AUX},
+		Template.Version.Hash={FAAB828526A4A2312574AB9A73CA94DE},
 		Template.Version.Release={7.3.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
@@ -315,7 +315,7 @@
 	\newcommand{\shortcite}[1]{\citep{#1}}
 	\newcommand{\fullcite}[1]{\citet{#1}}
 	% Caracteres citas
-	\setcitestyle{open={\natbibrefcharopen},close={\natbibrefcharclose}}
+	\setcitestyle{open={\natbibrefcitecharopen},close={\natbibrefcitecharclose}}
 	% Separador citas
 	\ifthenelse{\equal{\natbibrefcitesepcomma}{true}}{
 		\setcitestyle{comma}
@@ -368,7 +368,7 @@
 	\ifthenelse{\equal{\apaciterefnumber}{true}}{
 		\newcounter{apaciteNumberCounter}
 		\renewcommand{\theapaciteNumberCounter}{% Formato de número
-			\apaciterefciteopen\arabic{apaciteNumberCounter}\apaciterefciteclose
+			\apaciterefcitecharopen\arabic{apaciteNumberCounter}\apaciterefcitecharclose
 		}
 		\patchcmd{\@lbibitem}{\item[}{\item[\stepcounter{apaciteNumberCounter}{\hss\llap{\theapaciteNumberCounter}\quad}}{}{}
 		\setlength{\bibleftmargin}{2.54em}
