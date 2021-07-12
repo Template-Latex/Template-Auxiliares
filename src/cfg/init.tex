@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      7.2.8 (11/07/2021)
+% Versión:      7.3.0 (12/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -113,15 +113,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={11/07/2021},
+		Template.Fecha={12/07/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.2.8-1-AUX},
-		Template.Version.Hash={A519FC73E18CA0E2DE8EE5366820C167},
-		Template.Version.Release={7.2.8},
+		Template.Version.Dev={7.3.0-AUX},
+		Template.Version.Hash={DCBFEF21C6E0D88D6B93DCC21E6D347B},
+		Template.Version.Release={7.3.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -133,7 +133,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.2.8 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v7.3.0 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -314,6 +314,26 @@
 	\setlength{\bibsep}{\natbibrefsep pt}
 	\newcommand{\shortcite}[1]{\citep{#1}}
 	\newcommand{\fullcite}[1]{\citet{#1}}
+	% Caracteres citas
+	\setcitestyle{open={\natbibrefcharopen},close={\natbibrefcharclose}}
+	% Separador citas
+	\ifthenelse{\equal{\natbibrefcitesepcomma}{true}}{
+		\setcitestyle{comma}
+	}{
+		\setcitestyle{semicolon}
+	}
+	% Tipo citas
+	\ifthenelse{\equal{\natbibrefcitetype}{numbers}}{
+		\setcitestyle{numbers}
+	}{
+	\ifthenelse{\equal{\natbibrefcitetype}{authoryear}}{
+		\setcitestyle{authoryear}
+	}{
+	\ifthenelse{\equal{\natbibrefcitetype}{super}}{
+		\setcitestyle{super}
+	}{
+		\throwbadconfig{Tipo cita natbib desconocido}{\natbibrefcitetype}{numbers,authoryear,super}}}
+	}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\def\twocolumnreferencesmargin{-0.39cm}
@@ -341,18 +361,22 @@
 }{
 	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,apacite,natbib,custom}}}}
 }
+
 % Crea referencias enumeradas en apacite
 \makeatletter
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\ifthenelse{\equal{\apaciterefnumber}{true}}{
 		\newcounter{apaciteNumberCounter}
-		\renewcommand{\theapaciteNumberCounter}{\apaciterefnumberinit\arabic{apaciteNumberCounter}\apaciterefnumberfinal} % Formato de número
+		\renewcommand{\theapaciteNumberCounter}{% Formato de número
+			\apaciterefciteopen\arabic{apaciteNumberCounter}\apaciterefciteclose
+		}
 		\patchcmd{\@lbibitem}{\item[}{\item[\stepcounter{apaciteNumberCounter}{\hss\llap{\theapaciteNumberCounter}\quad}}{}{}
 		\setlength{\bibleftmargin}{2.54em}
 		\setlength{\bibindent}{-0.54em}
 	}{}
 }{}
 \makeatother
+
 % Desactiva la URL de apacite
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\ifthenelse{\equal{\apaciteshowurl}{false}}{
@@ -361,6 +385,7 @@
 		\renewcommand{\doiprefix}{doi:~\kern-1pt}
 	}{}
 }{}
+
 % Referencias en 2 columnas
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
