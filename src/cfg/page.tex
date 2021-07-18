@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      7.3.0 (12/07/2021)
+% Versión:      7.3.1 (17/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,7 +12,7 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 \newcommand{\templatePagecfg}{
-
+	
 	% -------------------------------------------------------------------------
 	% Numeración de páginas
 	% -----------------------------------------------------------------------------
@@ -232,7 +232,7 @@
 	\ifthenelse{\equal{\pointdecimal}{true}}{
 		\decimalpoint}{
 	}
-
+	
 	% -------------------------------------------------------------------------
 	% Definición de nombres de objetos
 	% -------------------------------------------------------------------------
@@ -248,7 +248,7 @@
 	\renewcommand{\refname}{\namereferences} % Nombre de las referencias (bibtex)
 	\renewcommand{\bibname}{\namereferences} % Nombre de las referencias (natbib)
 	\renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
-
+	
 	% -------------------------------------------------------------------------
 	% Estilo de títulos
 	% -------------------------------------------------------------------------
@@ -265,7 +265,7 @@
 	\ifthenelse{\equal{\stylecitereferences}{apacite}}{
 		\renewcommand{\BOthers}[1]{\apacitebothers\hbox{}}
 	}{}
-
+	
 	% -------------------------------------------------------------------------
 	% Se crean los header-footer
 	% -----------------------------------------------------------------------------
@@ -505,7 +505,7 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\linenumbers}{
 	}
-
+	
 	% -------------------------------------------------------------------------
 	% Configura el nombre del abstract
 	% -------------------------------------------------------------------------
@@ -515,7 +515,7 @@
 	}{
 		\renewcommand{\abstractname}{\nameabstract}
 	}
-
+	
 }
 
 \titleclass{\subsubsubsection}{straight}[\subsection]
