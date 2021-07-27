@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      7.3.3 (27/07/2021)
+% Versión:      7.3.4 (27/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -38,10 +38,11 @@
 	\def\GLOBALenvimageadded {false}
 	
 	% Configura caption y márgenes
-	\vspace{\marginimagetop cm}
-	\setcaptionmargincm{\captionmarginmultimg}
+	\vspace{\marginimagetop cm}%
+	\setcaptionmargincm{\captionmarginmultimg}%
 	
 	% Inicia la figura
+	\begin{samepage}%
 	\begin{figure}[H] \centering%
 	\thisfloatpagestyle{fancy}%
 		\vspace{\marginimagemulttop cm}%
@@ -56,8 +57,9 @@
 	\end{figure}%
 
 	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}
-	\vspace{\marginimagebottom cm}
+	\setcaptionmargincm{\captionlrmargin}%
+	\vspace{\marginimagebottom cm}%
+	\end{samepage}
 	
 	% Restablece globales
 	\def\GLOBALenvimageinitialized {false}
