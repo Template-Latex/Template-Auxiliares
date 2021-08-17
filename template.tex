@@ -1,6 +1,6 @@
 % Template:     Template Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.3.5 (08/08/2021)
+% Versión:      7.3.6 (17/08/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -707,6 +707,9 @@
 % -----------------------------------------------------------------------------
 % Tipografía typewriter
 % -----------------------------------------------------------------------------
+% https://tug.org/FontCatalogue/typewriterfonts.html
+\ifthenelse{\equal{\fonttypewriter}{custom}}{
+}{
 \ifthenelse{\equal{\fonttypewriter}{tmodern}}{
 	\renewcommand*\ttdefault{lmvtt}
 }{
@@ -720,6 +723,9 @@
 \ifthenelse{\equal{\fonttypewriter}{beramono}}{
 	\usepackage[scaled]{beramono}
 }{
+\ifthenelse{\equal{\fonttypewriter}{cascadiacode}}{
+	\usepackage{cascadia-code}
+}{
 \ifthenelse{\equal{\fonttypewriter}{cmpica}}{
 	\usepackage{addfont}
 	\addfont{OT1}{cmpica}{\pica}
@@ -727,11 +733,22 @@
 	\addfont{OT1}{cmpicati}{\picati}
 	\renewcommand*\ttdefault{pica}
 }{
+\ifthenelse{\equal{\fonttypewriter}{cmodern}}{
+}{
 \ifthenelse{\equal{\fonttypewriter}{courier}}{
 	\usepackage{courier}
 }{
+\ifthenelse{\equal{\fonttypewriter}{courier10}}{
+	\usepackage{courierten}
+}{
+\ifthenelse{\equal{\fonttypewriter}{cmvtt}}{
+	\renewcommand*\ttdefault{cmvtt}
+}{
 \ifthenelse{\equal{\fonttypewriter}{dejavusansmono}}{
 	\usepackage[scaled]{DejaVuSansMono}
+}{
+\ifthenelse{\equal{\fonttypewriter}{droidsansmono}}{
+	\usepackage[defaultmono]{droidsansmono}
 }{
 \ifthenelse{\equal{\fonttypewriter}{firamono}}{
 	\usepackage[scale=0.85]{FiraMono}
@@ -763,10 +780,11 @@
 \ifthenelse{\equal{\fonttypewriter}{texgyrecursor}}{
 	\usepackage{tgcursor}
 }{
-	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,
-		cmpica,courier,dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,
-		newtxtt,nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
-	}}}}}}}}}}}}}}}}
+\ifthenelse{\equal{\fonttypewriter}{txtt}}{
+	\renewcommand*\ttdefault{txtt}
+}{
+	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{custom,anonymouspro,ascii,beramono,cascadiacode,cmpica,cmodern,courier,courier10,cvmtt,dejavusansmono,droidsansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,newtxtt,nimbusmono,nimbusmononarrow,texgyrecursor,tmodern,txtt}
+	}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % -----------------------------------------------------------------------------
@@ -4645,15 +4663,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={08/08/2021},
+		Template.Fecha={17/08/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Auxiliares},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.3.5-1-AUX},
-		Template.Version.Hash={3760E4033696C824EDBA843539FD5C64},
-		Template.Version.Release={7.3.5},
+		Template.Version.Dev={7.3.6-AUX},
+		Template.Version.Hash={DAAE8F4315BECB8136515E34D0442F36},
+		Template.Version.Release={7.3.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4665,7 +4683,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.3.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v7.3.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
