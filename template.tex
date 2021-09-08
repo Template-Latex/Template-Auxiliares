@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.4.2 (06/09/2021)
+% Versión:      7.4.3 (08/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -171,6 +171,11 @@
 % Acepta codificación UTF-8 en código fuente
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
 	\usepackage{listingsutf8}}{
+}
+
+% Footnotes en dos columnas
+\ifthenelse{\equal{\footnotetwocolumn}{true}}{
+	\usepackage{dblfnote}}{
 }
 
 % Regla superior
@@ -807,6 +812,7 @@
 % Definición de variables globales
 \global\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
 \global\def\GLOBALchapternumenabled {false}     % Numeración de capítulos empezó
+\global\def\GLOBALenvappendix {false}           % Indica que el entorno anexo está activo
 \global\def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
 \global\def\GLOBALenvimageinitialized {false}   % Entorno images activo
 \global\def\GLOBALenvmulticol {false}           % Indica que el entorno multicol está activo
@@ -815,6 +821,10 @@
 \global\def\GLOBALsubsectionanumenabled {false} % Subsección sin numeración
 \global\def\GLOBALtablerowcolorindex {2}        % Índice tabla colores
 \global\def\GLOBALtablerowcolorswitch {false}   % Tabla con colores cambiados
+
+% Signo porcentaje para archivos
+\def\LOCALpercentchar#1{}
+\edef\LOCALpercentchar{\expandafter\LOCALpercentchar\string\%}
 
 % Contador global de objetos
 \newcounter{templateEquations}      % Ecuaciones
@@ -956,6 +966,14 @@
 \newcommand{\checkinsidemulticol}{%
 	\ifthenelse{\equal{\GLOBALenvmulticol}{false}}{%
 		\throwwarning{Esta funcion solo puede usarse dentro de multicols}%
+		\stop}{%
+	}
+}
+
+% Chequea que las funciones puedan usarse fuera del entorno anexo
+\newcommand{\checkoutsideappendix}{%
+	\ifthenelse{\equal{\GLOBALenvappendix}{true}}{%
+		\throwwarning{Esta funcion solo puede usarse fuera de anexo}%
 		\stop}{%
 	}
 }
@@ -2031,6 +2049,7 @@
 	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}%
 	\checkoutsideenvimage%
 	\checkinsidemulticol%
+	\checkoutsideappendix%
 	\setcaptionmargincm{\captionlrmarginmc}%
 	\ifthenelse{\equal{#5}{bottom}}{%
 		\begin{samepage}%
@@ -3396,7 +3415,7 @@
 	
 	% Configura caption y márgenes
 	\vspace{\marginimagetop cm}%
-	\setcaptionmargincm{\captionmarginmultimg}%
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
 	
 	% Inicia la figura
 	\begin{samepage}%
@@ -3433,7 +3452,8 @@
 	\def\envimagescaptionvar {#3}
 	\global\def\GLOBALenvimageinitialized {true}
 	\global\def\GLOBALenvimageadded {false}
-	\checkinsidemulticol
+	\checkinsidemulticol%
+	\checkoutsideappendix%
 	
 	% Configura caption y márgenes
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
@@ -3461,7 +3481,7 @@
 	\end{figure*}%
 	
 	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}
+	\setcaptionmargincm{\captionlrmarginmc}%
 	
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}
@@ -3501,7 +3521,8 @@
 }
 
 % Crea una sección de anexos
-\newenvironment{anexo}{
+\newenvironment{appendixd}{
+	\global\def\GLOBALenvappendix {true}%
 	\begingroup % Inicia el grupo en nueva página y sección
 	% \clearpage
 	\phantomsection
@@ -3513,7 +3534,7 @@
 	}
 	\appendixtitleon
 	\appendixtitletocon
-	%\addappheadtotoc
+	% \addappheadtotoc
 	\bookmarksetupnext{level=part}
 	\begin{appendices} % Crea la sección
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
@@ -3808,10 +3829,10 @@
 	language=[gnu] make,
 	keywordstyle=[2]\color{dkcyan},
 	morekeywords=[1]{
-		add_custom_command,add_custom_target,add_definitions,add_executable,add_library,cmake_minimum_required,cmake_policy,configure_file,cuda_add_library,cuda_include_directories,else,elseif,endforeach,endfunction,endif,endmacro,execute_process,file,find_package,find_path,find_program,foreach,function,get_directory_property,get_filename_component,get_filename_component,get_source_file_property,if,include,include_directories,link_directories,list,macro,mark_as_advanced,message,option,project,set,set_property,set_target_properties,string,target_link_libraries,unset
+		add_custom_command,add_custom_target,add_definitions,add_executable,add_library,add_subdirectory,cmake_minimum_required,cmake_policy,configure_file,cuda_add_library,cuda_include_directories,else,elseif,endforeach,endfunction,endif,endmacro,execute_process,file,find_package,find_path,find_program,foreach,function,get_directory_property,get_filename_component,get_filename_component,get_source_file_property,if,include,include_directories,install,link_directories,list,macro,mark_as_advanced,message,option,project,set,set_property,set_target_properties,string,target_compile_options,target_link_libraries,unset
 	},
 	morekeywords=[2]{
-		APPEND,CACHE,CMAKE_MODULE_PATH,COMMENT,COMPILE_DEFINITIONS,DEPENDS,DESTINATION,ENDIF,FATAL_ERROR,FIND_LIBRARY,FORCE,GLOB,GREATER,IF,INCLUDE_DIRECTORIES,IS_ABSOLUTE,LESS,LINK_PRIVATE,LIST,MAIN_DEPENDENCY,MAKE_DIRECTORY,MARK_AS_ADVANCED,MATCHALL,MATCHES,NOT,OFF,ON,OUTPUT,PARENT_SCOPE,PRE_BUILD_COMMAND,PRE_LINK,PROPERTIES,REGEX,REQUIRED,SET,TARGET,TOUPPER,UNIX,VERSION,VERSION_EQUAL,VERSION_LESS,WIN32,WORKING_DIRECTORY
+		AND,APPEND,ARCHIVE,CACHE,CMAKE_MODULE_PATH,COMMAND,COMMENT,COMPILE_DEFINITIONS,CONFIG,DEFINED,DEPENDS,DESTINATION,DIRECTORY,ENDIF,ENV,EQUAL,ERROR_QUIET,EXISTS,FATAL_ERROR,FILES,FILES_MATCHING,FIND,FIND,FIND_LIBRARY,FORCE,GLOB,GREATER,IF,INCLUDE_DIRECTORIES,IS_ABSOLUTE,LESS,LIBRARY,LINK_PRIVATE,LIST,MAIN_DEPENDENCY,MAKE_DIRECTORY,MARK_AS_ADVANCED,MATCHALL,MATCHES,NOT,OFF,ON,OPTIONAL,OR,OUTPUT,OUTPUT_STRIP_TRAILING_WHITESPACE,OUTPUT_VARIABLE,PARENT_SCOPE,PATTERN,PRE_BUILD_COMMAND,PRE_LINK,PRIVATE,PROPERTIES,PUBLIC,REGEX,RELEASE,RENAME,REQUIRED,RUNTIME,SET,STATIC,STREQUAL,TARGET,TARGETS,TOUPPER,UNIX,VERSION,VERSION_EQUAL,VERSION_LESS,WIN32,WORKING_DIRECTORY
 	}
 }
 
@@ -4612,7 +4633,7 @@
 		{ϋ}{{$\ddot \upsilon$}}1 {ΰ}{{$\dddot \upsilon$}}1
 		{Φ}{{$\Phi$}}1 {φ}{{$\phi$}}1 {Ψ}{{$\Psi$}}1 {ψ}{{$\psi$}}1
 		{Ω}{{$\Omega$}}1 {ω}{{$\omega$}}1 {ώ}{{$\dot \omega$}}1
-		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1 {`}{\`}1,
+		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1 {`}{\`}1 {–}{{--}}1,
 	numbers=left,
 	numbersep={\sourcecodenumbersep pt},
 	numberstyle=\tiny\color{dkgray},
@@ -4816,38 +4837,38 @@
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
 % -----------------------------------------------------------------------------
 % Se revisa si las variables no han sido borradas
-\checkvardefined{\autordeldocumento}
-\checkvardefined{\codigodelcurso}
-\checkvardefined{\departamentouniversidad}
-\checkvardefined{\imagendepartamentoparams}
-\checkvardefined{\localizacionuniversidad}
-\checkvardefined{\nombredelcurso}
-\checkvardefined{\nombrefacultad}
-\checkvardefined{\nombreuniversidad}
-\checkvardefined{\temaatratar}
-\checkvardefined{\titulodeldocumento}
+\checkvardefined{\coursecode}
+\checkvardefined{\coursename}
+\checkvardefined{\documentauthor}
+\checkvardefined{\documenttitle}
+\checkvardefined{\documenttopic}
+\checkvardefined{\universitydepartment}
+\checkvardefined{\universitydepartmentimagecfg}
+\checkvardefined{\universityfaculty}
+\checkvardefined{\universitylocation}
+\checkvardefined{\universityname}
 
 % -----------------------------------------------------------------------------
 % Se añade \xspace a las variables
 % -----------------------------------------------------------------------------
 \makeatletter
-	\g@addto@macro\autordeldocumento\xspace
-	\g@addto@macro\codigodelcurso\xspace
-	\g@addto@macro\departamentouniversidad\xspace
-	\g@addto@macro\localizacionuniversidad\xspace
-	\g@addto@macro\nombredelcurso\xspace
-	\g@addto@macro\nombrefacultad\xspace
-	\g@addto@macro\nombreuniversidad\xspace
-	\g@addto@macro\temaatratar\xspace
-	\g@addto@macro\titulodeldocumento\xspace
+	\g@addto@macro\coursecode\xspace
+	\g@addto@macro\coursename\xspace
+	\g@addto@macro\documentauthor\xspace
+	\g@addto@macro\documenttitle\xspace
+	\g@addto@macro\documenttopic\xspace
+	\g@addto@macro\universitydepartment\xspace
+	\g@addto@macro\universityfaculty\xspace
+	\g@addto@macro\universitylocation\xspace
+	\g@addto@macro\universityname\xspace
 \makeatother
 
 % -----------------------------------------------------------------------------
 % Se crean variables si se borraron
 % -----------------------------------------------------------------------------
-\ifthenelse{\isundefined{\equipodocente}}{
-	\errmessage{LaTeX Warning: Se borro la variable \noexpand\equipodocente, creando una vacia}
-	\def\equipodocente {}}{
+\ifthenelse{\isundefined{\teachingstaff}}{
+	\errmessage{LaTeX Warning: Se borro la variable \noexpand\teachingstaff, creando una vacia}
+	\def\teachingstaff {}}{
 }
 
 % -----------------------------------------------------------------------------
@@ -4872,34 +4893,34 @@
 	\def\cfgpdfpagemode {UseNone}
 }
 \ifthenelse{\equal{\usepdfmetadata}{true}}{
-	\def\pdfmetainfoautor {\autordeldocumento}
-	\def\pdfmetainfocodigodelcurso {\codigodelcurso}
-	\def\pdfmetainfonombredelcurso {\nombredelcurso}
-	\def\pdfmetainfotema {\temaatratar}
-	\def\pdfmetainfotitulo {\titulodeldocumento}
-	\def\pdfmetainfounidepto {\departamentouniversidad}
-	\def\pdfmetainfounifacultad {\nombrefacultad}
-	\def\pdfmetainfouninombre {\nombreuniversidad}
-	\def\pdfmetainfouniubicacion {\localizacionuniversidad}
-	\author{\pdfmetainfoautor}
-	\title{\pdfmetainfotitulo}
+	\def\pdfmetainfoauthor {\documentauthor}
+	\def\pdfmetainfocoursecode {\coursecode}
+	\def\pdfmetainfocoursename {\coursename}
+	\def\pdfmetainfotitle {\documenttitle}
+	\def\pdfmetainfotopic {\documenttopic}
+	\def\pdfmetainfouniversity {\universityname}
+	\def\pdfmetainfouniversitydepartment {\universitydepartment}
+	\def\pdfmetainfouniversityfaculty {\universityfaculty}
+	\def\pdfmetainfouniversitylocation {\universitylocation}
+	\author{\pdfmetainfoauthor}
+	\title{\pdfmetainfotitle}
 }{
-	\def\pdfmetainfoautor {}
-	\def\pdfmetainfocodigodelcurso {}
-	\def\pdfmetainfonombredelcurso {}
-	\def\pdfmetainfotema {}
-	\def\pdfmetainfotitulo {}
-	\def\pdfmetainfounidepto {}
-	\def\pdfmetainfounifacultad {}
-	\def\pdfmetainfouninombre {}
-	\def\pdfmetainfouniubicacion {}
+	\def\pdfmetainfoauthor {}
+	\def\pdfmetainfocoursecode {}
+	\def\pdfmetainfocoursename {}
+	\def\pdfmetainfotitle {}
+	\def\pdfmetainfotopic {}
+	\def\pdfmetainfouniversity {}
+	\def\pdfmetainfouniversitydepartment {}
+	\def\pdfmetainfouniversityfaculty {}
+	\def\pdfmetainfouniversitylocation {}
 }
 \hypersetup{
 	keeppdfinfo,
 	bookmarksopen={\cfgpdfbookmarkopen},
 	bookmarksopenlevel={\cfgbookmarksopenlevel},
 	bookmarkstype={toc},
-	pdfauthor={\pdfmetainfoautor},
+	pdfauthor={\pdfmetainfoauthor},
 	pdfcenterwindow={\cfgpdfcenterwindow},
 	pdfcopyright={\cfgpdfcopyright},
 	pdfcreator={LaTeX},
@@ -4907,42 +4928,42 @@
 	pdfencoding={unicode},
 	pdffitwindow={\cfgpdffitwindow},
 	pdfinfo={
-		Curso.Codigo={\pdfmetainfocodigodelcurso},
-		Curso.Nombre={\pdfmetainfonombredelcurso},
-		Documento.Autor={\pdfmetainfoautor},
-		Documento.Tema={\pdfmetainfotema},
-		Documento.Titulo={\pdfmetainfotitulo},
-		Template.Autor.Alias={ppizarror},
-		Template.Autor.Email={pablo@ppizarror.com},
-		Template.Autor.Nombre={Pablo Pizarro R.},
-		Template.Autor.Web={https://ppizarror.com},
-		Template.Codificacion={UTF-8},
-		Template.Fecha={06/09/2021},
-		Template.Latex.Compilador={pdflatex},
-		Template.Licencia.Tipo={MIT},
-		Template.Licencia.Web={https://opensource.org/licenses/MIT},
-		Template.Nombre={Template-Auxiliares},
-		Template.Tipo={Normal},
-		Template.Version.Dev={7.4.2-AUX},
-		Template.Version.Hash={2E26A7AF6BB665201D84D7B7D37385D1},
-		Template.Version.Release={7.4.2},
+		Course.Code={\pdfmetainfocoursecode},
+		Course.Name={\pdfmetainfocoursename},
+		Document.Author={\pdfmetainfoauthor},
+		Document.Title={\pdfmetainfotitle},
+		Document.Topic={\pdfmetainfotopic},
+		Template.Author.Alias={ppizarror},
+		Template.Author.Email={pablo@ppizarror.com},
+		Template.Author.Web={https://ppizarror.com},
+		Template.Author={Pablo Pizarro R.},
+		Template.Date={08/09/2021},
+		Template.Encoding={UTF-8},
+		Template.Latex.Compiler={pdflatex},
+		Template.License.Type={MIT},
+		Template.License.Web={https://opensource.org/licenses/MIT},
+		Template.Name={Template-Auxiliares},
+		Template.Type={Normal},
+		Template.Version.Dev={7.4.3-AUX},
+		Template.Version.Hash={FB0202C7B4B3B1151F58CC97EB674A37},
+		Template.Version.Release={7.4.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
-		Universidad.Departamento={\pdfmetainfounidepto},
-		Universidad.Facultad={\pdfmetainfounifacultad},
-		Universidad.Nombre={\pdfmetainfouninombre},
-		Universidad.Ubicacion={\pdfmetainfouniubicacion}
+		University.Department={\pdfmetainfouniversitydepartment},
+		University.Faculty={\pdfmetainfouniversityfaculty},
+		University.Location={\pdfmetainfouniversitylocation},
+		University.Name={\pdfmetainfouniversity}
 	},
 	pdfkeywords={\cfgpdfkeywords},
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.4.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v7.4.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
-	pdfsubject={\pdfmetainfotema},
-	pdftitle={\pdfmetainfotitulo},
+	pdfsubject={\pdfmetainfotopic},
+	pdftitle={\pdfmetainfotitle},
 	pdftoolbar={\cfgpdftoolbar}
 }
 
@@ -5039,7 +5060,6 @@
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
 	labelformat={\subcaptionlabelformat},
 	labelsep={\subcaptionlabelsep},
-	% listofformat={subparens},
 	lofdepth=1,
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
@@ -5049,7 +5069,6 @@
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
 	labelformat={\subcaptionlabelformat},
 	labelsep={\subcaptionlabelsep},
-	% listofformat={subparens},
 	lofdepth=1,
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
@@ -5404,6 +5423,8 @@
 }{
 	\throwbadconfig{Formato reinicio numero footnote desconocido}{\footnoterestart}{none,chap,page,sec,ssec,sssec,ssssec}}}}}}}
 }
+% Previene footnote en otras páginas
+\interfootnotelinepenalty=10000
 
 % -----------------------------------------------------------------------------
 % Restauración número ecuación, NOTA: NO hace nada, sólo se modifica en title.tex
@@ -5528,15 +5549,21 @@
 % Parcha el entorno multicols
 % -----------------------------------------------------------------------------
 \let\SOURCEcaptionlrmargin\captionlrmargin
+\newcounter{multicoldepth}
+\setcounter{multicoldepth}{0}
 \BeforeBeginEnvironment{multicols}{%
 	\def\captionlrmargin {\captionlrmarginmc}%
 	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
+	\addtocounter{multicoldepth}{1}%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
-	\global\def\GLOBALenvmulticol {false}%
 	\setcaptionmargincm{\captionlrmargin}%
+	\addtocounter{multicoldepth}{-1}
+	\ifnumequal{\number\value{multicoldepth}}{0}{%
+		\global\def\GLOBALenvmulticol {false}
+	}{}
 }
 
 % -----------------------------------------------------------------------------
@@ -5823,7 +5850,7 @@
 			\fancyhead[L]{}
 			\fancyhead[R]{}
 			\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-			\fancyfoot[L]{\small \rm \textit{\titulodeldocumento}} % Footer izq, título del informe
+			\fancyfoot[L]{\small \rm \textit{\documenttitle}} % Footer izq, título del informe
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
@@ -5833,7 +5860,7 @@
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
 			%\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-			\fancyfoot[L]{\small \rm \textit{\titulodeldocumento}} % Footer izq, título
+			\fancyfoot[L]{\small \rm \textit{\documenttitle}} % Footer izq, título
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
@@ -5846,12 +5873,12 @@
 				\hspace{-0.45cm}~
 				\begin{minipage}[t]{1\linewidth}
 					\vspace{-4.65em}
-					\nombreuniversidad ~ \\
-					\nombrefacultad ~ \\
-					\departamentouniversidad ~ \\
-					\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso ~ \\
+					\universityname ~ \\
+					\universityfaculty ~ \\
+					\universitydepartment ~ \\
+					\coursecode\ \hfpdashcharstyle\ \coursename ~ \\
 					\begin{flushright}%
-						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm} ~
+						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm} ~
 					\end{flushright}
 				\end{minipage}
 				\\
@@ -5863,15 +5890,15 @@
 		\noindent \rule{1\linewidth}{0.5pt}
 		\begin{center} % Tabla de datos
 			\vspace*{0.35cm}
-			\huge {\titulodeldocumento} ~ \\
-			\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\huge {\documenttitle} ~ \\
+			\ifthenelse{\equal{\documenttopic}{\xspace}}{}{
 				\vspace{0.2cm}
-				\large {\temaatratar} ~ \\
+				\large {\documenttopic} ~ \\
 			}
-			\ifdefempty{\equipodocente}{\vspace{0.4cm}}{
+			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
 				\vspace{0.7cm}
 				\begin{normalsize}
-					\equipodocente
+					\teachingstaff
 				\end{normalsize}
 			}
 		\end{center}
@@ -5908,7 +5935,7 @@
 				\hspace{-0.60cm}
 				\begin{minipage}[t]{1.0\linewidth}
 					\begin{flushleft}
-						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
+						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm}
 					\end{flushleft}
 				\end{minipage}
 				\\
@@ -5919,17 +5946,17 @@
 		\vspace*{-1.25cm}
 		\begin{center} % Tabla de datos
 			\vspace*{0.35cm}
-			\LARGE {\textbf{\titulodeldocumento}} ~ \\
+			\LARGE {\textbf{\documenttitle}} ~ \\
 			\vspace{0.3cm}
-			\Large {\codigodelcurso \nombredelcurso} ~ \\
-			\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\Large {\coursecode \coursename} ~ \\
+			\ifthenelse{\equal{\documenttopic}{\xspace}}{}{
 				\vspace{0.2cm}
-				\large {\temaatratar} ~ \\
+				\large {\documenttopic} ~ \\
 			}
-			\ifdefempty{\equipodocente}{\vspace{0.4cm}}{
+			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
 				\vspace{0.5cm}
 				\begin{normalsize}
-					\equipodocente
+					\teachingstaff
 				\end{normalsize}
 			}
 		\end{center}
@@ -5966,7 +5993,7 @@
 				\hspace{-0.33cm}
 				\begin{minipage}[t]{1.0\linewidth}
 					\begin{flushright}
-						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
+						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm}
 					\end{flushright}
 				\end{minipage}
 				\\
@@ -5977,17 +6004,17 @@
 		\vspace*{-1.25cm}
 		\begin{center} % Tabla de datos
 			\vspace*{0.35cm}
-			\LARGE {\textbf{\titulodeldocumento}} ~ \\
+			\LARGE {\textbf{\documenttitle}} ~ \\
 			\vspace{0.3cm}
-			\Large {\codigodelcurso \nombredelcurso} ~ \\
-			\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\Large {\coursecode \coursename} ~ \\
+			\ifthenelse{\equal{\documenttopic}{\xspace}}{}{
 				\vspace{0.2cm}
-				\large {\temaatratar} ~ \\
+				\large {\documenttopic} ~ \\
 			}
-			\ifdefempty{\equipodocente}{\vspace{0.4cm}}{
+			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
 				\vspace{0.5cm}
 				\begin{normalsize}
-					\equipodocente
+					\teachingstaff
 				\end{normalsize}
 			}
 		\end{center}
@@ -5999,7 +6026,7 @@
 			\fancyhead[L]{}
 			\fancyhead[R]{}
 			\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-			\fancyfoot[L]{\small \rm \textit{\titulodeldocumento}} % Footer izq, título del informe
+			\fancyfoot[L]{\small \rm \textit{\documenttitle}} % Footer izq, título del informe
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
@@ -6009,7 +6036,7 @@
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
 			%\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-			\fancyfoot[L]{\small \rm \textit{\titulodeldocumento}} % Footer izq, título
+			\fancyfoot[L]{\small \rm \textit{\documenttitle}} % Footer izq, título
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
@@ -6022,12 +6049,12 @@
 				\hspace{-0.45cm}~
 				\begin{minipage}[t]{1\linewidth}
 					\vspace{-4.65em}
-					\nombreuniversidad ~ \\
-					\nombrefacultad ~ \\
-					\departamentouniversidad ~ \\
-					\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso ~ \\
+					\universityname ~ \\
+					\universityfaculty ~ \\
+					\universitydepartment ~ \\
+					\coursecode\ \hfpdashcharstyle\ \coursename ~ \\
 					\begin{flushright}%
-						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm} ~
+						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm} ~
 					\end{flushright}
 				\end{minipage}
 				\\
