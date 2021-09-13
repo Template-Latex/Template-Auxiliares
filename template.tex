@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.4.7 (12/09/2021)
+% Versión:      7.4.8 (13/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -140,9 +140,9 @@
 \usepackage{soul}          % Permite subrayar texto
 \usepackage{subfig}        % Permite agrupar imágenes
 \usepackage{textcomp}      % Simbología común
-\usepackage{url}           % Permite añadir enlaces
 \usepackage{wrapfig}       % Posición de imágenes
 \usepackage{xspace}        % Administra espacios en párrafos y líneas
+\usepackage{xurl}          % Permite añadir enlaces
 
 % -----------------------------------------------------------------------------
 % Librerías con parámetros
@@ -4914,12 +4914,6 @@
 }
 
 % -----------------------------------------------------------------------------
-% Verifica tamaños de fuentes
-% -----------------------------------------------------------------------------
-\corecheckfontsize{\captionfontsize}
-\corecheckfontsize{\subcaptionfsize}
-
-% -----------------------------------------------------------------------------
 % Se activan números en menú marcadores del pdf
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\cfgpdfsecnumbookmarks}{true}}{
@@ -4979,16 +4973,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={12/09/2021},
+		Template.Date={13/09/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={7.4.7-1-AUX},
-		Template.Version.Hash={4B409FD8C945F248FC75152A2C2E66F3},
-		Template.Version.Release={7.4.7},
+		Template.Version.Dev={7.4.8-AUX},
+		Template.Version.Hash={78E53B3169FF94D822EEE0C0778E357F},
+		Template.Version.Release={7.4.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5000,7 +4994,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.4.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v7.4.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5085,6 +5079,7 @@
 }
 
 % Se configura el texto de los caption
+\corecheckfontsize{\captionfontsize}
 \captionsetup{
 	font={\captionfontsize},
 	labelfont={color=\captioncolor, \captiontextbold},
@@ -5095,6 +5090,7 @@
 }
 
 % Configura texto de los subcaption
+\corecheckfontsize{\subcaptionfsize}
 \captionsetup*[subfigure]{
 	font={\subcaptionfsize},
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
@@ -5346,14 +5342,6 @@
 % Se activa el word-wrap para textos con \texttt{}
 % -----------------------------------------------------------------------------
 \ttfamily \hyphenchar\the\font=`\-
-\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%
-	\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
-	\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
-	\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
-	\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
-	\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
-	\do\Y\do\Z%
-}
 
 % -----------------------------------------------------------------------------
 % Se define el tipo de texto de los url
