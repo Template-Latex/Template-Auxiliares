@@ -10,6 +10,7 @@
 *.lol
 *.bbl
 *.blg
+*._**
 
 # Releases
 .releases/*
