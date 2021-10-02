@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      7.5.3 (27/09/2021)
+% Versión:      7.5.4 (02/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -129,25 +129,13 @@
 	}{
 		\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
 			% Se ocultan las secciones
-			\ifthenelse{\equal{\dotaftersnum}{true}}{
-				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
-			}{
-				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
-			}
+			\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
 		}{
 			% Se muestra la ruta completa
-			\ifthenelse{\equal{\dotaftersnum}{true}}{
-				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}	
-				}{
-					\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
-				}
+			\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+				\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
 			}{
-				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
-				}{
-					\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
-				}
+				\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
 			}
 		}
 	}
