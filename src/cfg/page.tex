@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      7.5.4 (02/10/2021)
+% Versión:      7.5.6 (06/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -312,13 +312,16 @@
 			\huge {\documenttitle} ~ \\
 			\ifthenelse{\equal{\documentsubject}{\xspace}}{}{
 				\vspace{0.2cm}
-				\large {\documentsubject} ~ \\
+				\normalsize {\documentsubject} ~ \\
 			}
 			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
-				\vspace{0.7cm}
-				\begin{normalsize}
-					\teachingstaff
-				\end{normalsize}
+				\vspace{0.5cm}
+				\begin{spacing}{0.95}
+					\begin{normalsize}
+						\teachingstaff
+					\end{normalsize}
+				\end{spacing}
+				\vspace{0.4cm}
 			}
 		\end{center}
 	}{
@@ -367,16 +370,19 @@
 			\vspace*{0.35cm}
 			\LARGE {\textbf{\documenttitle}} ~ \\
 			\vspace{0.3cm}
-			\Large {\coursecode \coursename} ~ \\
+			\large {\coursecode \coursename} ~ \\
 			\ifthenelse{\equal{\documentsubject}{\xspace}}{}{
-				\vspace{0.2cm}
-				\large {\documentsubject} ~ \\
+				\vspace{0.1cm}
+				\normalsize {\documentsubject} ~ \\
 			}
 			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
 				\vspace{0.5cm}
-				\begin{normalsize}
-					\teachingstaff
-				\end{normalsize}
+				\begin{spacing}{0.95}
+					\begin{normalsize}
+						\teachingstaff
+					\end{normalsize}
+				\end{spacing}
+				\vspace{0.4cm}
 			}
 		\end{center}
 	}{
@@ -425,16 +431,19 @@
 			\vspace*{0.35cm}
 			\LARGE {\textbf{\documenttitle}} ~ \\
 			\vspace{0.3cm}
-			\Large {\coursecode \coursename} ~ \\
+			\large {\coursecode \coursename} ~ \\
 			\ifthenelse{\equal{\documentsubject}{\xspace}}{}{
-				\vspace{0.2cm}
-				\large {\documentsubject} ~ \\
+				\vspace{0.1cm}
+				\normalsize {\documentsubject} ~ \\
 			}
 			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
 				\vspace{0.5cm}
-				\begin{normalsize}
-					\teachingstaff
-				\end{normalsize}
+				\begin{spacing}{0.95}
+					\begin{normalsize}
+						\teachingstaff
+					\end{normalsize}
+				\end{spacing}
+				\vspace{0.4cm}
 			}
 		\end{center}
 	}{
