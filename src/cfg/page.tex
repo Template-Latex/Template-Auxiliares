@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      7.5.6 (06/10/2021)
+% Versión:      7.5.7 (06/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -510,6 +510,12 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\linenumbers}{
 	}
+
+	% -------------------------------------------------------------------------
+	% Reestablece \cleardoublepage
+	% -------------------------------------------------------------------------
+	% \let\cleardoublepage\oldcleardoublepage
+	\let\cleardoublepage\corecleardoublepage
 
 	% -----------------------------------------------------------------------------
 	% Establece el estilo de las sub-sub-sub-secciones
