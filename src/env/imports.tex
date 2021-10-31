@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      7.6.2 (26/10/2021)
+% Versión:      7.6.3 (31/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -34,7 +34,21 @@
 % Librerías del núcleo
 % -----------------------------------------------------------------------------
 % Manejo de condicionales
+\usepackage{iftex}
 \usepackage{ifthen}
+
+% Verifica el tipo de compilador
+\ifPDFTeX
+	\def\compilertype {pdf2latex}
+\else\ifXeTeX
+	\def\compilertype {xelatex}
+\else\ifLuaTeX
+	\def\compilertype {lualatex}
+\else
+	\errmessage{Compilador no soportado}
+	\stop
+	\fi\fi
+\fi
 
 % Carga el idioma
 \usepackage{tracklang}
@@ -105,7 +119,7 @@
 \usepackage{chngcntr}      % Añade números a las leyendas
 \usepackage{color}         % Colores
 \usepackage{datetime}      % Fechas
-\usepackage{floatpag}      % Maneja estilos de páginas introducidos por obj. flotantes
+\usepackage{floatpag}      % Maneja estilos de páginas introducidos por objetos flotantes
 \usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
@@ -139,7 +153,7 @@
 \usepackage[subfigure,titles]{tocloft} % Maneja entradas en el índice
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
 \usepackage[normalem]{ulem} % Permite tachar y subrayar
-\usepackage[nointegrals]{wasysym} % Contiene caracteres misceláneos (v7.0.4)
+\usepackage[nointegrals]{wasysym} % Contiene caracteres misceláneos
 \usepackage[dvipsnames,table,usenames]{xcolor} % Paquete de colores avanzado
 
 % -----------------------------------------------------------------------------
@@ -173,10 +187,6 @@
 }
 
 % Referencias
-% Desde v6.2.8 se debe cargar al final para evitar errores:
-%	- Option clash for package hyperref
-% 	- name has been referenced but does not exist, replaced by a fixed one
-% Desde v6.5.6 se carga después de las referencias (apacite, natbib, bibtex)
 \ifthenelse{\equal{\backrefpagecite}{true}}{
 	\usepackage[pdfencoding=auto,psdextra,backref=page]{hyperref} % Enlaces, referencias
 }{
@@ -205,7 +215,7 @@
 
 % Dimensiones y geometría del documento
 \ifthenelse{\equal{\compilertype}{lualatex}}{ % En lualatex sólo se puede cambiar 1 vez el margen
-	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,margin=\pagemarginleft cm]{geometry}
+	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,left=\pagemarginleft cm,right=\pagemarginright cm]{geometry}
 }{ % pdf2latex, xelatex
 	\usepackage{geometry}
 }
@@ -807,7 +817,7 @@
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
-\usepackage{csquotes} % Citas y comillas, se debe usar después de lineno [6.4.2]
+\usepackage{csquotes} % Citas y comillas
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
 	\inputencoding{utf8}}{
 }
