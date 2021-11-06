@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      7.6.3 (31/10/2021)
+% Versión:      8.0.0 (05/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -104,16 +104,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={31/10/2021},
+		Template.Date={05/11/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={7.6.3-1-AUX},
-		Template.Version.Hash={4C26579C3B51CB5F0599A5C825B4D702},
-		Template.Version.Release={7.6.3},
+		Template.Version.Dev={8.0.0-1-AUX},
+		Template.Version.Hash={64380B487DF6032AAA31006F33D00872},
+		Template.Version.Release={8.0.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -125,7 +125,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v7.6.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.0.0 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -631,9 +631,9 @@
 % -----------------------------------------------------------------------------
 % Configuración elementos matemáticos
 % -----------------------------------------------------------------------------
-\newtheoremstyle{miestilo}{\baselineskip}{3pt}{\itshape}{}{\bfseries}{}{.5em}{}
-\newtheoremstyle{miobs}{\baselineskip}{3pt}{}{}{\bfseries}{}{.5em}{}
-\theoremstyle{miestilo}
+\newtheoremstyle{templatetheorem}{\baselineskip}{3pt}{\itshape}{}{\bfseries}{}{.5em}{}
+\newtheoremstyle{templateobs}{\baselineskip}{3pt}{}{}{\bfseries}{}{.5em}{}
+\theoremstyle{templatetheorem}
 
 % Configura números
 \ifthenelse{\equal{\showsectioncaptionmat}{none}}{
@@ -680,7 +680,7 @@
 }{
 	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionmat}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 }
-\theoremstyle{miobs}
+\theoremstyle{templateobs}
 \newtheorem*{ej}{\namemathej}
 \newtheorem*{obs}{\namemathobs}
 
