@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      8.0.4 (26/11/2021)
+% Versión:      8.0.5 (27/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -523,5 +523,15 @@
 	% Establece el estilo de las sub-sub-sub-secciones
 	% -----------------------------------------------------------------------------
 	\titleclass{\subsubsubsection}{straight}[\subsection]
+
+	% -------------------------------------------------------------------------
+	% Reestablece los valores del estado de los títulos
+	% -------------------------------------------------------------------------
+	\global\def\GLOBALtitlerequirechapter {false}
+	\global\def\GLOBALtitleinitchapter {false}
+	\global\def\GLOBALtitleinitsection {false}
+	\global\def\GLOBALtitleinitsubsection {false}
+	\global\def\GLOBALtitleinitsubsubsection {false}
+	\global\def\GLOBALtitleinitsubsubsubsection {false}
 
 }
