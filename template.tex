@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.0.7 (24/12/2021)
+% Versión:      8.0.8 (10/01/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -942,6 +942,17 @@
 	\errmessage{#1 \noexpand #2=#2. Valores esperados: #3}%
 	\stop%
 }
+
+% Chequea que un módulo no haya sido cargado antes de terminar el template
+%	#1	Nombre del módulo
+\makeatletter%
+\newcommand{\checkmodulenotloaded}[1]{%
+	\@ifpackageloaded{#1}{%
+		\throwwarning{Template Error: No se pueden cargar paquetes (#1) antes de importar template.tex}%
+		\stop%
+	}{}%
+}
+\makeatother%
 
 % Comprueba si una variable está definida
 %	#1	Variable
@@ -5471,16 +5482,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={24/12/2021},
+		Template.Date={10/01/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={8.0.7-AUX},
-		Template.Version.Hash={DFA0D0957265B2ACC764654EAB16A8BB},
-		Template.Version.Release={8.0.7},
+		Template.Version.Dev={8.0.8-AUX},
+		Template.Version.Hash={CA5802441B4F87F0057E6B1458FA6226},
+		Template.Version.Release={8.0.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5492,7 +5503,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v8.0.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.0.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -6167,6 +6178,11 @@
 \setlength\leftmarginii{\sitemsmarginii pt}
 \setlength\leftmarginiii{\sitemsmarginiii pt}
 \setlength\leftmarginiv{\sitemsmarginiv pt}
+
+% -----------------------------------------------------------------------------
+% Chequea que ciertos módulos no hayan sido cargados antes del inicio del documento
+% -----------------------------------------------------------------------------
+\checkmodulenotloaded{tcolorbox}
 
 % -----------------------------------------------------------------------------
 % Configura métodos aplicados al iniciar el documento
