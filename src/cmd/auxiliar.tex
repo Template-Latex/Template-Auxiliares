@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      8.1.1 (18/04/2022)
+% Versión:      8.1.2 (25/04/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,6 +11,8 @@
 
 % Configuraciones base
 \def\anumsecaddtocounter {false}
+\newcounter{totalquestions}
+\setcounter{totalquestions}{1}
 
 % Insertar nuevo título de pregunta
 %	#1	Título
@@ -25,7 +27,8 @@
 	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
 	\phantomsection%
 	\newp \fbox{\ \textbf{#1}.-\ } \noindent%
-	\pdfbookmark[1]{#1}{question}%
+	\pdfbookmark{#1}{question.\thetotalquestions}%
+	\stepcounter{totalquestions}%
 }
 
 % Crea una sección de imágenes múltiples

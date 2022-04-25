@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.1.1 (18/04/2022)
+% Versión:      8.1.2 (25/04/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3956,6 +3956,8 @@
 
 % Configuraciones base
 \def\anumsecaddtocounter {false}
+\newcounter{totalquestions}
+\setcounter{totalquestions}{1}
 
 % Insertar nuevo título de pregunta
 %	#1	Título
@@ -3970,7 +3972,8 @@
 	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
 	\phantomsection%
 	\newp \fbox{\ \textbf{#1}.-\ } \noindent%
-	\pdfbookmark[1]{#1}{question}%
+	\pdfbookmark{#1}{question.\thetotalquestions}%
+	\stepcounter{totalquestions}%
 }
 
 % Crea una sección de imágenes múltiples
@@ -5543,16 +5546,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={18/04/2022},
+		Template.Date={25/04/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={8.1.1-4-AUX},
-		Template.Version.Hash={21BCAF8D445483CF9F8D87A03C96C8E2},
-		Template.Version.Release={8.1.1},
+		Template.Version.Dev={8.1.2-1-AUX},
+		Template.Version.Hash={65297324DE342390C518D02C401BDFED},
+		Template.Version.Release={8.1.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5564,7 +5567,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v8.1.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.1.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -6245,6 +6248,19 @@
 % Chequea que ciertos módulos no hayan sido cargados antes del inicio del documento
 % -----------------------------------------------------------------------------
 \checkmodulenotloaded{tcolorbox}
+
+% -----------------------------------------------------------------------------
+% Da soporte a \hl{} del paquete soul
+% -----------------------------------------------------------------------------
+\soulregister\cite7
+\soulregister\eqref7
+\soulregister\eqref7
+\soulregister\footnote7
+\soulregister\href7
+\soulregister\pageref7
+\soulregister\quotes7
+\soulregister\ref7
+\soulregister\scite7
 
 % -----------------------------------------------------------------------------
 % Configura métodos aplicados al iniciar el documento
