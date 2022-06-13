@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.1.4 (09/06/2022)
+% Versión:      8.1.5 (12/06/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -860,7 +860,9 @@
 % IMPORTACIÓN DE FUNCIONES Y ENTORNOS
 % -----------------------------------------------------------------------------
 % Definición de variables globales
-\global\def\GLOBALcaptiondefn {EMPTY-VAR}         % Definición del caption
+\global\def\GLOBALemptyvar {template:empty:var}   % Usado para indicar que una variable está vacía
+
+\global\def\GLOBALcaptiondefn {\GLOBALemptyvar}   % Definición del caption
 \global\def\GLOBALchapternumenabled {false}       % Numeración de capítulos empezó
 \global\def\GLOBALenvappendix {false}             % Indica que el entorno anexo está activo
 \global\def\GLOBALenvimageadded {false}           % Indica que una imagen ha sido añadida
@@ -1021,7 +1023,7 @@
 
 % Resetea los caption
 \newcommand{\resetindexcaption}{%
-	\global\def\GLOBALcaptiondefn {EMPTY-VAR}%
+	\global\def\GLOBALcaptiondefn {\GLOBALemptyvar}%
 	\hbadness=10000%
 }
 
@@ -2029,7 +2031,7 @@
 	\fi%
 }
 
-\global\def\GLOBALimagelink {} % Almacena el link de la imagen
+\global\def\GLOBALimagelink {\GLOBALemptyvar} % Almacena el link de la imagen
 \global\def\GLOBALimagenextmarginv {0 cm} % Almacena el margen vertical de las imágenes
 
 % Calcula largo hspace
@@ -2060,10 +2062,10 @@
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\dimexpr \marginimagemultright cm -\coreimageshspace}%
 	}{}%
-	\ifthenelse{\equal{#5}{}}{ % Sin label
-		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
+	\ifthenelse{\equal{#5}{\GLOBALemptyvar}}{ % Sin label
+		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
 			\raisebox{\GLOBALimagenextmarginv}{%
-				\fbox{\includegraphics[#3]{#2}}
+				\fbox{\includegraphics[#3]{#2}}%
 			}%
 		}{ % Con link
 			\raisebox{\GLOBALimagenextmarginv}{%
@@ -2071,7 +2073,7 @@
 			}%
 		}%
 	}{ % Con label
-		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
+		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
 			\subfloat[#5]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\includegraphics[#3]{#2}}#1%
@@ -2094,7 +2096,7 @@
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 \newcommand{\addimageanum}[2]{%
-	\addimageboxed{#1}{#2}{0}{}%
+	\addimageboxed{#1}{#2}{0}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -2102,7 +2104,7 @@
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
 \newcommand{\addimageanumboxed}[3]{%
-	\addimageboxed{#1}{#2}{#3}{}%
+	\addimageboxed{#1}{#2}{#3}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde animada
@@ -2132,7 +2134,7 @@
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\dimexpr \marginimagemultright cm - \coreimageshspace}%
 	}{}%
-	\ifthenelse{\equal{#7}{}}{ % Sin label
+	\ifthenelse{\equal{#7}{\GLOBALemptyvar}}{ % Sin label
 		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
@@ -2190,7 +2192,7 @@
 %	#3	FPS de la imagen
 %	#4	Total imágenes no definido
 \newcommand{\addimageanimatedanum}[4]{%
-	\addimageanimatedboxed{#1}{#2}{#3}{#4}{0}{}%
+	\addimageanimatedboxed{#1}{#2}{#3}{#4}{0}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda animada
@@ -2200,7 +2202,7 @@
 %	#4	Total imágenes no definido
 %	#5	Ancho de la línea (en pt)
 \newcommand{\addimageanimatedanumboxed}[5]{%
-	\addimageanimatedboxed{#1}{#2}{#3}{#4}{#5}{}%
+	\addimageanimatedboxed{#1}{#2}{#3}{#4}{#5}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde y un link
@@ -2223,7 +2225,7 @@
 \newcommand{\addimagelinkboxed}[6][]{%
 	\global\def\GLOBALimagelink {#5}%
 	\addimageboxed[#1]{#2}{#3}{#4}{#6}%
-	\global\def\GLOBALimagelink {}%
+	\global\def\GLOBALimagelink {\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -2231,7 +2233,7 @@
 %	#2	Parámetros de la imagen
 %	#3	Link de la imagen
 \newcommand{\addimageanumlink}[3]{%
-	\addimagelink{#1}{#2}{#3}{}%
+	\addimagelink{#1}{#2}{#3}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -2240,7 +2242,7 @@
 %	#3	Ancho de la línea (en pt)
 %	#4	Link de la imagen
 \newcommand{\addimageanumlinkboxed}[4]{%
-	\addimagelinkboxed{#1}{#2}{#3}{#4}{}%
+	\addimagelinkboxed{#1}{#2}{#3}{#4}{\GLOBALemptyvar}%
 }
 
 % Añade un salto de línea en las imágenes
@@ -2301,7 +2303,7 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
 			\centering%
-			\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
+			\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
 				\fbox{\includegraphics[#3]{#2}}%
 			}{ % Con link
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
@@ -2312,7 +2314,7 @@
 		\else%
 			\hspace{0cm}%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{figure}
 	\corevspacevarcm{\marginimagebottom}%
@@ -2388,7 +2390,7 @@
 		\else%
 			\hspace{0cm}%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{figure}
 	\corevspacevarcm{\marginimagebottom}%
@@ -2416,7 +2418,7 @@
 \newcommand{\insertimagelinkboxed}[6][]{%
 	\global\def\GLOBALimagelink {#5}%
 	\insertimageboxed[#1]{#2}{#3}{#4}{#6}%
-	\global\def\GLOBALimagelink {}%
+	\global\def\GLOBALimagelink {\GLOBALemptyvar}%
 }
 
 % Insertar una imagen completa en un entorno multicol
@@ -2512,7 +2514,7 @@
 		\else%
 			\hspace{0cm}%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{figure*}
 	\end{samepage}
@@ -2610,7 +2612,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -2657,7 +2659,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -2702,7 +2704,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -2750,7 +2752,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -2801,7 +2803,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -2852,7 +2854,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -2903,7 +2905,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -2954,7 +2956,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -5555,16 +5557,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={09/06/2022},
+		Template.Date={12/06/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={8.1.4-1-AUX},
-		Template.Version.Hash={0D293F60002DAEF80E239522559F2161},
-		Template.Version.Release={8.1.4},
+		Template.Version.Dev={8.1.5-1-AUX},
+		Template.Version.Hash={886EA2A00675711E326F7CBE28223517},
+		Template.Version.Release={8.1.5},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5576,7 +5578,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v8.1.4 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.1.5 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
