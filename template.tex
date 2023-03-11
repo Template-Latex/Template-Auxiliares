@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.1.9 (10/03/2023)
+% Versión:      8.2.1 (11/03/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -2074,15 +2074,15 @@
 		}%
 	}{ % Con label
 		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
-			\subfloat[#5]{%
+			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
-					\fbox{\includegraphics[#3]{#2}}#1%
+					\fbox{\includegraphics[#3]{#2}}%
 				}%
 			}%
 		}{ % Con link
-			\subfloat[#5]{%
+			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
-					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 				}%
 			}%
 		}%
@@ -2157,25 +2157,25 @@
 			}%
 		}%
 	}{ % Con label
-		\subfloat[#7]{%
+		\subfloat[#7#1]{%
 			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}{ % Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
 			}{ % Sin loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}{ % Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
 			}%
@@ -5557,16 +5557,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={10/03/2023},
+		Template.Date={11/03/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={8.1.9-AUX},
-		Template.Version.Hash={F2C6D5A3A1FBC64F6F4E304F4E1DBE9E},
-		Template.Version.Release={8.1.9},
+		Template.Version.Dev={8.2.1-AUX},
+		Template.Version.Hash={98404DB0D1E9825B1D9EB213EB99FEF9},
+		Template.Version.Release={8.2.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5578,7 +5578,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v8.1.9 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.2.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
