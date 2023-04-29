@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.2.2 (12/03/2023)
+% Versión:      8.2.3 (29/04/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -1843,7 +1843,7 @@
 %	#1	Ecuación
 %	#2	Leyenda
 \newcommand{\insertgatheredcaptionedanum}[2]{
-	\emptyvarerr{\insertgatheredcaptionedanum}{#1}{Ecuacion no definida}
+	\emptyvarerr{\insertgatheredcaptionedanum}{#1}{Ecuacion no definida}%
 	\ifx\hfuzz#2\hfuzz%
 		\insertgatheredanum{#1}%
 	\else%
@@ -3003,7 +3003,7 @@
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {%
 	% Capítulo
-	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}
+	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}%
 	% Section
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
 		\renewcommand{\thesection}{%
@@ -3994,88 +3994,6 @@
 	\changefontsizes{\documentfontsize pt}
 }
 
-% Crea una sección de imágenes múltiples
-%	#1	Label (opcional)
-%	#2	Caption
-\newenvironment{images}[2][]{%
-	% Modifica globales
-	\def\envimageslabelvar {#1}%
-	\def\envimagescaptionvar {#2}%
-	\def\GLOBALenvimageinitialized {true}%
-	\def\GLOBALenvimageadded {false}%
-	
-	% Configura caption y márgenes
-	\corevspacevarcm{\marginimagetop}%
-	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
-	
-	% Inicia la figura
-	\begin{samepage}%
-	\begin{figure}[H] \centering%
-		\corevspacevarcm{\marginimagemulttop}%
-		}{%
-		\setcaptionmargincm{\captionlrmargin}%
-		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
-			\corevspacevarcm{\captionlessmarginimage}%
-		}{%
-			\corevspacevarcm{\captionmarginimages}%
-			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}%
-	\end{figure}
-
-	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}%
-	\corevspacevarcm{\marginimagebottom}%
-	\end{samepage}
-	
-	% Restablece globales
-	\def\GLOBALenvimageinitialized {false}%
-}
-
-% Crea una sección de imágenes múltiples completa dentro de un multicol
-%	#1	Label (opcional)
-%	#2	Posición de la imagen, "bottom", "top"
-%	#3	Caption
-\newenvironment{imagesmc}[3][]{%
-	% Modifica globales
-	\def\envimageslabelvar {#1}%
-	\def\envimagesmcpos {#2}%
-	\def\envimagescaptionvar {#3}%
-	\global\def\GLOBALenvimageinitialized {true}%
-	\global\def\GLOBALenvimageadded {false}%
-	\checkinsidemulticol%
-	\checkoutsideappendix%
-	
-	% Configura caption y márgenes
-	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
-	
-	% Inicia la figura
-	\ifthenelse{\equal{#2}{bottom}}{%
-		\begin{figure*}[b] \centering%
-	}{%
-	\ifthenelse{\equal{#2}{top}}{%
-		\begin{figure*}[t] \centering%
-	}{%
-		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
-		\stop
-	}}%
-		\corevspacevarcm{\marginimagemulttop}%
-	}{%
-		\setcaptionmargincm{\captionlrmargin}%
-		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
-			\corevspacevarcm{\captionlessmarginimage}%
-		}{%
-			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\corevspacevarcm{\captionmarginimagesmc}}%
-			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}%
-	\end{figure*}
-	
-	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmarginmc}%
-	
-	% Restablece globales
-	\global\def\GLOBALenvimageinitialized {false}%
-}
-
 % Crea una sección de referencias solo para bibtex
 \newenvironment{references}{%
 	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Verifica configuraciones
@@ -4104,7 +4022,7 @@
 			\throwbadconfig{Ajuste de linea referencias bibtex desconocido}{\bibtextextalign}{justified,left,right,center}}}}%
 		}%
 	}%
-	{
+	{%
 	\end{thebibliography}
 	\endgroup % Termina el grupo
 }
@@ -4362,6 +4280,100 @@
 	\begin{enumerate}[font=\bfseries,#1]%
 	}{%
 	\end{enumerate}
+}
+
+% Crea una sección de imágenes múltiples
+%	#1	Label (opcional)
+%	#2	Caption
+\newenvironment{images}[2][]{%
+	% Modifica globales
+	\def\envimageslabelvar {#1}%
+	\def\envimagescaptioncf {false}%
+	\def\envimagescaptionvar {#2}%
+	\global\def\GLOBALenvimageadded {false}%
+	\global\def\GLOBALenvimageinitialized {true}%
+	% Configura caption y márgenes
+	\corevspacevarcm{\marginimagetop}%
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
+	% Inicia la figura
+	\begin{samepage}%
+	\begin{figure}[H] \centering%
+		\ifthenelse{\equal{\GLOBALenvimagecf}{true}}{%
+			\ContinuedFloat%
+			\global\def\GLOBALenvimagecf {false}%
+			\def\envimagescaptioncf {true}%
+		}{}%
+		\corevspacevarcm{\marginimagemulttop}%
+		}{%
+		\setcaptionmargincm{\captionlrmargin}%
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
+			\corevspacevarcm{\captionlessmarginimage}%
+		}{%
+			\corevspacevarcm{\captionmarginimages}%
+			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
+				\caption[]{\envimagescaptionvar\envimageslabelvar}%
+			}{%
+				\caption{\envimagescaptionvar\envimageslabelvar}%
+			}%
+		}%
+	\end{figure}%
+	% Restablece caption y márgenes
+	\setcaptionmargincm{\captionlrmargin}%
+	\corevspacevarcm{\marginimagebottom}%
+	\end{samepage}
+	% Restablece globales
+	\global\def\GLOBALenvimageinitialized {false}%
+}
+
+% Crea una sección de imágenes múltiples completa dentro de un multicol
+%	#1	Label (opcional)
+%	#2	Posición de la imagen, "bottom", "top"
+%	#3	Caption
+\newenvironment{imagesmc}[3][]{%
+	% Modifica globales
+	\def\envimageslabelvar {#1}%
+	\def\envimagesmcpos {#2}%
+	\def\envimagescaptioncf {false}%
+	\def\envimagescaptionvar {#3}%
+	\global\def\GLOBALenvimageadded {false}%
+	\global\def\GLOBALenvimageinitialized {true}%
+	\checkinsidemulticol%
+	\checkoutsideappendix%
+	% Configura caption y márgenes
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
+	% Inicia la figura
+	\ifthenelse{\equal{#2}{bottom}}{%
+		\begin{figure*}[!b] \centering%
+	}{%
+	\ifthenelse{\equal{#2}{top}}{%
+		\begin{figure*}[!t] \centering%
+	}{%
+		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
+		\stop
+	}}%
+		\ifthenelse{\equal{\GLOBALenvimagecf}{true}}{%
+			\ContinuedFloat%
+			\global\def\GLOBALenvimagecf {false}%
+			\def\envimagescaptioncf {true}%
+		}{}%
+		\corevspacevarcm{\marginimagemulttop}%
+	}{%
+		\setcaptionmargincm{\captionlrmargin}%
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
+			\corevspacevarcm{\captionlessmarginimage}%
+		}{%
+			\corevspacevarcm{\captionmarginimagesmc}%
+			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
+				\caption[]{\envimagescaptionvar\envimageslabelvar}%
+			}{%
+				\caption{\envimagescaptionvar\envimageslabelvar}%
+			}%
+		}%
+	\end{figure*}%
+	% Restablece caption y márgenes
+	\setcaptionmargincm{\captionlrmarginmc}%
+	% Restablece globales
+	\global\def\GLOBALenvimageinitialized {false}%
 }
 
 % -----------------------------------------------------------------------------
@@ -5565,16 +5577,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={12/03/2023},
+		Template.Date={29/04/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={8.2.2-AUX},
-		Template.Version.Hash={B7C01DCEC09728B4D36632893A53C632},
-		Template.Version.Release={8.2.2},
+		Template.Version.Dev={8.2.3-5-AUX},
+		Template.Version.Hash={AB4BAAD588CE4DE9B9735092C00675E0},
+		Template.Version.Release={8.2.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5586,7 +5598,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v8.2.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.2.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},

@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      8.2.2 (12/03/2023)
+% Versión:      8.2.3 (29/04/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -39,88 +39,6 @@
 	\changefontsizes{\documentfontsize pt}
 }
 
-% Crea una sección de imágenes múltiples
-%	#1	Label (opcional)
-%	#2	Caption
-\newenvironment{images}[2][]{%
-	% Modifica globales
-	\def\envimageslabelvar {#1}%
-	\def\envimagescaptionvar {#2}%
-	\def\GLOBALenvimageinitialized {true}%
-	\def\GLOBALenvimageadded {false}%
-	
-	% Configura caption y márgenes
-	\corevspacevarcm{\marginimagetop}%
-	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
-	
-	% Inicia la figura
-	\begin{samepage}%
-	\begin{figure}[H] \centering%
-		\corevspacevarcm{\marginimagemulttop}%
-		}{%
-		\setcaptionmargincm{\captionlrmargin}%
-		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
-			\corevspacevarcm{\captionlessmarginimage}%
-		}{%
-			\corevspacevarcm{\captionmarginimages}%
-			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}%
-	\end{figure}
-
-	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}%
-	\corevspacevarcm{\marginimagebottom}%
-	\end{samepage}
-	
-	% Restablece globales
-	\def\GLOBALenvimageinitialized {false}%
-}
-
-% Crea una sección de imágenes múltiples completa dentro de un multicol
-%	#1	Label (opcional)
-%	#2	Posición de la imagen, "bottom", "top"
-%	#3	Caption
-\newenvironment{imagesmc}[3][]{%
-	% Modifica globales
-	\def\envimageslabelvar {#1}%
-	\def\envimagesmcpos {#2}%
-	\def\envimagescaptionvar {#3}%
-	\global\def\GLOBALenvimageinitialized {true}%
-	\global\def\GLOBALenvimageadded {false}%
-	\checkinsidemulticol%
-	\checkoutsideappendix%
-	
-	% Configura caption y márgenes
-	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
-	
-	% Inicia la figura
-	\ifthenelse{\equal{#2}{bottom}}{%
-		\begin{figure*}[b] \centering%
-	}{%
-	\ifthenelse{\equal{#2}{top}}{%
-		\begin{figure*}[t] \centering%
-	}{%
-		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
-		\stop
-	}}%
-		\corevspacevarcm{\marginimagemulttop}%
-	}{%
-		\setcaptionmargincm{\captionlrmargin}%
-		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
-			\corevspacevarcm{\captionlessmarginimage}%
-		}{%
-			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\corevspacevarcm{\captionmarginimagesmc}}%
-			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}%
-	\end{figure*}
-	
-	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmarginmc}%
-	
-	% Restablece globales
-	\global\def\GLOBALenvimageinitialized {false}%
-}
-
 % Crea una sección de referencias solo para bibtex
 \newenvironment{references}{%
 	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Verifica configuraciones
@@ -149,7 +67,7 @@
 			\throwbadconfig{Ajuste de linea referencias bibtex desconocido}{\bibtextextalign}{justified,left,right,center}}}}%
 		}%
 	}%
-	{
+	{%
 	\end{thebibliography}
 	\endgroup % Termina el grupo
 }
@@ -407,4 +325,98 @@
 	\begin{enumerate}[font=\bfseries,#1]%
 	}{%
 	\end{enumerate}
+}
+
+% Crea una sección de imágenes múltiples
+%	#1	Label (opcional)
+%	#2	Caption
+\newenvironment{images}[2][]{%
+	% Modifica globales
+	\def\envimageslabelvar {#1}%
+	\def\envimagescaptioncf {false}%
+	\def\envimagescaptionvar {#2}%
+	\global\def\GLOBALenvimageadded {false}%
+	\global\def\GLOBALenvimageinitialized {true}%
+	% Configura caption y márgenes
+	\corevspacevarcm{\marginimagetop}%
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
+	% Inicia la figura
+	\begin{samepage}%
+	\begin{figure}[H] \centering%
+		\ifthenelse{\equal{\GLOBALenvimagecf}{true}}{%
+			\ContinuedFloat%
+			\global\def\GLOBALenvimagecf {false}%
+			\def\envimagescaptioncf {true}%
+		}{}%
+		\corevspacevarcm{\marginimagemulttop}%
+		}{%
+		\setcaptionmargincm{\captionlrmargin}%
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
+			\corevspacevarcm{\captionlessmarginimage}%
+		}{%
+			\corevspacevarcm{\captionmarginimages}%
+			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
+				\caption[]{\envimagescaptionvar\envimageslabelvar}%
+			}{%
+				\caption{\envimagescaptionvar\envimageslabelvar}%
+			}%
+		}%
+	\end{figure}%
+	% Restablece caption y márgenes
+	\setcaptionmargincm{\captionlrmargin}%
+	\corevspacevarcm{\marginimagebottom}%
+	\end{samepage}
+	% Restablece globales
+	\global\def\GLOBALenvimageinitialized {false}%
+}
+
+% Crea una sección de imágenes múltiples completa dentro de un multicol
+%	#1	Label (opcional)
+%	#2	Posición de la imagen, "bottom", "top"
+%	#3	Caption
+\newenvironment{imagesmc}[3][]{%
+	% Modifica globales
+	\def\envimageslabelvar {#1}%
+	\def\envimagesmcpos {#2}%
+	\def\envimagescaptioncf {false}%
+	\def\envimagescaptionvar {#3}%
+	\global\def\GLOBALenvimageadded {false}%
+	\global\def\GLOBALenvimageinitialized {true}%
+	\checkinsidemulticol%
+	\checkoutsideappendix%
+	% Configura caption y márgenes
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
+	% Inicia la figura
+	\ifthenelse{\equal{#2}{bottom}}{%
+		\begin{figure*}[!b] \centering%
+	}{%
+	\ifthenelse{\equal{#2}{top}}{%
+		\begin{figure*}[!t] \centering%
+	}{%
+		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
+		\stop
+	}}%
+		\ifthenelse{\equal{\GLOBALenvimagecf}{true}}{%
+			\ContinuedFloat%
+			\global\def\GLOBALenvimagecf {false}%
+			\def\envimagescaptioncf {true}%
+		}{}%
+		\corevspacevarcm{\marginimagemulttop}%
+	}{%
+		\setcaptionmargincm{\captionlrmargin}%
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
+			\corevspacevarcm{\captionlessmarginimage}%
+		}{%
+			\corevspacevarcm{\captionmarginimagesmc}%
+			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
+				\caption[]{\envimagescaptionvar\envimageslabelvar}%
+			}{%
+				\caption{\envimagescaptionvar\envimageslabelvar}%
+			}%
+		}%
+	\end{figure*}%
+	% Restablece caption y márgenes
+	\setcaptionmargincm{\captionlrmarginmc}%
+	% Restablece globales
+	\global\def\GLOBALenvimageinitialized {false}%
 }
