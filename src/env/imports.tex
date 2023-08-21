@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      8.2.4 (06/07/2023)
+% Versión:      8.2.5 (21/08/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -217,7 +217,7 @@
 
 % Dimensiones y geometría del documento
 \ifthenelse{\equal{\compilertype}{lualatex}}{ % En lualatex sólo se puede cambiar 1 vez el margen
-	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,left=\pagemarginleft cm,right=\pagemarginright cm]{geometry}
+	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,left=\pagemarginleft cm,right=\pagemarginright cm, footnotesep=\footnotetopmargin cm]{geometry}
 }{ % pdf2latex, xelatex
 	\usepackage{geometry}
 }
