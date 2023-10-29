@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Funciones exclusivas de Template-Auxiliar
-% Versión:      8.2.6 (26/10/2023)
+% Versión:      8.2.7 (29/10/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -33,9 +33,9 @@
 
 % Crea un entorno para definir el tamaño de bloque
 %	#1	Tamaño de fuente en pt
-\newenvironment{fontsizeblock}[1][\documentfontsize]{
+\newenvironment{fontsizeblock}[1][\documentfontsize]{%
 	\changefontsizes{#1 pt}
-}{
+}{%
 	\changefontsizes{\documentfontsize pt}
 }
 
@@ -146,18 +146,18 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\rightlinenumbers}{%
 	}%
-	\lstset{
+	\lstset{%
 		backgroundcolor=\color{\sourcecodebgcolor}
 	}%
 	\ifthenelse{\equal{\codecaptiontop}{true}}{%
 		\ifx\hfuzz#4\hfuzz%
 			\ifx\hfuzz#3\hfuzz%
-				\lstset{
+				\lstset{%
 					escapeinside={(*@}{@*)},
 					style=#2
 				}%
 			\else%
-				\lstset{
+				\lstset{%
 					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
@@ -165,14 +165,14 @@
 			\fi%
 		\else%
 			\ifx\hfuzz#3\hfuzz%
-				\lstset{
+				\lstset{%
 					caption={#4 #1},
 					captionpos=t,
 					escapeinside={(*@}{@*)},
 					style=#2
 				}%
 			\else%
-				\lstset{
+				\lstset{%
 					caption={#4 #1},
 					captionpos=t,
 					escapeinside={(*@}{@*)},
@@ -184,12 +184,12 @@
 	}{%
 		\ifx\hfuzz#4\hfuzz%
 			\ifx\hfuzz#3\hfuzz%
-				\lstset{
+				\lstset{%
 					escapeinside={(*@}{@*)},
 					style=#2
 				}%
 			\else%
-				\lstset{
+				\lstset{%
 					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
@@ -197,13 +197,13 @@
 			\fi%
 		\else%
 			\ifx\hfuzz#3\hfuzz%
-				\lstset{
+				\lstset{%
 					caption={#4 #1},
 					captionpos=b,
 					style=#2
 				}%
 			\else%
-				\lstset{
+				\lstset{%
 					caption={#4 #1},
 					captionpos=b,
 					escapeinside={(*@}{@*)},
@@ -252,17 +252,17 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\rightlinenumbers}{%
 	}%
-	\lstset{
+	\lstset{%
 		backgroundcolor=\color{\sourcecodebgcolor}
 	}%
-	\ifthenelse{\equal{\codecaptiontop}{true}}{
+	\ifthenelse{\equal{\codecaptiontop}{true}}{%
 		\ifx\hfuzz#3\hfuzz%
-			\lstset{
+			\lstset{%
 				escapeinside={(*@}{@*)},
 				style=#2
 			}%
 		\else%
-			\lstset{
+			\lstset{%
 				escapeinside={(*@}{@*)},
 				caption={#3 #1},
 				captionpos=t,
@@ -271,12 +271,12 @@
 		\fi%
 	}{%
 		\ifx\hfuzz#3\hfuzz%
-			\lstset{
+			\lstset{%
 				escapeinside={(*@}{@*)},
 				style=#2
 			}%
 		\else%
-			\lstset{
+			\lstset{%
 				escapeinside={(*@}{@*)},
 				caption={#3 #1},
 				captionpos=b,
