@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Configuración de página
-% Versión:      8.2.7 (29/10/2023)
+% Versión:      8.2.8 (04/11/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,7 +19,7 @@
 	\setcounter{page}{1}
 	\setcounter{section}{0}
 	\setcounter{footnote}{0}
-	\ifthenelse{\equal{\showsectioncaptioncode}{none}}{ % Numeración de la sección en los objetos CÓDIGO FUENTE
+	\ifthenelse{\equal{\showsectioncaptioncode}{none}}{% Numeración de la sección en los objetos CÓDIGO FUENTE
 		\def\sectionobjectnumcode {}
 	}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{%
@@ -39,7 +39,7 @@
 	}{%
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,chap,sec,ssec,sssec,ssssec}
 	}}}}}}
-	\ifthenelse{\equal{\showsectioncaptioneqn}{none}}{ % Numeración de la sección en los objetos ECUACIONES
+	\ifthenelse{\equal{\showsectioncaptioneqn}{none}}{% Numeración de la sección en los objetos ECUACIONES
 		\def\sectionobjectnumeqn {}
 	}{%
 	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{%
@@ -59,7 +59,7 @@
 	}{%
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioneqn}{none,chap,sec,ssec,sssec,ssssec}
 	}}}}}}
-	\ifthenelse{\equal{\showsectioncaptionfig}{none}}{ % Numeración de la sección en los objetos FIGURAS
+	\ifthenelse{\equal{\showsectioncaptionfig}{none}}{% Numeración de la sección en los objetos FIGURAS
 		\def\sectionobjectnumfig {}
 	}{%
 	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{%
@@ -79,7 +79,7 @@
 	}{%
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,chap,sec,ssec,sssec,ssssec}
 	}}}}}}
-	\ifthenelse{\equal{\showsectioncaptiontab}{none}}{ % Numeración de la sección en los objetos TABLAS
+	\ifthenelse{\equal{\showsectioncaptiontab}{none}}{% Numeración de la sección en los objetos TABLAS
 		\def\sectionobjectnumtab {}
 	}{%
 	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{%
@@ -99,7 +99,7 @@
 	}{%
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,chap,sec,ssec,sssec,ssssec}
 	}}}}}}
-	\ifthenelse{\equal{\captionnumcode}{arabic}}{ % Código fuente, INCLUIR SECCIÓN
+	\ifthenelse{\equal{\captionnumcode}{arabic}}{% Código fuente, INCLUIR SECCIÓN
 		\renewcommand{\thelstlisting}{\sectionobjectnumcode\arabic{lstlisting}}
 	}{%
 	\ifthenelse{\equal{\captionnumcode}{alph}}{%
@@ -116,7 +116,7 @@
 	}{%
 		\throwbadconfig{Tipo numero codigo fuente desconocido}{\captionnumcode}{arabic,alph,Alph,roman,Roman}}}}}
 	}
-	\ifthenelse{\equal{\captionnumequation}{arabic}}{ % Ecuaciones, INCLUIR SECCIÓN
+	\ifthenelse{\equal{\captionnumequation}{arabic}}{% Ecuaciones, INCLUIR SECCIÓN
 		\renewcommand{\theequation}{\sectionobjectnumeqn\arabic{equation}}
 	}{%
 	\ifthenelse{\equal{\captionnumequation}{alph}}{%
@@ -133,7 +133,7 @@
 	}{%
 		\throwbadconfig{Tipo numero ecuacion desconocido}{\captionnumequation}{arabic,alph,Alph,roman,Roman}}}}}
 	}
-	\ifthenelse{\equal{\captionnumfigure}{arabic}}{ % Figuras, INCLUIR SECCIÓN
+	\ifthenelse{\equal{\captionnumfigure}{arabic}}{% Figuras, INCLUIR SECCIÓN
 		\renewcommand{\thefigure}{\sectionobjectnumfig\arabic{figure}}
 	}{%
 	\ifthenelse{\equal{\captionnumfigure}{alph}}{%
@@ -150,7 +150,7 @@
 	}{%
 		\throwbadconfig{Tipo numero figura desconocido}{\captionnumfigure}{arabic,alph,Alph,roman,Roman}}}}}
 	}
-	\ifthenelse{\equal{\captionnumsubfigure}{arabic}}{ % Subfiguras, NO USAR SECCIONES YA QUE SON HIJAS DE FIGURA
+	\ifthenelse{\equal{\captionnumsubfigure}{arabic}}{% Subfiguras, NO USAR SECCIONES YA QUE SON HIJAS DE FIGURA
 		\renewcommand{\thesubfigure}{\arabic{subfigure}}
 	}{%
 	\ifthenelse{\equal{\captionnumsubfigure}{alph}}{%
@@ -167,7 +167,7 @@
 	}{%
 		\throwbadconfig{Tipo numero subfigura desconocido}{\captionnumsubfigure}{arabic,alph,Alph,roman,Roman}}}}}
 	}
-	\ifthenelse{\equal{\captionnumtable}{arabic}}{ % Tablas, INCLUIR SECCIÓN
+	\ifthenelse{\equal{\captionnumtable}{arabic}}{% Tablas, INCLUIR SECCIÓN
 		\renewcommand{\thetable}{\sectionobjectnumtab\arabic{table}}
 	}{%
 	\ifthenelse{\equal{\captionnumtable}{alph}}{%
@@ -184,7 +184,7 @@
 	}{%
 		\throwbadconfig{Tipo numero tabla desconocido}{\captionnumtable}{arabic,alph,Alph,roman,Roman}}}}}
 	}
-	\ifthenelse{\equal{\captionnumsubtable}{arabic}}{ % Subtablas, NO INCLUIR SECCIÓN YA QUE SON HIJAS DE LAS TABLAS
+	\ifthenelse{\equal{\captionnumsubtable}{arabic}}{% Subtablas, NO INCLUIR SECCIÓN YA QUE SON HIJAS DE LAS TABLAS
 		\renewcommand{\thesubtable}{\arabic{subtable}}
 	}{%
 	\ifthenelse{\equal{\captionnumsubtable}{alph}}{%
@@ -276,7 +276,7 @@
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
 		\COREstyledefinition
-		\fancypagestyle{styleportrait}{ % Estilo portada
+		\fancypagestyle{styleportrait}{% Estilo portada
 			\pagestyle{fancy}
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
@@ -340,7 +340,7 @@
 			\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
 		}
 		\COREstyledefinition
-		\fancypagestyle{styleportrait}{ % Estilo portada
+		\fancypagestyle{styleportrait}{% Estilo portada
 			\pagestyle{fancy}
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
@@ -401,7 +401,7 @@
 			\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
 		}
 		\COREstyledefinition
-		\fancypagestyle{styleportrait}{ % Estilo portada
+		\fancypagestyle{styleportrait}{% Estilo portada
 			\pagestyle{fancy}
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
@@ -461,7 +461,7 @@
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
 		\COREstyledefinition
-		\fancypagestyle{styleportrait}{ % Estilo portada
+		\fancypagestyle{styleportrait}{% Estilo portada
 			\pagestyle{fancy}
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
