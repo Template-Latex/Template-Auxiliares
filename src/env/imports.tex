@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      8.3.0 (07/03/2024)
+% Versión:      8.3.1 (08/04/2024)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -59,16 +59,7 @@
 	}{
 		\usepackage{natbib}
 	}
-}{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
-	\usepackage[nottoc,notlof,notlot]{tocbibind}
-	\usepackage{apacite}
-}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
-}{
-\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
-}{}}}
-}
+}{}% Fin carga natbib
 \IfTrackedLanguage{spanish}{
 	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
 }{% english, otros
@@ -213,6 +204,16 @@
 
 % Anexos/Apéndices
 \usepackage{appendix} % Anexos/Apéndices
+
+% Citado
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
+	\usepackage{apacite}
+}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
+}{
+\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
+}{}}}
 
 % Dimensiones y geometría del documento
 \ifthenelse{\equal{\compilertype}{lualatex}}{% En lualatex sólo se puede cambiar 1 vez el margen
