@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      8.3.2 (12/04/2024)
+% Versión:      8.3.3 (20/01/2025)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -104,16 +104,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={12/04/2024},
+		Template.Date={20/01/2025},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={8.3.2-AUX},
-		Template.Version.Hash={434717AD2FEE32436A442351435E2DAC},
-		Template.Version.Release={8.3.2},
+		Template.Version.Dev={8.3.3-2-AUX},
+		Template.Version.Hash={00F2BE0D20D0D8FE39E7F2C29DCF3D0A},
+		Template.Version.Release={8.3.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -125,7 +125,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v8.3.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.3.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -195,6 +195,10 @@
 \ifthenelse{\equal{\pagescolor}{white}}{}{
 	\pagecolor{\pagescolor}
 }
+\makeatletter % Desactiva color de tablas en entornos matemáticos
+\pretocmd\env@cases{\def\@rowc@lors{}}{}{}
+\pretocmd\start@align{\def\@rowc@lors{}}{}{}
+\makeatother
 
 % -----------------------------------------------------------------------------
 % Configuración de las leyendas
