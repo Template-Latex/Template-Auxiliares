@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      8.3.5 (06/09/2025)
+% Versión:      8.3.6 (07/10/2025)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -104,16 +104,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={06/09/2025},
+		Template.Date={07/10/2025},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={8.3.5-AUX},
-		Template.Version.Hash={F6AD48ACB25211AFFA98825AC9F33A66},
-		Template.Version.Release={8.3.5},
+		Template.Version.Dev={8.3.6-AUX},
+		Template.Version.Hash={5D92C0F07165F792561DE04364BE5A70},
+		Template.Version.Release={8.3.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -125,7 +125,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v8.3.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.3.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -719,10 +719,10 @@
 % Configura número de objetos en el final del documento
 % -----------------------------------------------------------------------------
 \AtEndDocument{
-	\addtocounter{equation}{\value{templateEquations}}
-	\addtocounter{figure}{\value{templateFigures}}
-	\addtocounter{lstlisting}{\value{templateListings}}
-	\addtocounter{table}{\value{templateTables}}
+	\addtocounter{equation}{\value{templateEquations}}%
+	\addtocounter{figure}{\value{templateFigures}}%
+	\addtocounter{lstlisting}{\value{templateListings}}%
+	\addtocounter{table}{\value{templateTables}}%
 }
 
 % -----------------------------------------------------------------------------
@@ -775,14 +775,15 @@
 	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
 	\addtocounter{multicoldepth}{1}%
+	\coreintializetitlenumbering%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
 	\setcaptionmargincm{\captionlrmargin}%
 	\addtocounter{multicoldepth}{-1}
 	\ifnumequal{\number\value{multicoldepth}}{0}{%
-		\global\def\GLOBALenvmulticol {false}
-	}{}
+		\global\def\GLOBALenvmulticol {false}%
+	}{}%
 }
 
 % -----------------------------------------------------------------------------
