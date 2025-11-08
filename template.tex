@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.3.7 (06/11/2025)
+% Versión:      8.3.8 (08/11/2025)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -92,9 +92,9 @@
 	}
 }{}% Fin carga natbib
 \IfTrackedLanguage{spanish}{
-	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
+	\usepackage[es-nosectiondot,es-lcroman,es-noquoting,noconfigs]{babel}
 }{% english, otros
-	\usepackage{babel}
+	\usepackage[noconfigs]{babel}
 }
 
 % Cambia el estilo de los títulos
@@ -159,7 +159,6 @@
 \usepackage{chngcntr}      % Añade números a las leyendas
 \usepackage{color}         % Colores
 \usepackage{datetime}      % Fechas
-\usepackage{floatpag}      % Maneja estilos de páginas introducidos por objetos flotantes
 \usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
@@ -179,7 +178,6 @@
 \usepackage{selinput}      % Compatibilidad con acentos
 \usepackage{setspace}      % Cambia el espacio entre líneas
 \usepackage{soul}          % Permite subrayar texto
-\usepackage{stfloats}      % Permite cambiar posición de flotantes con [b] y [t]
 \usepackage{subcaption}    % Permite agrupar imágenes
 \usepackage{textcomp}      % Simbología común
 \usepackage{wrapfig}       % Posición de imágenes
@@ -5594,16 +5592,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={06/11/2025},
+		Template.Date={08/11/2025},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Auxiliares},
 		Template.Type={Normal},
-		Template.Version.Dev={8.3.7-AUX},
-		Template.Version.Hash={0EDDDE1D5D78412F3D0B7EA309C4445C},
-		Template.Version.Release={8.3.7},
+		Template.Version.Dev={8.3.8-AUX},
+		Template.Version.Hash={EEDBBA8B1E08343B9883D35116351044},
+		Template.Version.Release={8.3.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Auxiliares},
 		Template.Web.Manual={https://latex.ppizarror.com/auxiliares},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5615,7 +5613,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Auxiliares v8.3.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Auxiliares v8.3.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5789,6 +5787,28 @@
 }{
 	\throwbadconfig{Posicion de leyendas desconocida}{\captionalignment}{justified,centered,left,right}}}}
 }
+
+% Corrige soporte para librerías stfloats y floatpag
+\makeatletter
+\let\fps@style\@empty
+\let\rotfps@style\@empty
+\newcommand*\floatpagestyle[1]{\gdef\fps@style{#1}}
+\newcommand*\rotfloatpagestyle[1]{\gdef\rotfps@style{#1}}
+\AddToHook{shipout/before}{%
+	\ifx\fps@style\@empty\else
+	\if@fcolmade
+	\thispagestyle{\fps@style}%
+	\fi
+	\fi
+}
+\@ifpackageloaded{rotating}{%
+	\RequirePackage{etoolbox}%
+	\AtBeginEnvironment{sidewaysfigure}{%
+		\ifx\rotfps@style\@empty\else \thispagestyle{\rotfps@style}\fi}
+	\AtBeginEnvironment{sidewaystable}{%
+		\ifx\rotfps@style\@empty\else \thispagestyle{\rotfps@style}\fi}
+}{}
+\makeatother
 
 % -----------------------------------------------------------------------------
 % Configuración de referencias y citas
