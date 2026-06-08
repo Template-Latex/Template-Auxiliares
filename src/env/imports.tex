@@ -1,6 +1,6 @@
 % Template:     Auxiliar LaTeX
 % Documento:    Importación de librerías
-% Versión:      8.4.0 (05/06/2026)
+% Versión:      8.4.1 (07/06/2026)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -820,7 +820,11 @@
 	\usepackage{showframe}}{
 }
 \ifthenelse{\equal{\showlinenumbers}{true}}{% Muestra los números de línea
-	\usepackage[switch,columnwise,running]{lineno}
+	\ifthenelse{\equal{\linenumberspagereset}{true}}{% Reinicia la numeración en cada página
+		\usepackage[left,pagewise]{lineno}
+	}{% Numeración continua (compatible con multicol)
+		\usepackage[switch,columnwise,running]{lineno}
+	}
 	\newcommand*\linenomathpatch[1]{% Parcha entornos
 		\cspreto{#1}{\linenomath}%
 		\cspreto{#1*}{\linenomath}%
