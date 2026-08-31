@@ -26,9 +26,6 @@ desktop.ini
 __MACOSX/
 .DS_Store
 
-# Archivos PyCharm
-.idea/
-
 # Compilados python
 *.pyc
 
@@ -37,4 +34,5 @@ auxiliar.pdf
 main.pdf
 
 # Otros
+.git
 .vscode
